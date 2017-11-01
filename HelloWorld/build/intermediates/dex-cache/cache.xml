@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<items version="2" >
+
+    <item
+        is-multidex="true"
+        jar="C:\Users\zhou\.android\build-cache\afd7759677d0eecbd41c63bbb05e2957dce6598f\output\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="26.0.2"
+        sha1="e176fd06c2ad5b50a2f5cb4de6000a83a7cb48f5">
+        <dex dex="C:\Users\zhou\TestByZhou\HelloWorld\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_afbfdc01540d3ddfd3696a65b06ee4988f6914ea\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\zhou\TestByZhou\HelloWorld\app\build\intermediates\incremental-classes\debug\instant-run-bootstrap.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="26.0.2"
+        sha1="d660d807d8c78fc64294be1add9adbbafa6ce0aa">
+        <dex dex="C:\Users\zhou\TestByZhou\HelloWorld\app\build\intermediates\transforms\dex\debug\folders\1000\10000\instant-run-bootstrap_bfadfb101f9b833e6b9ecec6eb111f2dee11e621\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\zhou\TestByZhou\HelloWorld\app\build\intermediates\incremental-runtime-classes\debug\instant-run.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="26.0.2"
+        sha1="3be78ebc2706b2e1fe2f12d5726887a92d6c183b">
+        <dex dex="C:\Users\zhou\TestByZhou\HelloWorld\app\build\intermediates\transforms\dex\debug\folders\1000\10000\instant-run_7054e2e8523842bde3500b01f437a1fc4f0c7969\classes.dex" />
+    </item>
+
+</items>

@@ -1,0 +1,114 @@
+-- Merging decision tree log ---
+manifest
+ADDED from C:\Users\zhou\TestByZhou\HelloWorld\app\src\main\AndroidManifest.xml:2:1-27:12
+	package
+		ADDED from C:\Users\zhou\TestByZhou\HelloWorld\app\src\main\AndroidManifest.xml:3:5-42
+		INJECTED from C:\Users\zhou\TestByZhou\HelloWorld\app\src\main\AndroidManifest.xml
+		INJECTED from C:\Users\zhou\TestByZhou\HelloWorld\app\src\main\AndroidManifest.xml
+	android:versionName
+		INJECTED from C:\Users\zhou\TestByZhou\HelloWorld\app\src\main\AndroidManifest.xml
+		INJECTED from C:\Users\zhou\TestByZhou\HelloWorld\app\src\main\AndroidManifest.xml
+	xmlns:android
+		ADDED from C:\Users\zhou\TestByZhou\HelloWorld\app\src\main\AndroidManifest.xml:2:11-69
+	android:versionCode
+		INJECTED from C:\Users\zhou\TestByZhou\HelloWorld\app\src\main\AndroidManifest.xml
+		INJECTED from C:\Users\zhou\TestByZhou\HelloWorld\app\src\main\AndroidManifest.xml
+application
+ADDED from C:\Users\zhou\TestByZhou\HelloWorld\app\src\main\AndroidManifest.xml:5:5-25:19
+MERGED from [com.android.support:cardview-v7:26.0.0-alpha1] C:\Users\zhou\.android\build-cache\afd7759677d0eecbd41c63bbb05e2957dce6598f\output\AndroidManifest.xml:26:5-20
+MERGED from [com.android.support:design:26.0.0-alpha1] C:\Users\zhou\.android\build-cache\7f24ceee35361febbd72b64a023fde9e9cf05f6c\output\AndroidManifest.xml:29:5-20
+MERGED from [com.android.support:appcompat-v7:26.0.0-alpha1] C:\Users\zhou\.android\build-cache\931ca49a193c50246f73c848f3c04d1058221289\output\AndroidManifest.xml:29:5-20
+MERGED from [com.android.support:animated-vector-drawable:26.0.0-alpha1] C:\Users\zhou\.android\build-cache\3480da08ad8dc739da9e911d17afba34a0f21391\output\AndroidManifest.xml:26:5-20
+MERGED from [com.android.support:transition:26.0.0-alpha1] C:\Users\zhou\.android\build-cache\7ff11144ffa368f01d2b5b4828d696f45c04ff9e\output\AndroidManifest.xml:26:5-20
+MERGED from [com.android.support:support-v4:26.0.0-alpha1] C:\Users\zhou\.android\build-cache\15bb0a284248f3e14978768a4867db8d84fb4956\output\AndroidManifest.xml:29:5-20
+MERGED from [com.android.support:support-media-compat:26.0.0-alpha1] C:\Users\zhou\.android\build-cache\5697cc7e466ab72d6f1bb0ead9ee75e13848a4da\output\AndroidManifest.xml:29:5-20
+MERGED from [com.android.support:support-fragment:26.0.0-alpha1] C:\Users\zhou\.android\build-cache\efc5e992526312967b9b3cdc1a68f1a66aaf718b\output\AndroidManifest.xml:29:5-20
+MERGED from [com.android.support:support-core-ui:26.0.0-alpha1] C:\Users\zhou\.android\build-cache\eae0f74bea11b82850e262641e9c6de34a425ab0\output\AndroidManifest.xml:29:5-20
+MERGED from [com.android.support:support-core-utils:26.0.0-alpha1] C:\Users\zhou\.android\build-cache\3eb46c3edeae5ae02bd566380d4c37c9726bc82a\output\AndroidManifest.xml:29:5-20
+MERGED from [com.android.support:support-vector-drawable:26.0.0-alpha1] C:\Users\zhou\.android\build-cache\2d6b7c422519f6581172ece94eb474b700514b29\output\AndroidManifest.xml:26:5-20
+MERGED from [com.android.support:support-compat:26.0.0-alpha1] C:\Users\zhou\.android\build-cache\56ac3733959094d0f1e74cb2d51a1bb0d78e540a\output\AndroidManifest.xml:29:5-20
+MERGED from [com.android.support.constraint:constraint-layout:1.0.2] C:\Users\zhou\.android\build-cache\9552f6cd751710a8e58a96846b3350dfb8de65c2\output\AndroidManifest.xml:9:5-20
+	android:label
+		ADDED from C:\Users\zhou\TestByZhou\HelloWorld\app\src\main\AndroidManifest.xml:8:9-41
+	android:supportsRtl
+		ADDED from C:\Users\zhou\TestByZhou\HelloWorld\app\src\main\AndroidManifest.xml:10:9-35
+	android:roundIcon
+		ADDED from C:\Users\zhou\TestByZhou\HelloWorld\app\src\main\AndroidManifest.xml:9:9-50
+	android:allowBackup
+		ADDED from C:\Users\zhou\TestByZhou\HelloWorld\app\src\main\AndroidManifest.xml:6:9-35
+	android:icon
+		ADDED from C:\Users\zhou\TestByZhou\HelloWorld\app\src\main\AndroidManifest.xml:7:9-39
+	android:theme
+		ADDED from C:\Users\zhou\TestByZhou\HelloWorld\app\src\main\AndroidManifest.xml:11:9-40
+activity#com.example.zhou.helloworld.LoginActivity
+ADDED from C:\Users\zhou\TestByZhou\HelloWorld\app\src\main\AndroidManifest.xml:12:9-51
+	android:name
+		ADDED from C:\Users\zhou\TestByZhou\HelloWorld\app\src\main\AndroidManifest.xml:12:19-48
+activity#com.example.zhou.helloworld.MainActivity
+ADDED from C:\Users\zhou\TestByZhou\HelloWorld\app\src\main\AndroidManifest.xml:13:9-19:20
+	android:name
+		ADDED from C:\Users\zhou\TestByZhou\HelloWorld\app\src\main\AndroidManifest.xml:13:19-47
+intent-filter#android.intent.action.MAIN+android.intent.category.LAUNCHER
+ADDED from C:\Users\zhou\TestByZhou\HelloWorld\app\src\main\AndroidManifest.xml:14:13-18:29
+action#android.intent.action.MAIN
+ADDED from C:\Users\zhou\TestByZhou\HelloWorld\app\src\main\AndroidManifest.xml:15:17-69
+	android:name
+		ADDED from C:\Users\zhou\TestByZhou\HelloWorld\app\src\main\AndroidManifest.xml:15:25-66
+category#android.intent.category.LAUNCHER
+ADDED from C:\Users\zhou\TestByZhou\HelloWorld\app\src\main\AndroidManifest.xml:17:17-77
+	android:name
+		ADDED from C:\Users\zhou\TestByZhou\HelloWorld\app\src\main\AndroidManifest.xml:17:27-74
+activity#com.example.zhou.helloworld.WelcomeActivity
+ADDED from C:\Users\zhou\TestByZhou\HelloWorld\app\src\main\AndroidManifest.xml:20:9-53
+	android:name
+		ADDED from C:\Users\zhou\TestByZhou\HelloWorld\app\src\main\AndroidManifest.xml:20:19-50
+activity#com.example.zhou.helloworld.ShowCantonDetailsActivity
+ADDED from C:\Users\zhou\TestByZhou\HelloWorld\app\src\main\AndroidManifest.xml:21:9-63
+	android:name
+		ADDED from C:\Users\zhou\TestByZhou\HelloWorld\app\src\main\AndroidManifest.xml:21:19-60
+activity#com.example.zhou.helloworld.TestMenuActivity
+ADDED from C:\Users\zhou\TestByZhou\HelloWorld\app\src\main\AndroidManifest.xml:22:9-24:20
+	android:name
+		ADDED from C:\Users\zhou\TestByZhou\HelloWorld\app\src\main\AndroidManifest.xml:22:19-51
+uses-sdk
+INJECTED from C:\Users\zhou\TestByZhou\HelloWorld\app\src\main\AndroidManifest.xml reason: use-sdk injection requested
+MERGED from [com.android.support:cardview-v7:26.0.0-alpha1] C:\Users\zhou\.android\build-cache\afd7759677d0eecbd41c63bbb05e2957dce6598f\output\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:design:26.0.0-alpha1] C:\Users\zhou\.android\build-cache\7f24ceee35361febbd72b64a023fde9e9cf05f6c\output\AndroidManifest.xml:21:5-23:62
+MERGED from [com.android.support:appcompat-v7:26.0.0-alpha1] C:\Users\zhou\.android\build-cache\931ca49a193c50246f73c848f3c04d1058221289\output\AndroidManifest.xml:21:5-23:78
+MERGED from [com.android.support:animated-vector-drawable:26.0.0-alpha1] C:\Users\zhou\.android\build-cache\3480da08ad8dc739da9e911d17afba34a0f21391\output\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:recyclerview-v7:26.0.0-alpha1] C:\Users\zhou\.android\build-cache\7b901cd31f1846b4ce6b01f1751b5878d03d5c05\output\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:transition:26.0.0-alpha1] C:\Users\zhou\.android\build-cache\7ff11144ffa368f01d2b5b4828d696f45c04ff9e\output\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-v4:26.0.0-alpha1] C:\Users\zhou\.android\build-cache\15bb0a284248f3e14978768a4867db8d84fb4956\output\AndroidManifest.xml:21:5-23:54
+MERGED from [com.android.support:support-media-compat:26.0.0-alpha1] C:\Users\zhou\.android\build-cache\5697cc7e466ab72d6f1bb0ead9ee75e13848a4da\output\AndroidManifest.xml:21:5-23:63
+MERGED from [com.android.support:support-fragment:26.0.0-alpha1] C:\Users\zhou\.android\build-cache\efc5e992526312967b9b3cdc1a68f1a66aaf718b\output\AndroidManifest.xml:21:5-23:60
+MERGED from [com.android.support:support-core-ui:26.0.0-alpha1] C:\Users\zhou\.android\build-cache\eae0f74bea11b82850e262641e9c6de34a425ab0\output\AndroidManifest.xml:21:5-23:58
+MERGED from [com.android.support:support-core-utils:26.0.0-alpha1] C:\Users\zhou\.android\build-cache\3eb46c3edeae5ae02bd566380d4c37c9726bc82a\output\AndroidManifest.xml:21:5-23:61
+MERGED from [com.android.support:support-vector-drawable:26.0.0-alpha1] C:\Users\zhou\.android\build-cache\2d6b7c422519f6581172ece94eb474b700514b29\output\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-compat:26.0.0-alpha1] C:\Users\zhou\.android\build-cache\56ac3733959094d0f1e74cb2d51a1bb0d78e540a\output\AndroidManifest.xml:21:5-23:58
+MERGED from [com.android.support.constraint:constraint-layout:1.0.2] C:\Users\zhou\.android\build-cache\9552f6cd751710a8e58a96846b3350dfb8de65c2\output\AndroidManifest.xml:5:5-7:41
+	tools:overrideLibrary
+		ADDED from [com.android.support:design:26.0.0-alpha1] C:\Users\zhou\.android\build-cache\7f24ceee35361febbd72b64a023fde9e9cf05f6c\output\AndroidManifest.xml:23:9-59
+	android:targetSdkVersion
+		INJECTED from C:\Users\zhou\TestByZhou\HelloWorld\app\src\main\AndroidManifest.xml
+		INJECTED from C:\Users\zhou\TestByZhou\HelloWorld\app\src\main\AndroidManifest.xml
+	android:minSdkVersion
+		INJECTED from C:\Users\zhou\TestByZhou\HelloWorld\app\src\main\AndroidManifest.xml
+		INJECTED from C:\Users\zhou\TestByZhou\HelloWorld\app\src\main\AndroidManifest.xml
+meta-data#android.support.VERSION
+ADDED from [com.android.support:cardview-v7:26.0.0-alpha1] C:\Users\zhou\.android\build-cache\afd7759677d0eecbd41c63bbb05e2957dce6598f\output\AndroidManifest.xml:22:5-24:41
+MERGED from [com.android.support:design:26.0.0-alpha1] C:\Users\zhou\.android\build-cache\7f24ceee35361febbd72b64a023fde9e9cf05f6c\output\AndroidManifest.xml:25:5-27:41
+MERGED from [com.android.support:appcompat-v7:26.0.0-alpha1] C:\Users\zhou\.android\build-cache\931ca49a193c50246f73c848f3c04d1058221289\output\AndroidManifest.xml:25:5-27:41
+MERGED from [com.android.support:animated-vector-drawable:26.0.0-alpha1] C:\Users\zhou\.android\build-cache\3480da08ad8dc739da9e911d17afba34a0f21391\output\AndroidManifest.xml:22:5-24:41
+MERGED from [com.android.support:recyclerview-v7:26.0.0-alpha1] C:\Users\zhou\.android\build-cache\7b901cd31f1846b4ce6b01f1751b5878d03d5c05\output\AndroidManifest.xml:22:5-24:41
+MERGED from [com.android.support:transition:26.0.0-alpha1] C:\Users\zhou\.android\build-cache\7ff11144ffa368f01d2b5b4828d696f45c04ff9e\output\AndroidManifest.xml:22:5-24:41
+MERGED from [com.android.support:support-v4:26.0.0-alpha1] C:\Users\zhou\.android\build-cache\15bb0a284248f3e14978768a4867db8d84fb4956\output\AndroidManifest.xml:25:5-27:41
+MERGED from [com.android.support:support-media-compat:26.0.0-alpha1] C:\Users\zhou\.android\build-cache\5697cc7e466ab72d6f1bb0ead9ee75e13848a4da\output\AndroidManifest.xml:25:5-27:41
+MERGED from [com.android.support:support-fragment:26.0.0-alpha1] C:\Users\zhou\.android\build-cache\efc5e992526312967b9b3cdc1a68f1a66aaf718b\output\AndroidManifest.xml:25:5-27:41
+MERGED from [com.android.support:support-core-ui:26.0.0-alpha1] C:\Users\zhou\.android\build-cache\eae0f74bea11b82850e262641e9c6de34a425ab0\output\AndroidManifest.xml:25:5-27:41
+MERGED from [com.android.support:support-core-utils:26.0.0-alpha1] C:\Users\zhou\.android\build-cache\3eb46c3edeae5ae02bd566380d4c37c9726bc82a\output\AndroidManifest.xml:25:5-27:41
+MERGED from [com.android.support:support-vector-drawable:26.0.0-alpha1] C:\Users\zhou\.android\build-cache\2d6b7c422519f6581172ece94eb474b700514b29\output\AndroidManifest.xml:22:5-24:41
+MERGED from [com.android.support:support-compat:26.0.0-alpha1] C:\Users\zhou\.android\build-cache\56ac3733959094d0f1e74cb2d51a1bb0d78e540a\output\AndroidManifest.xml:25:5-27:41
+	android:value
+		ADDED from [com.android.support:cardview-v7:26.0.0-alpha1] C:\Users\zhou\.android\build-cache\afd7759677d0eecbd41c63bbb05e2957dce6598f\output\AndroidManifest.xml:24:9-38
+	android:name
+		ADDED from [com.android.support:cardview-v7:26.0.0-alpha1] C:\Users\zhou\.android\build-cache\afd7759677d0eecbd41c63bbb05e2957dce6598f\output\AndroidManifest.xml:23:9-47

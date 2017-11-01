@@ -1,0 +1,42 @@
+[
+    {
+        "merged": "C:\\Users\\zhou\\TestByZhou\\HelloWorld\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-mdpi\\add_button.png",
+        "source": "C:\\Users\\zhou\\TestByZhou\\HelloWorld\\app\\src\\main\\res\\mipmap-mdpi\\add_button.png"
+    },
+    {
+        "merged": "C:\\Users\\zhou\\TestByZhou\\HelloWorld\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-mdpi\\lunchmeal.png",
+        "source": "C:\\Users\\zhou\\TestByZhou\\HelloWorld\\app\\src\\main\\res\\mipmap-mdpi\\lunchmeal.png"
+    },
+    {
+        "merged": "C:\\Users\\zhou\\TestByZhou\\HelloWorld\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-mdpi\\myreserve.png",
+        "source": "C:\\Users\\zhou\\TestByZhou\\HelloWorld\\app\\src\\main\\res\\mipmap-mdpi\\myreserve.png"
+    },
+    {
+        "merged": "C:\\Users\\zhou\\TestByZhou\\HelloWorld\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-mdpi\\canteen_round.png",
+        "source": "C:\\Users\\zhou\\TestByZhou\\HelloWorld\\app\\src\\main\\res\\mipmap-mdpi\\canteen_round.png"
+    },
+    {
+        "merged": "C:\\Users\\zhou\\TestByZhou\\HelloWorld\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-mdpi\\specialmeal.png",
+        "source": "C:\\Users\\zhou\\TestByZhou\\HelloWorld\\app\\src\\main\\res\\mipmap-mdpi\\specialmeal.png"
+    },
+    {
+        "merged": "C:\\Users\\zhou\\TestByZhou\\HelloWorld\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-mdpi\\dinner.png",
+        "source": "C:\\Users\\zhou\\TestByZhou\\HelloWorld\\app\\src\\main\\res\\mipmap-mdpi\\dinner.png"
+    },
+    {
+        "merged": "C:\\Users\\zhou\\TestByZhou\\HelloWorld\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-mdpi\\imageallorder.png",
+        "source": "C:\\Users\\zhou\\TestByZhou\\HelloWorld\\app\\src\\main\\res\\mipmap-mdpi\\imageallorder.png"
+    },
+    {
+        "merged": "C:\\Users\\zhou\\TestByZhou\\HelloWorld\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-mdpi\\mysettings.png",
+        "source": "C:\\Users\\zhou\\TestByZhou\\HelloWorld\\app\\src\\main\\res\\mipmap-mdpi\\mysettings.png"
+    },
+    {
+        "merged": "C:\\Users\\zhou\\TestByZhou\\HelloWorld\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-mdpi\\breakfastmeal.png",
+        "source": "C:\\Users\\zhou\\TestByZhou\\HelloWorld\\app\\src\\main\\res\\mipmap-mdpi\\breakfastmeal.png"
+    },
+    {
+        "merged": "C:\\Users\\zhou\\TestByZhou\\HelloWorld\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-mdpi\\canteen.png",
+        "source": "C:\\Users\\zhou\\TestByZhou\\HelloWorld\\app\\src\\main\\res\\mipmap-mdpi\\canteen.png"
+    }
+]

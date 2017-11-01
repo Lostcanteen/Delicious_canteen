@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/windows_color"
+    android:gravity="center_horizontal"
+    android:orientation="vertical">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scrollbars="none">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="80dp"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/item">
+                <ImageView
+                    android:id="@+id/imageUserPhoto"
+                    android:layout_width="70dp"
+                    android:layout_height="70dp"
+                    android:layout_marginLeft="16dp"
+                    android:layout_marginRight="16dp"
+                    android:layout_gravity="center"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/logo"/>
+                <TextView
+                    android:id="@+id/textUsername"
+                    style="@style/mineTextStyle"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:layout_marginTop="20dp"
+                    android:drawablePadding="10dp"
+                    android:drawableRight="@drawable/right"
+                    android:gravity="center_vertical"
+                    android:paddingRight="16dp"
+                    android:textSize="16sp"
+                    />
+             </LinearLayout>
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1.0dip"
+                android:background="@color/gray" />
+
+            <TextView
+                android:id="@+id/textAllOrder"
+                style="@style/mineTextStyle"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/item"
+                android:drawableLeft="@mipmap/imageallorder"
+                android:drawablePadding="10dp"
+                android:drawableRight="@drawable/right"
+                android:gravity="center_vertical"
+                android:paddingLeft="16dp"
+                android:paddingRight="16dp"
+                android:text="@string/my_order"
+                android:textSize="16sp" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1.0dip"
+                android:background="@color/gray" />
+            <TextView
+                android:id="@+id/textMyReserve"
+                style="@style/mineTextStyle"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:background="@drawable/item"
+                android:drawableLeft="@mipmap/myreserve"
+                android:drawablePadding="10dp"
+                android:drawableRight="@drawable/right"
+                android:gravity="center_vertical"
+                android:paddingLeft="16dp"
+                android:paddingRight="16dp"
+                android:text="@string/my_reserve"
+                android:textSize="16sp" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1.0dip"
+                android:background="@color/gray" />
+
+
+            <TextView
+                android:id="@+id/text_MySettings"
+                style="@style/mineTextStyle"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/item"
+                android:drawableLeft="@mipmap/mysettings"
+                android:drawablePadding="10dp"
+                android:drawableRight="@drawable/right"
+                android:gravity="center_vertical"
+                android:paddingLeft="16dp"
+                android:paddingRight="16dp"
+                android:text="@string/my_settings"
+                android:textSize="16sp" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1.0dip"
+                android:background="@color/gray" />
+            <Button
+                android:id="@+id/cancellation"
+                android:layout_gravity="center"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/item"
+                android:text="@string/my_cancellation"
+                android:textColor="@color/colorAccent"
+                android:textSize="16sp"
+                />
+
+        </LinearLayout>
+    </ScrollView>
+
+
+
+
+</LinearLayout>

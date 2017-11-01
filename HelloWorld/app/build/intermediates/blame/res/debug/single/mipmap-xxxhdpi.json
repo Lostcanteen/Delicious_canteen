@@ -1,0 +1,34 @@
+[
+    {
+        "merged": "C:\\Users\\zhou\\TestByZhou\\HelloWorld\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xxxhdpi\\dinner.png",
+        "source": "C:\\Users\\zhou\\TestByZhou\\HelloWorld\\app\\src\\main\\res\\mipmap-xxxhdpi\\dinner.png"
+    },
+    {
+        "merged": "C:\\Users\\zhou\\TestByZhou\\HelloWorld\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xxxhdpi\\add_button.png",
+        "source": "C:\\Users\\zhou\\TestByZhou\\HelloWorld\\app\\src\\main\\res\\mipmap-xxxhdpi\\add_button.png"
+    },
+    {
+        "merged": "C:\\Users\\zhou\\TestByZhou\\HelloWorld\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xxxhdpi\\breakfastmeal.png",
+        "source": "C:\\Users\\zhou\\TestByZhou\\HelloWorld\\app\\src\\main\\res\\mipmap-xxxhdpi\\breakfastmeal.png"
+    },
+    {
+        "merged": "C:\\Users\\zhou\\TestByZhou\\HelloWorld\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xxxhdpi\\imageallorder.png",
+        "source": "C:\\Users\\zhou\\TestByZhou\\HelloWorld\\app\\src\\main\\res\\mipmap-xxxhdpi\\imageallorder.png"
+    },
+    {
+        "merged": "C:\\Users\\zhou\\TestByZhou\\HelloWorld\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xxxhdpi\\mysettings.png",
+        "source": "C:\\Users\\zhou\\TestByZhou\\HelloWorld\\app\\src\\main\\res\\mipmap-xxxhdpi\\mysettings.png"
+    },
+    {
+        "merged": "C:\\Users\\zhou\\TestByZhou\\HelloWorld\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xxxhdpi\\specialmeal.png",
+        "source": "C:\\Users\\zhou\\TestByZhou\\HelloWorld\\app\\src\\main\\res\\mipmap-xxxhdpi\\specialmeal.png"
+    },
+    {
+        "merged": "C:\\Users\\zhou\\TestByZhou\\HelloWorld\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xxxhdpi\\myreserve.png",
+        "source": "C:\\Users\\zhou\\TestByZhou\\HelloWorld\\app\\src\\main\\res\\mipmap-xxxhdpi\\myreserve.png"
+    },
+    {
+        "merged": "C:\\Users\\zhou\\TestByZhou\\HelloWorld\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xxxhdpi\\lunchmeal.png",
+        "source": "C:\\Users\\zhou\\TestByZhou\\HelloWorld\\app\\src\\main\\res\\mipmap-xxxhdpi\\lunchmeal.png"
+    }
+]

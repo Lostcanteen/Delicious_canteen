@@ -1,0 +1,42 @@
+[
+    {
+        "merged": "C:\\Users\\zhou\\TestByZhou\\HelloWorld\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xhdpi\\dinner.png",
+        "source": "C:\\Users\\zhou\\TestByZhou\\HelloWorld\\app\\src\\main\\res\\mipmap-xhdpi\\dinner.png"
+    },
+    {
+        "merged": "C:\\Users\\zhou\\TestByZhou\\HelloWorld\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xhdpi\\canteen_round.png",
+        "source": "C:\\Users\\zhou\\TestByZhou\\HelloWorld\\app\\src\\main\\res\\mipmap-xhdpi\\canteen_round.png"
+    },
+    {
+        "merged": "C:\\Users\\zhou\\TestByZhou\\HelloWorld\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xhdpi\\mysettings.png",
+        "source": "C:\\Users\\zhou\\TestByZhou\\HelloWorld\\app\\src\\main\\res\\mipmap-xhdpi\\mysettings.png"
+    },
+    {
+        "merged": "C:\\Users\\zhou\\TestByZhou\\HelloWorld\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xhdpi\\add_button.png",
+        "source": "C:\\Users\\zhou\\TestByZhou\\HelloWorld\\app\\src\\main\\res\\mipmap-xhdpi\\add_button.png"
+    },
+    {
+        "merged": "C:\\Users\\zhou\\TestByZhou\\HelloWorld\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xhdpi\\breakfastmeal.png",
+        "source": "C:\\Users\\zhou\\TestByZhou\\HelloWorld\\app\\src\\main\\res\\mipmap-xhdpi\\breakfastmeal.png"
+    },
+    {
+        "merged": "C:\\Users\\zhou\\TestByZhou\\HelloWorld\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xhdpi\\lunchmeal.png",
+        "source": "C:\\Users\\zhou\\TestByZhou\\HelloWorld\\app\\src\\main\\res\\mipmap-xhdpi\\lunchmeal.png"
+    },
+    {
+        "merged": "C:\\Users\\zhou\\TestByZhou\\HelloWorld\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xhdpi\\imageallorder.png",
+        "source": "C:\\Users\\zhou\\TestByZhou\\HelloWorld\\app\\src\\main\\res\\mipmap-xhdpi\\imageallorder.png"
+    },
+    {
+        "merged": "C:\\Users\\zhou\\TestByZhou\\HelloWorld\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xhdpi\\myreserve.png",
+        "source": "C:\\Users\\zhou\\TestByZhou\\HelloWorld\\app\\src\\main\\res\\mipmap-xhdpi\\myreserve.png"
+    },
+    {
+        "merged": "C:\\Users\\zhou\\TestByZhou\\HelloWorld\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xhdpi\\canteen.png",
+        "source": "C:\\Users\\zhou\\TestByZhou\\HelloWorld\\app\\src\\main\\res\\mipmap-xhdpi\\canteen.png"
+    },
+    {
+        "merged": "C:\\Users\\zhou\\TestByZhou\\HelloWorld\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xhdpi\\specialmeal.png",
+        "source": "C:\\Users\\zhou\\TestByZhou\\HelloWorld\\app\\src\\main\\res\\mipmap-xhdpi\\specialmeal.png"
+    }
+]

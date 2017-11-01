@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="3dp"
+        android:background="@color/gray"/>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <View
+            android:layout_width="5dp"
+            android:layout_height="match_parent"
+            android:background="@color/gray"/>
+
+        <ImageView
+            android:id="@+id/testFoodImage"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:background="@drawable/item"
+            android:scaleType="centerCrop"
+            android:src="@drawable/logo" />
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:id="@+id/testFood_name"
+                    style="@style/mineTextStyle"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="3"
+                    android:background="@drawable/item"
+                    android:gravity="center_vertical"
+                    android:text="@string/my_order"
+                    android:textSize="16sp" />
+                <TextView
+                    android:id="@+id/testFood_price"
+                    style="@style/mineTextStyle"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="7"
+                    android:textColor="@color/red"
+                    android:background="@drawable/item"
+                    android:gravity="bottom"
+                    android:text="@string/my_order"
+                    android:textSize="24sp" />
+            </LinearLayout>
+    </LinearLayout>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="3dp"
+        android:background="@color/gray"/>
+</LinearLayout>
