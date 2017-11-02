@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    android:id="@+id/RelativeLayoutlist1"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="?android:attr/listPreferredItemHeight"
+    >
+
+    <ImageView
+        android:id="@+id/ImageView01"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:background="@drawable/dish" />
+
+    <TextView
+        android:id="@+id/TextView02"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:layout_toEndOf="@+id/ImageView01"
+        android:layout_toRightOf="@+id/ImageView01"
+        android:ellipsize="marquee"
+        android:singleLine="true"
+        android:text="@+id/item_content"
+        android:textSize="14px" />
+
+    <TextView
+        android:id="@+id/TextView01"
+        android:layout_width="250dp"
+        android:layout_height="90dp"
+        android:layout_above="@+id/TextView02"
+        android:layout_alignParentTop="true"
+        android:layout_toEndOf="@+id/ImageView01"
+        android:layout_toLeftOf="@+id/assess"
+        android:layout_toRightOf="@+id/ImageView01"
+        android:layout_toStartOf="@+id/assess"
+        android:ellipsize="marquee"
+        android:singleLine="true"
+        android:text="@+id/item_content"
+        android:textSize="14px" />
+
+    <ImageView
+        android:id="@+id/star"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_above="@+id/TextView02"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:background="@drawable/star"
+        android:onClick="toStar"
+        android:padding="2dip" />
+    <ImageView
+        android:id="@+id/assess"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_toLeftOf="@id/star"
+        android:layout_above="@id/TextView02"
+        android:onClick="toAccess"
+        android:background="@drawable/assess"
+        android:padding="2dip"
+        />
+
+
+</RelativeLayout>

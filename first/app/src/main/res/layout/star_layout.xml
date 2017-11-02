@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="100dip"
+    android:background="@color/white"
+    >
+
+
+    <RatingBar
+        android:id="@+id/ratingbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_toLeftOf="@+id/submitStar"
+        android:layout_toStartOf="@+id/submitStar"
+        android:gravity="center"
+        android:numStars="5"
+        android:progressTint="@color/yellow"
+        android:rating="0"
+        android:secondaryProgressTint="@color/colorAccent"
+        android:stepSize="1" />
+
+    <Button
+        android:id="@+id/submitStar"
+        android:layout_width="wrap_content"
+        android:layout_height="50dp"
+        android:layout_below="@id/ratingbar"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:text="提交评星" />
+</RelativeLayout>
