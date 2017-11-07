@@ -28,4 +28,6 @@ public class ClassifyMeal{
     public String getClassifyName(){
         return this.classifyName;
     }
+
+
 }

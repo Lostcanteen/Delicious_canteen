@@ -10,5 +10,7 @@
 
     <string name="click_detail">查看详情</string>
 
-
+    <string name="daily_foods">每日食谱</string>
+    <string name="reserve_foods">预定</string>
+    <string name="submit">提交</string>
 </resources>

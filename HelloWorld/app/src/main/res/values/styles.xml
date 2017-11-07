@@ -27,6 +27,12 @@
         <item name="android:layout_height">match_parent</item>
     </style>
 
+    <style name="menu_labels_style">
+        <item name="android:background">@mipmap/date_button</item>
+        <item name="android:textColor">@color/white</item>
+    </style>
 
+    <style name="ActionButton.Overflow" parent="android:style/Widget.Holo.Light.ActionButton.Overflow">
+    </style>
 
 </resources>

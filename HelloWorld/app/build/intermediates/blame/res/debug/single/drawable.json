@@ -36,12 +36,12 @@
         "source": "C:\\Users\\zhou\\.android\\build-cache\\931ca49a193c50246f73c848f3c04d1058221289\\output\\res\\drawable\\abc_list_selector_holo_light.xml"
     },
     {
-        "merged": "C:\\Users\\zhou\\TestByZhou\\HelloWorld\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_ratingbar_material.xml",
-        "source": "C:\\Users\\zhou\\.android\\build-cache\\931ca49a193c50246f73c848f3c04d1058221289\\output\\res\\drawable\\abc_ratingbar_material.xml"
-    },
-    {
         "merged": "C:\\Users\\zhou\\TestByZhou\\HelloWorld\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_btn_radio_material.xml",
         "source": "C:\\Users\\zhou\\.android\\build-cache\\931ca49a193c50246f73c848f3c04d1058221289\\output\\res\\drawable\\abc_btn_radio_material.xml"
+    },
+    {
+        "merged": "C:\\Users\\zhou\\TestByZhou\\HelloWorld\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_ratingbar_material.xml",
+        "source": "C:\\Users\\zhou\\.android\\build-cache\\931ca49a193c50246f73c848f3c04d1058221289\\output\\res\\drawable\\abc_ratingbar_material.xml"
     },
     {
         "merged": "C:\\Users\\zhou\\TestByZhou\\HelloWorld\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\notification_icon_background.xml",

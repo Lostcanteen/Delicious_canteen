@@ -88,10 +88,6 @@
         "source": "C:\\Users\\zhou\\.android\\build-cache\\931ca49a193c50246f73c848f3c04d1058221289\\output\\res\\layout\\notification_template_part_time.xml"
     },
     {
-        "merged": "C:\\Users\\zhou\\TestByZhou\\HelloWorld\\app\\build\\intermediates\\res\\merged\\debug\\layout\\testmenu.xml",
-        "source": "C:\\Users\\zhou\\TestByZhou\\HelloWorld\\app\\src\\main\\res\\layout\\testmenu.xml"
-    },
-    {
         "merged": "C:\\Users\\zhou\\TestByZhou\\HelloWorld\\app\\build\\intermediates\\res\\merged\\debug\\layout\\abc_alert_dialog_material.xml",
         "source": "C:\\Users\\zhou\\.android\\build-cache\\931ca49a193c50246f73c848f3c04d1058221289\\output\\res\\layout\\abc_alert_dialog_material.xml"
     },
@@ -192,10 +188,6 @@
         "source": "C:\\Users\\zhou\\.android\\build-cache\\931ca49a193c50246f73c848f3c04d1058221289\\output\\res\\layout\\notification_template_media_custom.xml"
     },
     {
-        "merged": "C:\\Users\\zhou\\TestByZhou\\HelloWorld\\app\\build\\intermediates\\res\\merged\\debug\\layout\\testmeal.xml",
-        "source": "C:\\Users\\zhou\\TestByZhou\\HelloWorld\\app\\src\\main\\res\\layout\\testmeal.xml"
-    },
-    {
         "merged": "C:\\Users\\zhou\\TestByZhou\\HelloWorld\\app\\build\\intermediates\\res\\merged\\debug\\layout\\abc_list_menu_item_radio.xml",
         "source": "C:\\Users\\zhou\\.android\\build-cache\\931ca49a193c50246f73c848f3c04d1058221289\\output\\res\\layout\\abc_list_menu_item_radio.xml"
     },
@@ -220,6 +212,10 @@
         "source": "C:\\Users\\zhou\\.android\\build-cache\\7f24ceee35361febbd72b64a023fde9e9cf05f6c\\output\\res\\layout\\design_navigation_item_header.xml"
     },
     {
+        "merged": "C:\\Users\\zhou\\TestByZhou\\HelloWorld\\app\\build\\intermediates\\res\\merged\\debug\\layout\\foodlist_item.xml",
+        "source": "C:\\Users\\zhou\\TestByZhou\\HelloWorld\\app\\src\\main\\res\\layout\\foodlist_item.xml"
+    },
+    {
         "merged": "C:\\Users\\zhou\\TestByZhou\\HelloWorld\\app\\build\\intermediates\\res\\merged\\debug\\layout\\abc_action_bar_view_list_nav_layout.xml",
         "source": "C:\\Users\\zhou\\.android\\build-cache\\931ca49a193c50246f73c848f3c04d1058221289\\output\\res\\layout\\abc_action_bar_view_list_nav_layout.xml"
     },
@@ -236,16 +232,20 @@
         "source": "C:\\Users\\zhou\\TestByZhou\\HelloWorld\\app\\src\\main\\res\\layout\\activity_main.xml"
     },
     {
+        "merged": "C:\\Users\\zhou\\TestByZhou\\HelloWorld\\app\\build\\intermediates\\res\\merged\\debug\\layout\\meallist_item.xml",
+        "source": "C:\\Users\\zhou\\TestByZhou\\HelloWorld\\app\\src\\main\\res\\layout\\meallist_item.xml"
+    },
+    {
         "merged": "C:\\Users\\zhou\\TestByZhou\\HelloWorld\\app\\build\\intermediates\\res\\merged\\debug\\layout\\design_text_input_password_icon.xml",
         "source": "C:\\Users\\zhou\\.android\\build-cache\\7f24ceee35361febbd72b64a023fde9e9cf05f6c\\output\\res\\layout\\design_text_input_password_icon.xml"
     },
     {
-        "merged": "C:\\Users\\zhou\\TestByZhou\\HelloWorld\\app\\build\\intermediates\\res\\merged\\debug\\layout\\abc_list_menu_item_layout.xml",
-        "source": "C:\\Users\\zhou\\.android\\build-cache\\931ca49a193c50246f73c848f3c04d1058221289\\output\\res\\layout\\abc_list_menu_item_layout.xml"
+        "merged": "C:\\Users\\zhou\\TestByZhou\\HelloWorld\\app\\build\\intermediates\\res\\merged\\debug\\layout\\test.xml",
+        "source": "C:\\Users\\zhou\\TestByZhou\\HelloWorld\\app\\src\\main\\res\\layout\\test.xml"
     },
     {
-        "merged": "C:\\Users\\zhou\\TestByZhou\\HelloWorld\\app\\build\\intermediates\\res\\merged\\debug\\layout\\testfood.xml",
-        "source": "C:\\Users\\zhou\\TestByZhou\\HelloWorld\\app\\src\\main\\res\\layout\\testfood.xml"
+        "merged": "C:\\Users\\zhou\\TestByZhou\\HelloWorld\\app\\build\\intermediates\\res\\merged\\debug\\layout\\abc_list_menu_item_layout.xml",
+        "source": "C:\\Users\\zhou\\.android\\build-cache\\931ca49a193c50246f73c848f3c04d1058221289\\output\\res\\layout\\abc_list_menu_item_layout.xml"
     },
     {
         "merged": "C:\\Users\\zhou\\TestByZhou\\HelloWorld\\app\\build\\intermediates\\res\\merged\\debug\\layout\\abc_action_menu_layout.xml",
@@ -266,5 +266,9 @@
     {
         "merged": "C:\\Users\\zhou\\TestByZhou\\HelloWorld\\app\\build\\intermediates\\res\\merged\\debug\\layout\\design_bottom_sheet_dialog.xml",
         "source": "C:\\Users\\zhou\\.android\\build-cache\\7f24ceee35361febbd72b64a023fde9e9cf05f6c\\output\\res\\layout\\design_bottom_sheet_dialog.xml"
+    },
+    {
+        "merged": "C:\\Users\\zhou\\TestByZhou\\HelloWorld\\app\\build\\intermediates\\res\\merged\\debug\\layout\\activity_evaluate.xml",
+        "source": "C:\\Users\\zhou\\TestByZhou\\HelloWorld\\app\\src\\main\\res\\layout\\activity_evaluate.xml"
     }
 ]
