@@ -1,5 +1,6 @@
 package com.example.zhou.helloworld;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
@@ -20,15 +21,27 @@ public class MineMessageFragment extends Fragment {
         return fragment;
     }
 
+    private TextView textUsername;
+    private TextView textAllOrder;
+
+
     public View onCreateView(LayoutInflater inflater,ViewGroup container,Bundle savedInstanceState){
-        View view = inflater.inflate(R.layout.mine,container,false);
+        final View view = inflater.inflate(R.layout.mine,container,false);
         if(getArguments() != null)
         {
-            TextView textView = (TextView) view.findViewById(R.id.textUsername);
-
-            textView.setText(getArguments().getString("textUsername"));
-
+            textUsername = (TextView) view.findViewById(R.id.textUsername);
+            textUsername.setText(getArguments().getString("textUsername"));
         }
+        textAllOrder = (TextView) view.findViewById(R.id.textAllOrder);
+
+        textAllOrder.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v){
+                Intent intent = new Intent(view.getContext(),ShowMyOrderActivity.class);
+                startActivity(intent);
+            }
+        });
+
         return view;
     }
 }

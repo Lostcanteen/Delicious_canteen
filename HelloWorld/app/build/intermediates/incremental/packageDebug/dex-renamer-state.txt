@@ -1,7 +1,7 @@
-#Mon Nov 06 22:21:18 CST 2017
-base.0=C\:\\Users\\zhou\\TestByZhou\\HelloWorld\\app\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\10000\\instant-run-bootstrap_bfadfb101f9b833e6b9ecec6eb111f2dee11e621
-renamed.1=classes2.dex
-renamed.0=classes.dex
-file.1=C\:\\Users\\zhou\\TestByZhou\\HelloWorld\\app\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\10000\\instant-run_7054e2e8523842bde3500b01f437a1fc4f0c7969\\classes.dex
-base.1=C\:\\Users\\zhou\\TestByZhou\\HelloWorld\\app\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\10000\\instant-run_7054e2e8523842bde3500b01f437a1fc4f0c7969
-file.0=C\:\\Users\\zhou\\TestByZhou\\HelloWorld\\app\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\10000\\instant-run-bootstrap_bfadfb101f9b833e6b9ecec6eb111f2dee11e621\\classes.dex
+#Wed Nov 08 10:53:05 CST 2017
+base.0=C\:\\Users\\zhou\\TestByZhou\\HelloWorld\\app\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\10000\\instant-run_7054e2e8523842bde3500b01f437a1fc4f0c7969
+renamed.1=classes.dex
+renamed.0=classes2.dex
+file.1=C\:\\Users\\zhou\\TestByZhou\\HelloWorld\\app\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\10000\\instant-run-bootstrap_bfadfb101f9b833e6b9ecec6eb111f2dee11e621\\classes.dex
+base.1=C\:\\Users\\zhou\\TestByZhou\\HelloWorld\\app\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\10000\\instant-run-bootstrap_bfadfb101f9b833e6b9ecec6eb111f2dee11e621
+file.0=C\:\\Users\\zhou\\TestByZhou\\HelloWorld\\app\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\10000\\instant-run_7054e2e8523842bde3500b01f437a1fc4f0c7969\\classes.dex

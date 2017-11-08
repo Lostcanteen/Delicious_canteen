@@ -32,6 +32,7 @@
             android:text="@string/submit"
             style="@style/ActionButton.Overflow"
             android:layout_marginEnd="10dp"
+            android:layout_marginRight="10dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"/>
 

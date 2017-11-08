@@ -20,17 +20,19 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme" >
         <activity android:name="com.example.zhou.helloworld.LoginActivity" >
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
         <activity android:name="com.example.zhou.helloworld.MainActivity" >
         </activity>
         <activity android:name="com.example.zhou.helloworld.WelcomeActivity" />
         <activity android:name="com.example.zhou.helloworld.ShowCantonDetailsActivity" />
         <activity android:name="com.example.zhou.helloworld.EvaluateActivity" />
+        <activity android:name="com.example.zhou.helloworld.ShowMyOrderActivity" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
     </application>
 
 </manifest>

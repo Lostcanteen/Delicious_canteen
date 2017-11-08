@@ -16,17 +16,8 @@
         jumboMode="true"
         optimize="true"
         revision="26.0.2"
-        sha1="1e0900e1f5bfc076dc763da6e4d9bb8a003533fa">
+        sha1="31712fa1a4d9886c7fd172540838cfbe3a5fa921">
         <dex dex="C:\Users\zhou\TestByZhou\HelloWorld\app\build\intermediates\transforms\dex\debug\folders\1000\10000\instant-run-bootstrap_bfadfb101f9b833e6b9ecec6eb111f2dee11e621\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\zhou\.android\build-cache\66dd2d467ed8011cefe04656f4c1ba3b7f4f432a\output\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="26.0.2"
-        sha1="f40cf334cdc8b098b74312e21c7741c6eefbeb0e">
-        <dex dex="C:\Users\zhou\TestByZhou\HelloWorld\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_916ed6f74d6241dde44f19e9b402101513ee732e\classes.dex" />
     </item>
     <item
         is-multidex="true"

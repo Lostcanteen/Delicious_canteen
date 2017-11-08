@@ -403,8 +403,6 @@ public class ShowCantonDetailsActivity extends AppCompatActivity {
                                 food.getFoodName()+"数量+1",Toast.LENGTH_SHORT).show();
                     }
                 });
-
-
             }
 
         }
