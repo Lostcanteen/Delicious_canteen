@@ -101,7 +101,7 @@ public class AddDish extends AppCompatActivity {
                 boolean b = breakfast.isChecked();
                 boolean l = lunch.isChecked();
                 boolean d = dinner.isChecked();
-                Dish dish = new Dish(0,dishname,newImagePath,p,b,l,d,m);
+                //Dish dish = new Dish(0,dishname,newImagePath,p,b,l,d,m);
                 //一次提交？怎么传
             }
         });

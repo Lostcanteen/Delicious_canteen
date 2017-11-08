@@ -1,11 +1,14 @@
 package com.lostcanteen.deliciouscanteen;
 
+import java.io.Serializable;
+
 /**
  * Created by yw199 on 2017/10/22.
  */
 
-public class Dish {
+public class Dish implements Serializable {
     private int dishid;
+    private int canteenid;
     private String name;
     private String image;
     private float price;
@@ -14,7 +17,8 @@ public class Dish {
     private boolean dinner;
     private boolean main; //是否主营
 
-    public Dish(int dishid, String name, String image, float price, boolean breakfast, boolean lunch, boolean dinner, boolean main) {
+    public Dish(int canteenid,int dishid, String name, String image, float price, boolean breakfast, boolean lunch, boolean dinner, boolean main) {
+        this.canteenid = canteenid;
         this.dishid = dishid;
         this.name = name;
         this.image = image;
@@ -23,6 +27,10 @@ public class Dish {
         this.lunch = lunch;
         this.dinner = dinner;
         this.main = main;
+    }
+
+    public int getCanteenid() {
+        return canteenid;
     }
 
     public void setBreakfast(boolean breakfast) {

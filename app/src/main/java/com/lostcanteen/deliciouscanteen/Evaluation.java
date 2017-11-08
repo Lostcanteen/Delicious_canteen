@@ -1,5 +1,6 @@
 package com.lostcanteen.deliciouscanteen;
 
+import java.io.Serializable;
 import java.sql.Date;
 import java.sql.SQLException;
 
@@ -7,7 +8,7 @@ import java.sql.SQLException;
  * Created by yw199 on 2017/10/24.
  */
 
-public class Evaluation {
+public class Evaluation implements Serializable {
     private int canteenid; //食堂id
     private int dishid; //菜品id
     private String username; //用户名

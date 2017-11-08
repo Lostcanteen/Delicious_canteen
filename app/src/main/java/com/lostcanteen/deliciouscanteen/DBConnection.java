@@ -72,7 +72,7 @@ public class DBConnection {
     }
 
     /**
-     * 登陆密码判断
+     * 登陆密码判断 (done)
      * @param username 用户名
      * @param password 密码
      * @return true登陆成功，false密码错误
@@ -115,7 +115,7 @@ public class DBConnection {
     }
 
     /**
-     * 普通用户主页食堂列表显示
+     * 普通用户主页食堂列表显示 (done)
      * @return 全部食堂详细列表
      */
     public ArrayList<CanteenDetail> allCantainDetail() throws SQLException {
@@ -142,7 +142,7 @@ public class DBConnection {
     }
 
     /**
-     * 管理员主页食堂列表
+     * 管理员主页食堂列表 (done)
      * @param adminid 管理员id
      * @return 管理员所管理食堂列表 无返回空list，非null
      * @throws SQLException
@@ -191,7 +191,7 @@ public class DBConnection {
     }
 
     /**
-     * 管理员添加食堂，填写详细信息及是否提供特殊预约服务（即初始信息设置）
+     * 管理员添加食堂，填写详细信息及是否提供特殊预约服务（即初始信息设置） (done)
      * @param canteenDetail canteenid无需给出,adminid为获取的当前用户信息
      * @throws SQLException
      */
@@ -301,14 +301,13 @@ public class DBConnection {
     }
 
     /**
-     * 管理员添加菜品
-     * @param canteenid 添加菜品的食堂id
+     * 管理员添加菜品 (done)
      * @param dish 菜品详细信息 （无需提供dishid checkbox 早午晚餐复选框 main单选）
      * @throws SQLException
      */
-    public void addDish(int canteenid,Dish dish) throws SQLException {
+    public void addDish(Dish dish) throws SQLException {
         PreparedStatement statement;
-        String sql = "insert into canteen"+canteenid+"dishes"+" (name,image,price,breakfast," +
+        String sql = "insert into canteen"+dish.getCanteenid()+"dishes"+" (name,image,price,breakfast," +
                 "lunch,dinner,main) values (?,?,?,?,?,?,?)";	// 要执行的SQL语句
         statement=conn.prepareStatement(sql);
         statement.setString(1,dish.getName());
@@ -375,13 +374,13 @@ public class DBConnection {
             String name = rs.getString("name");
             String image = rs.getString("image");
             float price = rs.getFloat("price");
-            dish = new Dish(dishid,name,image,price,false,false,false,false);
+            dish = new Dish(canteenid,dishid,name,image,price,false,false,false,false);
         }
         return dish;
     }
 
     /**
-     * 菜品列表获取
+     * 菜品列表获取 （done)
      * @param canteenid 食堂id
      * @param option 功能选择 'A'：全部菜品 'M'：主营菜品 'B'：早餐 'L'：午餐 'D'：晚餐
      * @return 菜品详细信息list
@@ -414,7 +413,7 @@ public class DBConnection {
             boolean lunch = rs.getBoolean("lunch");
             boolean dinner = rs.getBoolean("dinner");
             boolean main = rs.getBoolean("main");
-            Dish tmp = new Dish(dishid,name,image,price,breakfast,lunch,dinner,main);
+            Dish tmp = new Dish(canteenid,dishid,name,image,price,breakfast,lunch,dinner,main);
             ret.add(tmp);
         }
         statement.close();
@@ -441,7 +440,7 @@ public class DBConnection {
     }
 
     /**
-     * 管理员添加食谱或预订信息
+     * 管理员添加食谱或预订信息 (done)
      * @param canteenid 食堂id
      * @param date 发布食谱日期
      * @param menu 食谱内容 按规定格式字符串存储 如：1_2_3
@@ -549,7 +548,7 @@ public class DBConnection {
     }
 
     /**
-     * 管理员及普通用户菜单信息获取
+     * 管理员及普通用户菜单信息获取 (done)
      * @param canteenid 食堂id
      * @param date 日期
      * @param option 时间选择 B：早餐 L:午餐 D：晚餐 b:早餐预订 l：午餐预订 d：晚餐预订
@@ -586,7 +585,7 @@ public class DBConnection {
                     String name = rs.getString("name");
                     String image = rs.getString("image");
                     float price = rs.getFloat("price");
-                    Dish tmp = new Dish(arrMenu[i],name,image,price,false,false,false,false);
+                    Dish tmp = new Dish(canteenid,arrMenu[i],name,image,price,false,false,false,false);
                     ret.add(tmp);
                 }
             }
@@ -596,7 +595,7 @@ public class DBConnection {
     }
 
     /**
-     * 用户提交预订信息
+     * 用户提交预订信息 (done)
      * @param canteenid 食堂id
      * @param date 预订日期
      * @param option 预订时间选择 b：早餐 l：午餐 d：晚餐
@@ -657,7 +656,7 @@ public class DBConnection {
     }
 
     /**
-     * 管理员预订总数获取
+     * 管理员预订总数获取 (done)
      * @param canteenid 食堂id
      * @param date 预订日期
      * @param option 预订时间选择 b：早餐 l：午餐 d：晚餐
@@ -726,7 +725,7 @@ public class DBConnection {
     }
 
     /**
-     * 用户评价提交
+     * 用户评价提交 (done)
      * @param eva 评价信息
      * @throws SQLException
      */
@@ -745,7 +744,7 @@ public class DBConnection {
     }
 
     /**
-     * 菜品评价查询
+     * 菜品评价查询 (done)
      * @param canteenid 食堂id
      * @param dishid 菜品id
      * @return 评价信息list

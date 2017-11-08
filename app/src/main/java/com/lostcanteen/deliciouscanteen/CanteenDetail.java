@@ -1,10 +1,12 @@
 package com.lostcanteen.deliciouscanteen;
 
+import java.io.Serializable;
+
 /**
  * Created by yw199 on 2017/10/21.
  */
 
-public class CanteenDetail {
+public class CanteenDetail implements Serializable {
     private int canteenid;
     private String picture; //图片路径
     private String name; //食堂名
