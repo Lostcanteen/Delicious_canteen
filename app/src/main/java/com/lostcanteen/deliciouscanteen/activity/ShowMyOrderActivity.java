@@ -96,14 +96,13 @@ public class ShowMyOrderActivity extends AppCompatActivity {
             evaluateRecyclerView.setLayoutManager(linearLayoutManager);
 
             //*************
-            EvaluateListAdapter adapter = new EvaluateListAdapter(getMeal());
-            evaluateRecyclerView.setAdapter(adapter);
+//            EvaluateListAdapter adapter = new EvaluateListAdapter();
+//            evaluateRecyclerView.setAdapter(adapter);
 
 
             new Thread(new Runnable() {
                 @Override
                 public void run() {
-                    allEvaluation = WebTrans
 
                 }
             }).start();
