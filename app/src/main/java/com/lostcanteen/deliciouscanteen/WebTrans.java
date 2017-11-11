@@ -1,5 +1,9 @@
 package com.lostcanteen.deliciouscanteen;
 
+import com.lostcanteen.deliciouscanteen.CanteenDetail;
+import com.lostcanteen.deliciouscanteen.Dish;
+import com.lostcanteen.deliciouscanteen.Evaluation;
+
 import org.json.JSONArray;
 import org.json.JSONObject;
 
@@ -129,7 +133,7 @@ public class WebTrans {
     public static boolean addCanteen(CanteenDetail canteenDetail) {
         boolean flag=false;
         try {
-            URL url = new URL(basicurl+"AddCanteen");
+            URL url = new URL(basicurl+"AddCanteenActivity");
             HttpURLConnection http = (HttpURLConnection) url.openConnection();
             http.setConnectTimeout(10000);
             http.setReadTimeout(10000);
@@ -162,7 +166,7 @@ public class WebTrans {
     public static boolean addDish(Dish dish) {
         boolean flag=false;
         try {
-            URL url = new URL(basicurl+"AddDish");
+            URL url = new URL(basicurl+"AddDishActivity");
             HttpURLConnection http = (HttpURLConnection) url.openConnection();
             http.setConnectTimeout(10000);
             http.setReadTimeout(10000);

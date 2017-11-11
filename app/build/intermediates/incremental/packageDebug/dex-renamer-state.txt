@@ -1,0 +1,7 @@
+#Sat Nov 11 21:58:05 CST 2017
+base.0=C\:\\Users\\zhou\\yangwan\\Delicious_canteen\\app\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\10000\\instant-run_56196cf2f4e2c8fa1a697a662049c372c13b4b25
+renamed.1=classes.dex
+renamed.0=classes2.dex
+file.1=C\:\\Users\\zhou\\yangwan\\Delicious_canteen\\app\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\10000\\instant-run-bootstrap_082c973132ff512521167a9e6b6692f0794320b3\\classes.dex
+base.1=C\:\\Users\\zhou\\yangwan\\Delicious_canteen\\app\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\10000\\instant-run-bootstrap_082c973132ff512521167a9e6b6692f0794320b3
+file.0=C\:\\Users\\zhou\\yangwan\\Delicious_canteen\\app\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\10000\\instant-run_56196cf2f4e2c8fa1a697a662049c372c13b4b25\\classes.dex

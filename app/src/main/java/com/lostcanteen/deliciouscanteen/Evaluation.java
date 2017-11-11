@@ -1,5 +1,7 @@
 package com.lostcanteen.deliciouscanteen;
 
+import com.lostcanteen.deliciouscanteen.DBConnection;
+
 import java.io.Serializable;
 import java.sql.Date;
 import java.sql.SQLException;

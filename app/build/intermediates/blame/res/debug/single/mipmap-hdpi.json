@@ -1,0 +1,54 @@
+[
+    {
+        "merged": "C:\\Users\\zhou\\yangwan\\Delicious_canteen\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-hdpi\\canteen.png",
+        "source": "C:\\Users\\zhou\\yangwan\\Delicious_canteen\\app\\src\\main\\res\\mipmap-hdpi\\canteen.png"
+    },
+    {
+        "merged": "C:\\Users\\zhou\\yangwan\\Delicious_canteen\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-hdpi\\add_button.png",
+        "source": "C:\\Users\\zhou\\yangwan\\Delicious_canteen\\app\\src\\main\\res\\mipmap-hdpi\\add_button.png"
+    },
+    {
+        "merged": "C:\\Users\\zhou\\yangwan\\Delicious_canteen\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-hdpi\\specialmeal.png",
+        "source": "C:\\Users\\zhou\\yangwan\\Delicious_canteen\\app\\src\\main\\res\\mipmap-hdpi\\specialmeal.png"
+    },
+    {
+        "merged": "C:\\Users\\zhou\\yangwan\\Delicious_canteen\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-hdpi\\breakfastmeal.png",
+        "source": "C:\\Users\\zhou\\yangwan\\Delicious_canteen\\app\\src\\main\\res\\mipmap-hdpi\\breakfastmeal.png"
+    },
+    {
+        "merged": "C:\\Users\\zhou\\yangwan\\Delicious_canteen\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-hdpi\\evaluate.png",
+        "source": "C:\\Users\\zhou\\yangwan\\Delicious_canteen\\app\\src\\main\\res\\mipmap-hdpi\\evaluate.png"
+    },
+    {
+        "merged": "C:\\Users\\zhou\\yangwan\\Delicious_canteen\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-hdpi\\imageallorder.png",
+        "source": "C:\\Users\\zhou\\yangwan\\Delicious_canteen\\app\\src\\main\\res\\mipmap-hdpi\\imageallorder.png"
+    },
+    {
+        "merged": "C:\\Users\\zhou\\yangwan\\Delicious_canteen\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-hdpi\\date_button.png",
+        "source": "C:\\Users\\zhou\\yangwan\\Delicious_canteen\\app\\src\\main\\res\\mipmap-hdpi\\date_button.png"
+    },
+    {
+        "merged": "C:\\Users\\zhou\\yangwan\\Delicious_canteen\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-hdpi\\canteen_round.png",
+        "source": "C:\\Users\\zhou\\yangwan\\Delicious_canteen\\app\\src\\main\\res\\mipmap-hdpi\\canteen_round.png"
+    },
+    {
+        "merged": "C:\\Users\\zhou\\yangwan\\Delicious_canteen\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-hdpi\\lunchmeal.png",
+        "source": "C:\\Users\\zhou\\yangwan\\Delicious_canteen\\app\\src\\main\\res\\mipmap-hdpi\\lunchmeal.png"
+    },
+    {
+        "merged": "C:\\Users\\zhou\\yangwan\\Delicious_canteen\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-hdpi\\ic_launcher.png",
+        "source": "C:\\Users\\zhou\\yangwan\\Delicious_canteen\\app\\src\\main\\res\\mipmap-hdpi\\ic_launcher.png"
+    },
+    {
+        "merged": "C:\\Users\\zhou\\yangwan\\Delicious_canteen\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-hdpi\\myreserve.png",
+        "source": "C:\\Users\\zhou\\yangwan\\Delicious_canteen\\app\\src\\main\\res\\mipmap-hdpi\\myreserve.png"
+    },
+    {
+        "merged": "C:\\Users\\zhou\\yangwan\\Delicious_canteen\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-hdpi\\mysettings.png",
+        "source": "C:\\Users\\zhou\\yangwan\\Delicious_canteen\\app\\src\\main\\res\\mipmap-hdpi\\mysettings.png"
+    },
+    {
+        "merged": "C:\\Users\\zhou\\yangwan\\Delicious_canteen\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-hdpi\\dinner.png",
+        "source": "C:\\Users\\zhou\\yangwan\\Delicious_canteen\\app\\src\\main\\res\\mipmap-hdpi\\dinner.png"
+    }
+]

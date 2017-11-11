@@ -1,6 +1,5 @@
 package com.lostcanteen.deliciouscanteen;
 
-import java.sql.Array;
 import java.sql.Connection;
 import java.sql.Date;
 import java.sql.DriverManager;
@@ -10,7 +9,6 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.StringTokenizer;
 
 /**
  * Created by yw199 on 2017/10/16.
@@ -21,7 +19,7 @@ public class DBConnection {
     private String driver = "com.mysql.jdbc.Driver"; // 驱动程序名
     private String url = "jdbc:mysql://localhost:3306/canteen"; // URL指向要访问的数据库名
     private String user = "root";  // MySQL配置时的用户名
-    private String password = "yyww123456"; // MySQL配置时的密码
+    private String password = "Whz970917"; // MySQL配置时的密码
     private static Connection conn;
 
     public DBConnection() throws ClassNotFoundException, SQLException
