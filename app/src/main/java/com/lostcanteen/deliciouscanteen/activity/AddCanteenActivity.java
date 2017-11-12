@@ -24,15 +24,18 @@ import android.widget.Toast;
 
 import com.lostcanteen.deliciouscanteen.CanteenDetail;
 import com.lostcanteen.deliciouscanteen.DBConnection;
+import com.lostcanteen.deliciouscanteen.FTP;
 import com.lostcanteen.deliciouscanteen.FlowLayout;
 import com.lostcanteen.deliciouscanteen.R;
 import com.lostcanteen.deliciouscanteen.TagItem;
+import com.lostcanteen.deliciouscanteen.WebTrans;
 
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.UUID;
 
 // 图片上传到网络，重命名
 //从前页面接受adminid，用于certain按钮点击创建
@@ -55,7 +58,9 @@ public class AddCanteenActivity extends AppCompatActivity {
     private String[] spot = {"包厢预订","生日宴会订做"}; //初始场景
     ArrayList<String>  list = new ArrayList<String>();
 
-    private String newImagePath = ""; // 图片上传到网络，重命名
+    private String basicImagePath = "http://canteen-canteen.stor.sinaapp.com/";
+    private String newImagePath ="";
+    private File file; // 图片上传到网络，重命名
     private int adminid = 1; //从前页面接受adminid，用于certain按钮点击创建
 
     @Override
@@ -81,8 +86,11 @@ public class AddCanteenActivity extends AppCompatActivity {
         picture = (ImageView) findViewById(R.id.imageView);
         takePhoto.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-
-                File outputImage = new File(getExternalCacheDir(),"output_image.jpg");
+                UUID uuid = UUID.randomUUID();
+                long time = System.currentTimeMillis();
+                File outputImage = new File(getExternalCacheDir(),uuid+"-"+time+".jpg");
+                file = outputImage;
+                newImagePath = basicImagePath+file.getName();
                 try {
                     if(outputImage.exists()) {
                         outputImage.delete();
@@ -118,20 +126,31 @@ public class AddCanteenActivity extends AppCompatActivity {
         certain.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                new Thread(new Runnable() {
+                    @Override
+                    public void run() {
+                        try {
+                            new FTP().uploadSingleFile(file,"/canteen", new FTP.UploadProgressListener() {
+                                @Override
+                                public void onUploadProgress(String currentStep, long uploadSize, File file) {
+
+                                }
+                            });
+                        } catch (IOException e) {
+                            e.printStackTrace();
+                        }
+
+                    }
+                }).start();
+
                 String canteenname = canteenName.getText().toString();
                 String loc = location.getText().toString();
                 String hour = time.getText().toString();
                 Boolean on = bookon.isChecked();
                 String[] spots = (String[]) list.toArray(new String[list.size()]);
                 CanteenDetail tmp = new CanteenDetail(0,newImagePath,canteenname,loc,hour,on,spots,adminid);
-                try {
-                    new DBConnection().addCanteen(tmp);
-                } catch (SQLException e) {
-                    e.printStackTrace();
-                } catch (ClassNotFoundException e) {
-                    e.printStackTrace();
-                }
-                //添加页面跳转
+                WebTrans.addCanteen(tmp);
+                //添加页面跳转 注意线程编写
             }
         });
     }
@@ -207,6 +226,8 @@ public class AddCanteenActivity extends AppCompatActivity {
     private void handleImageBeforeKitKat(Intent data) {
         Uri uri = data.getData();
         String imagePath = getImagePath(uri,null);
+        file = new File(imagePath);
+        newImagePath = basicImagePath+file.getName();
         displayImage(imagePath);
     }
 

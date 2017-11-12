@@ -20,11 +20,13 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Toast;
 
+import com.lostcanteen.deliciouscanteen.FTP;
 import com.lostcanteen.deliciouscanteen.R;
 
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.util.UUID;
 
 // 图片上传到网络，重命名
 //添加dish提交问题
@@ -41,7 +43,9 @@ public class AddDishActivity extends AppCompatActivity {
     private CheckBox lunch;
     private CheckBox dinner;
 
-    private String newImagePath = ""; // 图片上传到网络，重命名
+    private String basicImagePath = "http://canteen-canteen.stor.sinaapp.com/";
+    private String newImagePath ="";
+    private File file;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -60,8 +64,11 @@ public class AddDishActivity extends AppCompatActivity {
         picture = (ImageView) findViewById(R.id.imageView);
         takePhoto.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-
-                File outputImage = new File(getExternalCacheDir(),"output_image.jpg");
+                UUID uuid = UUID.randomUUID();
+                long time = System.currentTimeMillis();
+                File outputImage = new File(getExternalCacheDir(),uuid+"-"+time+".jpg");
+                file = outputImage;
+                newImagePath = basicImagePath+file.getName();
                 try {
                     if(outputImage.exists()) {
                         outputImage.delete();
@@ -97,14 +104,32 @@ public class AddDishActivity extends AppCompatActivity {
         certain.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                new Thread(new Runnable() {
+                    @Override
+                    public void run() {
+                        try {
+                            new FTP().uploadSingleFile(file,"/canteen", new FTP.UploadProgressListener() {
+                                @Override
+                                public void onUploadProgress(String currentStep, long uploadSize, File file) {
+
+                                }
+                            });
+                        } catch (IOException e) {
+                            e.printStackTrace();
+                        }
+
+                    }
+                }).start();
+
                 String dishname = dishName.getText().toString();
                 Float p = Float.parseFloat(price.getText().toString());
                 boolean m = main.isChecked();
                 boolean b = breakfast.isChecked();
                 boolean l = lunch.isChecked();
                 boolean d = dinner.isChecked();
-                //Dish dish = new Dish(0,dishname,newImagePath,p,b,l,d,m);
-                //一次提交？怎么传
+                //Dish dish = new Dish(canteenid,0,dishname,newImagePath,p,b,l,d,m);
+                //WebTrans.addDish(dish);
+                //前一页面canteenid
             }
         });
     }
@@ -180,6 +205,8 @@ public class AddDishActivity extends AppCompatActivity {
     private void handleImageBeforeKitKat(Intent data) {
         Uri uri = data.getData();
         String imagePath = getImagePath(uri,null);
+        file = new File(imagePath);
+        newImagePath = basicImagePath+file.getName();
         displayImage(imagePath);
     }
 

@@ -17,6 +17,8 @@ public class Dish implements Serializable {
     private boolean dinner;
     private boolean main; //是否主营
 
+    public Dish() {}
+
     public Dish(int canteenid,int dishid, String name, String image, float price, boolean breakfast, boolean lunch, boolean dinner, boolean main) {
         this.canteenid = canteenid;
         this.dishid = dishid;
