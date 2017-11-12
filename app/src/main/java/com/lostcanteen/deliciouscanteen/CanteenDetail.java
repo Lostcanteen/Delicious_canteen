@@ -16,7 +16,7 @@ public class CanteenDetail implements Serializable {
     private String[] sbookpattern;
     private int adminid; //管理员id
 
-    public CanteenDetail() {}
+    public CanteenDetail(){}
 
     public CanteenDetail(int canteenid, String picture, String name, String location, String hours, int adminid) {
         this.canteenid = canteenid;

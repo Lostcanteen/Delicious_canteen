@@ -2,6 +2,7 @@ package com.lostcanteen.deliciouscanteen;
 
 import com.lostcanteen.deliciouscanteen.DBConnection;
 
+import java.io.Serializable;
 import java.sql.Date;
 import java.sql.SQLException;
 
@@ -9,7 +10,7 @@ import java.sql.SQLException;
  * Created by yw199 on 2017/10/24.
  */
 
-public class Book {
+public class Book implements Serializable{
     private int canteenid;
     private Date date;
     private String type;  // b：早餐 l：午餐 d：晚餐

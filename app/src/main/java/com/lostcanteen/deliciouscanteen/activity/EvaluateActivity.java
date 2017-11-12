@@ -54,6 +54,7 @@ public class EvaluateActivity extends AppCompatActivity {
         food = (Dish) getIntent().getSerializableExtra("transFood");
         canteenId = (Integer) getIntent().getIntExtra("transCanteenId",-1);
         username = (String) getIntent().getStringExtra("username");
+
         date = (Date) getIntent().getSerializableExtra("Date");
 
         evaluateTitle = (TextView) findViewById(R.id.textEvaluateTitle);
@@ -84,6 +85,7 @@ public class EvaluateActivity extends AppCompatActivity {
                     new Thread(new Runnable() {
                         @Override
                         public void run() {
+                            Log.e("username",username);
                             Evaluation myEvluation = new Evaluation(canteenId,food.getDishid(),username,starsNum,date,evaluateText);
                             WebTrans.commitEva(myEvluation);
                             finish();

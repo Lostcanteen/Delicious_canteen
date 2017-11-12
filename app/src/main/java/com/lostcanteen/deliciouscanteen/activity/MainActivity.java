@@ -21,6 +21,7 @@ public class MainActivity extends AppCompatActivity {
     private TextView title;
 
     private String usename;
+    private int userid;
 
     private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
             = new BottomNavigationView.OnNavigationItemSelectedListener() {
@@ -76,9 +77,11 @@ public class MainActivity extends AppCompatActivity {
 
         Intent intent = getIntent();
         usename = intent.getStringExtra("loginUsername");
-        mine = MineMessageFragment.newInstance(usename);
+        userid = getIntent().getIntExtra("userid",-1);
 
-        home = HomeFragment.newInstance(usename);
+        mine = MineMessageFragment.newInstance(usename,userid);
+
+        home = HomeFragment.newInstance(usename,userid);
 
         setDefaultFragment();
         BottomNavigationView navigation = (BottomNavigationView) findViewById(R.id.navigation);

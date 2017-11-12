@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/evaluate_activity"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
     android:orientation="vertical">
     <LinearLayout
         android:orientation="vertical"
@@ -20,7 +20,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
             <ImageView
-                android:id="@+id/testFoodImage"
+                android:id="@+id/allEvaluationImage"
                 android:layout_width="100dp"
                 android:layout_height="100dp"
                 android:background="@drawable/item"
@@ -36,7 +36,7 @@
                     android:layout_width="0dp"
                     android:layout_height="match_parent">
                     <TextView
-                        android:id="@+id/testFood_name"
+                        android:id="@+id/allEvaluationname"
                         style="@style/textStyle"
                         android:layout_width="match_parent"
                         android:layout_height="0dp"
@@ -58,7 +58,7 @@
                         android:rating="1"/>
 
                     <TextView
-                        android:id="@+id/testFood_price"
+                        android:id="@+id/allEvaluationprice"
                         style="@style/textStyle"
                         android:layout_width="match_parent"
                         android:layout_height="0dp"
@@ -69,12 +69,33 @@
                         android:text="@string/my_order"
                         android:textSize="16sp" />
                 </LinearLayout>
-                <TextView
-                    android:id="@+id/textEvalaute"
-                    android:background="@color/white"
+                <LinearLayout
                     android:layout_weight="7"
                     android:layout_width="0dp"
-                    android:layout_height="match_parent" />
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    android:background="@color/white"
+                    >
+                    <TextView
+                        android:id="@+id/date"
+                        android:background="@color/white"
+                        android:textColor="@color/black"
+                        android:textSize="13sp"
+                        android:layout_weight="3"
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp" />
+
+                    <TextView
+                        android:id="@+id/textEvalaute"
+                        android:layout_marginLeft="10dp"
+                        android:background="@color/white"
+                        android:textColor="@color/black"
+                        android:textSize="13sp"
+                        android:layout_weight="7"
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp" />
+
+                </LinearLayout>
 
             </LinearLayout>
         </LinearLayout>

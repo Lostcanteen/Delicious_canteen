@@ -33,12 +33,13 @@ public class HomeFragment extends Fragment {
     private RecyclerView canteenDetailsRecyeclerView;
     private LinearLayoutManager linearLayoutManager;
     private String username;
+    private int userid;
 
-
-    public static HomeFragment newInstance(String text){
+    public static HomeFragment newInstance(String text,int userid){
         HomeFragment fragment = new HomeFragment();
         Bundle args = new Bundle();
         args.putString("username",text);
+        args.putInt("userid",userid);
         fragment.setArguments(args);
         return fragment;
     }
@@ -61,9 +62,11 @@ public class HomeFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState){
         view = inflater.inflate(R.layout.home,container,false);
-        if(getArguments() != null)
+        Bundle bundle = getArguments();
+        if(bundle != null)
         {
-            username = getArguments().getString("username");
+            username = bundle.getString("username");
+            userid = bundle.getInt("userid");
         }
 
         canteenDetailsRecyeclerView = (RecyclerView) view.findViewById(R.id.canteenList);
@@ -112,6 +115,7 @@ public class HomeFragment extends Fragment {
                     Intent intent = new Intent(view.getContext(), ShowCanteenDetailsActivity.class);
                     intent.putExtra("transCanteenDetail",transData);
                     intent.putExtra("username",username);
+                    intent.putExtra("userid",userid);
                     startActivity(intent);
                 }
             });

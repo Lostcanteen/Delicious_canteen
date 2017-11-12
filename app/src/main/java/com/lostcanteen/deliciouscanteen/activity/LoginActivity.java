@@ -14,8 +14,10 @@ import android.widget.TextView;
 import android.widget.Toast;
 import android.view.inputmethod.EditorInfo;
 
+import com.lostcanteen.deliciouscanteen.Book;
 import com.lostcanteen.deliciouscanteen.Dish;
 import com.lostcanteen.deliciouscanteen.R;
+import com.lostcanteen.deliciouscanteen.User;
 import com.lostcanteen.deliciouscanteen.WebTrans;
 
 import java.sql.Date;
@@ -26,7 +28,6 @@ public class LoginActivity extends AppCompatActivity {
     private EditText myPassword;
     private EditText myEmail;
     private Button loginButton;
-
 //    SharedPreferences sprfMain;
 //    SharedPreferences.Editor editorMain;
 
@@ -93,10 +94,12 @@ public class LoginActivity extends AppCompatActivity {
                     public void run() {
                         Boolean b = WebTrans.isPasswordTrue(
                                 myEmail.getText().toString(), myPassword.getText().toString());
-
                         if(b) { //加逻辑判断用户登录
+                            User user = WebTrans.isAdmin(myEmail.getText().toString());
+                            int userid = user.getUserid();
                             Intent intent = new Intent(LoginActivity.this, MainActivity.class);
                             intent.putExtra("loginUsername",myEmail.getText().toString());
+                            intent.putExtra("userid",userid);
                             startActivity(intent);
                         }
                         else {

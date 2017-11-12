@@ -1,5 +1,6 @@
 package com.lostcanteen.deliciouscanteen.activity;
 
+import com.lostcanteen.deliciouscanteen.Book;
 import com.lostcanteen.deliciouscanteen.WebTrans;
 import com.lostcanteen.deliciouscanteen.Dish;
 import com.lostcanteen.deliciouscanteen.R;
@@ -27,6 +28,7 @@ import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.ThemedSpinnerAdapter;
@@ -37,32 +39,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ShowCanteenDetailsActivity extends AppCompatActivity {
-    public final static int REQUESTCODE = 1;
 
-
-
-    //最开始穿了个对象
-    public static void actionStart(Context context,CanteenDetail  canteenDetail){
-        Intent intent = new Intent(context,ShowCanteenDetailsActivity.class);
-        intent.putExtra("transCanteenDetail",canteenDetail);
-        context.startActivity(intent);
-    }
-
-    @Override
-    protected void onActivityResult(int requestCode,int resultCode,Intent data){
-        super.onActivityResult(requestCode,resultCode,data);
-        switch (requestCode)
-        {
-            case 1:
-                if(resultCode == RESULT_OK){
-                    //可以获得评星的个数
-                    //评论
-
-                }
-                break;
-            default:
-        }
-    }
 
 
     private Toolbar toolbar;
@@ -77,6 +54,7 @@ public class ShowCanteenDetailsActivity extends AppCompatActivity {
     private ClassifyListAdapter classifyListAdapter;
     private FoodAdapter foodListAdapter;
     private TabLayout tabLayout;
+    private Button reserveButton;
 
     private List<ClassifyMeal> meals;
     private List<Dish> allFoods = new ArrayList<>();
@@ -88,10 +66,13 @@ public class ShowCanteenDetailsActivity extends AppCompatActivity {
     private int everyClassifyMealsNum[]; // 数组，用于记录食堂早中晚特色菜的数量，来确定表单的位置
     private int NowSelected;
     private CanteenDetail canteenDetail;
-
+    private String username;
+    private int userid;
 
     private int allFoodsPosition[];
     private int reserveFoodsPosition[];
+
+    private int reserveFoodNum[];
 
     private Handler handler = new Handler(){
         public void handleMessage(Message msg) {
@@ -101,6 +82,7 @@ public class ShowCanteenDetailsActivity extends AppCompatActivity {
                         everyClassifyMealsNum = allFoodsPosition;
                         foodListAdapter = new FoodAdapter(allFoods);
                         foodRecyclerView.setAdapter(foodListAdapter);
+                        reserveButton.setVisibility(View.GONE);
                     }
                     break;
                 case 1:
@@ -109,6 +91,7 @@ public class ShowCanteenDetailsActivity extends AppCompatActivity {
                         everyClassifyMealsNum =reserveFoodsPosition;
                         foodListAdapter = new FoodAdapter(reserveFoods);
                         foodRecyclerView.setAdapter(foodListAdapter);
+                        reserveButton.setVisibility(View.VISIBLE);
                     }
                     break;
                 default:
@@ -122,6 +105,8 @@ public class ShowCanteenDetailsActivity extends AppCompatActivity {
         setContentView(R.layout.activity_show_canteen_details);
 
         canteenDetail = (CanteenDetail)getIntent().getSerializableExtra("transCanteenDetail");
+        username = getIntent().getStringExtra("username");
+        userid = getIntent().getIntExtra("userid",-1);
 
         toolbar = (Toolbar) findViewById(R.id.show_detail_toolbar);
         collapsingToolbar = (CollapsingToolbarLayout)
@@ -129,8 +114,9 @@ public class ShowCanteenDetailsActivity extends AppCompatActivity {
         canteenImageView = (ImageView) findViewById(R.id.this_canteen_image);
         tabLayout = (TabLayout) findViewById(R.id.tabLayout);
         timeFloatActionButton = (FloatingActionButton)findViewById(R.id.floatingActionButton);
+        reserveButton = (Button) findViewById(R.id.addbook);
         setSupportActionBar(toolbar);
-        ActionBar actionBar = getSupportActionBar();
+        final ActionBar actionBar = getSupportActionBar();
         if(actionBar != null){
             actionBar.setDisplayHomeAsUpEnabled(true);
         }
@@ -155,25 +141,39 @@ public class ShowCanteenDetailsActivity extends AppCompatActivity {
             @Override
             public void run() {
 
-                allFoods.addAll(WebTrans.listMenu(11,new Date(2017,11,7),'B'));
+                allFoods.addAll(WebTrans.listMenu(canteenDetail.getCanteenid(),new Date(2017,11,7),'B'));
                 allFoodsPosition[1] = allFoods.size();
-                allFoods.addAll(WebTrans.listMenu(11,new Date(2017,11,7),'L'));
+                allFoods.addAll(WebTrans.listMenu(canteenDetail.getCanteenid(),new Date(2017,11,7),'L'));
                 allFoodsPosition[2] = allFoods.size();
-                allFoods.addAll(WebTrans.listMenu(11,new Date(2017,11,7),'D'));
+                allFoods.addAll(WebTrans.listMenu(canteenDetail.getCanteenid(),new Date(2017,11,7),'D'));
                 allFoodsPosition[3] = allFoods.size();
+                //allFoods.addAll(WebTrans.listDish(canteenDetail.getCanteenid(),'M'));
+                //allFoodsPosition[4] = allFoods.size();
 
-                reserveFoods.addAll( WebTrans.listMenu(11,new Date(2017,11,7),'b'));
+                reserveFoods.addAll( WebTrans.listMenu(canteenDetail.getCanteenid(),new Date(2017,11,7),'b'));
                 reserveFoodsPosition[1] = reserveFoods.size();
-                reserveFoods.addAll( WebTrans.listMenu(11,new Date(2017,11,7),'l'));
+                reserveFoods.addAll( WebTrans.listMenu(canteenDetail.getCanteenid(),new Date(2017,11,7),'l'));
                 reserveFoodsPosition[2] = reserveFoods.size();
-                reserveFoods.addAll( WebTrans.listMenu(11,new Date(2017,11,7),'d'));
+                reserveFoods.addAll( WebTrans.listMenu(canteenDetail.getCanteenid(),new Date(2017,11,7),'d'));
                 reserveFoodsPosition[3] = reserveFoods.size();
+               // reserveFoodsPosition[4] = reserveFoods.size();
+
+                reserveFoodNum = new int[reserveFoods.size()];
+                for(int i =0;i<reserveFoodNum.length;i++)
+                {
+                    reserveFoodNum[i] = 0;
+                }
 
                 Message message = new Message();
                 message.what = NowSelected;
                 handler.sendMessage(message);
             }
         }).start();
+
+
+
+
+
 
         timeFloatActionButton.setOnClickListener(new View.OnClickListener(){
             @Override
@@ -187,8 +187,6 @@ public class ShowCanteenDetailsActivity extends AppCompatActivity {
         tabLayout.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener(){
             @Override
             public void onTabSelected(TabLayout.Tab tab) {
-                Log.e("TAG","tab:"+tab.getPosition());
-
                 NowSelected = tab.getPosition();
                 Message message = new Message();
                 message.what = tab.getPosition();
@@ -235,6 +233,80 @@ public class ShowCanteenDetailsActivity extends AppCompatActivity {
                 }
             }
         });
+
+        reserveButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                new Thread(new Runnable() {
+                    @Override
+                    public void run() {
+                        ArrayList<Integer> breakfastPosition = new ArrayList<>();
+                        ArrayList<Integer> lunchPosition = new ArrayList<>();
+                        ArrayList<Integer> dinnerPosition = new ArrayList<>();
+                        for(int i = 0;i<reserveFoodNum.length;i++)
+                        {
+                            if(reserveFoodNum[i] >0)
+                            {
+                                if(i<reserveFoodsPosition[1])
+                                {
+                                    breakfastPosition.add(i);
+                                }
+                                else if(i<reserveFoodsPosition[2])
+                                {
+                                    lunchPosition.add(i);
+                                }
+                                else if(i<reserveFoodsPosition[3])
+                                {
+                                    dinnerPosition.add(i);
+                                }
+                            }
+                        }
+                        if(!breakfastPosition.isEmpty())
+                        {
+                            int[] breakcnt = new int[breakfastPosition.size()];
+                            int[] breakfoodnum = new int[breakfastPosition.size()];
+                            for(int i = 0;i<breakfastPosition.size();i++)
+                            {
+                                breakcnt[i] = reserveFoods.get(breakfastPosition.get(i)).getDishid();
+                                breakfoodnum[i] = reserveFoodNum[breakfastPosition.get(i)];
+                            }
+                            WebTrans.commitBook(canteenDetail.getCanteenid(),new Date(2017,11,7),'b',userid,breakcnt,breakfoodnum);
+                        }
+                        if(!lunchPosition.isEmpty())
+                        {
+                            int[] lunchcnt = new int[lunchPosition.size()];
+                            int[] lunchfoodnum = new int[lunchPosition.size()];
+                            for(int i = 0;i<lunchPosition.size();i++)
+                            {
+                                lunchcnt[i] = reserveFoods.get(lunchPosition.get(i)).getDishid();
+                                lunchfoodnum[i] = reserveFoodNum[lunchPosition.get(i)];
+                            }
+
+                            WebTrans.commitBook(canteenDetail.getCanteenid(),new Date(2017,11,7),'l',userid,lunchcnt,lunchfoodnum);
+
+
+                        }
+
+                        if(!dinnerPosition.isEmpty())
+                        {
+                            int[] dinnercnt = new int[dinnerPosition.size()];
+                            int[] dinnerfoodnum = new int[dinnerPosition.size()];
+                            for(int i = 0;i<dinnerPosition.size();i++)
+                            {
+                                dinnercnt[i] = reserveFoods.get(dinnerPosition.get(i)).getDishid();
+                                dinnerfoodnum[i] = reserveFoodNum[dinnerPosition.get(i)];
+                            }
+
+                            WebTrans.commitBook(canteenDetail.getCanteenid(),new Date(2017,11,7),'d',userid,dinnercnt,dinnerfoodnum);
+                        }
+
+
+                    }
+                }).start();
+                finish();
+            }
+        });
+
    }
     @Override
     public boolean onOptionsItemSelected(MenuItem item){
@@ -246,15 +318,6 @@ public class ShowCanteenDetailsActivity extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
-    public void showRecyeclerView(int position){
-        if(position == 0)
-        {
-
-        }
-        else if(position == 1) {
-
-        }
-    }
 
 
 
@@ -307,7 +370,7 @@ public class ShowCanteenDetailsActivity extends AppCompatActivity {
         ClassifyMeal meal1 = new ClassifyMeal(R.mipmap.breakfastmeal,"早餐");
         ClassifyMeal meal2 = new ClassifyMeal(R.mipmap.lunchmeal,"午餐");
         ClassifyMeal meal3 = new ClassifyMeal(R.mipmap.dinner,"晚餐");
-      //  ClassifyMeal meal4 = new ClassifyMeal(R.mipmap.specialmeal,"特色菜");
+        //ClassifyMeal meal4 = new ClassifyMeal(R.mipmap.specialmeal,"特色菜");
         meals.add(meal1);
         meals.add(meal2);
         meals.add(meal3);
@@ -366,12 +429,16 @@ public class ShowCanteenDetailsActivity extends AppCompatActivity {
             TextView foodName;
             TextView foodPrice;
             ImageView foodEvaluate;
+            TextView foodNum;
+            ImageView reduceFood;
             public ViewHolder(View view){
                 super(view);
                 foodImage = (ImageView) view.findViewById(R.id.testFoodImage);
                 foodName = (TextView) view.findViewById(R.id.testFood_name);
                 foodPrice = (TextView) view.findViewById(R.id.testFood_price);
                 foodEvaluate = (ImageView) view.findViewById(R.id.evaluate);
+                foodNum = (TextView)view.findViewById(R.id.num);
+                reduceFood = (ImageView) view.findViewById(R.id.delete);
             }
         }
         public FoodAdapter(List<Dish> foodList){this.foodList = foodList;}
@@ -408,6 +475,7 @@ public class ShowCanteenDetailsActivity extends AppCompatActivity {
                         Intent intent = new Intent(ShowCanteenDetailsActivity.this,EvaluateActivity.class);
                         intent.putExtra("transFood",food);
                         intent.putExtra("transCanteenId",canteenDetail.getCanteenid());
+                        intent.putExtra("username",username);
                         intent.putExtra("Date",new Date(2017,12,7));
                         startActivity(intent);
 
@@ -419,18 +487,35 @@ public class ShowCanteenDetailsActivity extends AppCompatActivity {
             }
             else if(NowSelected == 1)
             {
-                holder.foodEvaluate.setImageResource(R.mipmap.myreserve);
+                holder.foodEvaluate.setImageResource(R.mipmap.add_button);
+                holder.reduceFood.setImageResource(R.mipmap.reduce_button);
+                holder.foodNum.setText("0");
                 holder.foodEvaluate.setOnClickListener(new View.OnClickListener()
                 {
                     @Override
                     public void onClick(View v){
-//                        foods.get(position).num++;
-//                        Toast.makeText(ShowCanteenDetailsActivity.this,
-//                                food.getFoodName()+"数量+1",Toast.LENGTH_SHORT).show();
-                        //数量+;
+                        if(reserveFoodNum[position]<9)
+                        {
+                            reserveFoodNum[position]++;
+                            holder.foodNum.setText(((Integer)reserveFoodNum[position]).toString());
+                        }
+                    }
+                });
+                holder.reduceFood.setOnClickListener(new View.OnClickListener()
+                {
+                    @Override
+                    public void onClick(View v){
+                        if(reserveFoodNum[position]>0)
+                        {
+                            reserveFoodNum[position]--;
+                            holder.foodNum.setText(((Integer)reserveFoodNum[position]).toString());
+                        }
 
                     }
                 });
+
+
+
             }
 
         }

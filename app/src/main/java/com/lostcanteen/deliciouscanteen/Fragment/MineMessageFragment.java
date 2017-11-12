@@ -8,16 +8,18 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+import com.lostcanteen.deliciouscanteen.activity.ShowMyOrderActivity;
 
 /**
  * Created by zhou on 2017/10/29.
  */
 
 public class MineMessageFragment extends Fragment {
-    public static MineMessageFragment newInstance(String text){
+    public static MineMessageFragment newInstance(String text,int userid){
         MineMessageFragment fragment = new MineMessageFragment();
         Bundle args = new Bundle();
         args.putString("textUsername",text);
+        args.putInt("userid",userid);
         fragment.setArguments(args);
         return fragment;
     }
@@ -25,22 +27,26 @@ public class MineMessageFragment extends Fragment {
     private TextView textUsername;
     private TextView textAllOrder;
     private String username;
+    private int userid;
 
 
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState){
         final View view = inflater.inflate(R.layout.mine,container,false);
         textUsername = (TextView) view.findViewById(R.id.textUsername);
         textAllOrder = (TextView) view.findViewById(R.id.textAllOrder);
-        if(getArguments() != null)
+        Bundle args = getArguments();
+        if(args != null)
         {
-            username = getArguments().getString("textUsername");
+            username = args.getString("textUsername");
+            userid = args.getInt("userid");
             textUsername.setText(username);
         }
         textAllOrder.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v){
-                Intent intent = new Intent(view.getContext(),com.lostcanteen.deliciouscanteen.activity.ShowMyOrderActivity.class);
+                Intent intent = new Intent(view.getContext(),ShowMyOrderActivity.class);
                 intent.putExtra("username",username);
+                intent.putExtra("userid",userid);
                 startActivity(intent);
             }
         });

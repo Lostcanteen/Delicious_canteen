@@ -27,7 +27,45 @@ import java.util.Arrays;
 
 public class WebTrans {
 
-    private static String basicurl = "http://10.0.2.2:8080/Canteen/";
+    private static String basicurl = "http://canteen.applinzi.com/";
+
+    public static User isAdmin(String username) {
+        User ret = new User();
+        try {
+            URL url = new URL(basicurl+"IsAdmin");
+            HttpURLConnection http = (HttpURLConnection) url.openConnection();
+            http.setConnectTimeout(10000);
+            http.setReadTimeout(10000);
+            http.setDoInput(true);  //可读可写
+            http.setDoOutput(true);
+            http.setUseCaches(false);  //不允许使用缓存
+            http.setRequestMethod("POST");  //设置传输方式为 get
+            http.connect();  //创建连接
+
+            OutputStream os = http.getOutputStream();
+            OutputStreamWriter osw = new OutputStreamWriter(os);
+            BufferedWriter bw = new BufferedWriter(osw);
+            JSONArray jsonArray = new JSONArray();  //创建 json 对象
+            JSONObject jsonObject = new JSONObject();
+            jsonObject.put("username",username);
+            jsonArray.put(jsonObject);
+            bw.write(jsonArray.toString());
+            bw.flush();
+
+            ObjectInputStream ois = new ObjectInputStream(http.getInputStream());
+            ret = (User) ois.readObject();
+            if (os != null)  os.close();
+            if (osw != null)  osw.close();
+            if (bw != null)  bw.close();
+            ois.close();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return ret;
+    }
+
+
+
 
     public static boolean isUsernameExist(String username) {
         boolean flag=false;
