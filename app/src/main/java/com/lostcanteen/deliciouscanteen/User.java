@@ -1,16 +1,19 @@
 package com.lostcanteen.deliciouscanteen;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
 /**
  * Created by yw199 on 2017/10/21.
  */
 
-public class User {
+public class User implements Serializable {
     private int userid;
     private String username;
     private String password;
     private boolean admin;
+
+    public User() {}
 
     public User(int userid, String username, String password, boolean admin) {
         this.userid = userid;
