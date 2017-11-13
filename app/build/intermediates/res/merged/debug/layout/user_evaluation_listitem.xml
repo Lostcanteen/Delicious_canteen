@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:background="@color/white"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="9">
+
+        <ImageView
+            android:id="@+id/userImage"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:background="@drawable/item"
+            android:scaleType="centerCrop"
+            android:src="@drawable/logo" />
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/username"
+                style="@style/textStyle"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:textColor="@color/black"
+                android:background="@color/white"
+                android:gravity="center_vertical"
+                android:text="@string/my_order"
+                android:textSize="16sp" />
+            <RatingBar
+                android:background="@color/white"
+                android:id="@+id/dishStars"
+                android:isIndicator="true"
+                android:layout_width="wrap_content"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:numStars="5"
+                android:stepSize="1"
+                android:rating="1"/>
+        </LinearLayout>
+    </LinearLayout>
+    <TextView
+        android:id="@+id/evalauteText"
+        android:layout_width="match_parent"
+        style="@style/textStyle"
+        android:layout_height="67dp"
+        android:layout_marginLeft="100dp"
+        android:layout_weight="1"
+        android:background="@color/white"
+        android:textColor="@color/black"
+        android:text="ssss"
+        android:textSize="13sp" />
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="5dp"
+        android:background="@color/orange"/>
+
+</LinearLayout>

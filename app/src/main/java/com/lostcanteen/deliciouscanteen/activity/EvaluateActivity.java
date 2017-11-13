@@ -4,6 +4,8 @@ import com.lostcanteen.deliciouscanteen.WebTrans;
 import com.lostcanteen.deliciouscanteen.Dish;
 import com.lostcanteen.deliciouscanteen.Evaluation;
 import com.lostcanteen.deliciouscanteen.R;
+import com.squareup.picasso.Picasso;
+
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
@@ -74,6 +76,11 @@ public class EvaluateActivity extends AppCompatActivity {
         foodName.setText(food.getName());
         foodPrice.setText(((Float)food.getPrice()).toString());
         //foodImage.setImageResource(food.getFoodImageId());
+        Picasso.with(this)
+                .load(food.getImage())
+                .placeholder(R.color.white)
+                .error(R.drawable.logo)
+                .into(foodImage);
 
         submitEvaluate.setOnClickListener(new View.OnClickListener(){
             @Override

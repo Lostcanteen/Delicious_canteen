@@ -30,8 +30,7 @@
         <activity android:name="com.lostcanteen.deliciouscanteen.activity.AddEvaluationActivity" />
         <activity android:name="com.lostcanteen.deliciouscanteen.activity.AddSbookActivity" />
         <activity android:name="com.lostcanteen.deliciouscanteen.activity.EvaluateActivity" />
-        <activity android:name="com.lostcanteen.deliciouscanteen.activity.MainActivity" >
-        </activity>
+        <activity android:name="com.lostcanteen.deliciouscanteen.activity.MainActivity" />
         <activity android:name="com.lostcanteen.deliciouscanteen.activity.ShowCanteenDetailsActivity" />
         <activity android:name="com.lostcanteen.deliciouscanteen.activity.ShowMyOrderActivity" />
 
@@ -52,6 +51,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name="com.lostcanteen.deliciouscanteen.activity.DishEvaluationActivity" />
     </application>
 
 </manifest>

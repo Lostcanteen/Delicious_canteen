@@ -6,34 +6,37 @@
     density="xxhdpi"
     format="10"
     plugin-version="2.3.3"
-    timestamp="1510560581972"
+    timestamp="1510585634680"
     token="5724030638973701932"
     verifier="COLD_SWAP_REQUESTED" >
 
     <task
         name="javac"
-        duration="551" />
+        duration="0" />
     <task
         name="instant-run-dex"
         duration="0" />
     <task
         name="instant-run-transform"
-        duration="106" />
+        duration="0" />
     <task
         name="verifier"
-        duration="36" />
+        duration="0" />
 
-    <artifact
-        location="C:\Users\zhou\yangwan\Delicious_canteen\app\build\intermediates\split-apk\debug\slices\slice_9.apk"
-        type="SPLIT" />
     <artifact
         location="C:\Users\zhou\yangwan\Delicious_canteen\app\build\outputs\apk\app-debug.apk"
         type="SPLIT_MAIN" />
 
     <build
         build-mode="FULL"
-        timestamp="1510552597460"
+        timestamp="1510578356838"
         verifier="FULL_BUILD_REQUESTED" >
+        <artifact
+            location="C:\Users\zhou\yangwan\Delicious_canteen\app\build\intermediates\split-apk\debug\slices\slice_9.apk"
+            type="SPLIT" />
+        <artifact
+            location="C:\Users\zhou\yangwan\Delicious_canteen\app\build\outputs\apk\app-debug.apk"
+            type="SPLIT_MAIN" />
         <artifact
             location="C:\Users\zhou\yangwan\Delicious_canteen\app\build\intermediates\split-apk\debug\slices\slice_1.apk"
             type="SPLIT" />
@@ -56,9 +59,6 @@
             location="C:\Users\zhou\yangwan\Delicious_canteen\app\build\intermediates\split-apk\debug\slices\slice_4.apk"
             type="SPLIT" />
         <artifact
-            location="C:\Users\zhou\yangwan\Delicious_canteen\app\build\intermediates\split-apk\debug\slices\slice_9.apk"
-            type="SPLIT" />
-        <artifact
             location="C:\Users\zhou\yangwan\Delicious_canteen\app\build\intermediates\split-apk\debug\slices\slice_3.apk"
             type="SPLIT" />
         <artifact
@@ -67,17 +67,33 @@
         <artifact
             location="C:\Users\zhou\yangwan\Delicious_canteen\app\build\intermediates\split-apk\debug\dep\dependencies.apk"
             type="SPLIT" />
-        <artifact
-            location="C:\Users\zhou\yangwan\Delicious_canteen\app\build\outputs\apk\app-debug.apk"
-            type="SPLIT_MAIN" />
     </build>
     <build
         build-mode="COLD"
-        timestamp="1510560581972"
+        timestamp="1510583035912"
         verifier="COLD_SWAP_REQUESTED" >
+        <artifact
+            location="C:\Users\zhou\yangwan\Delicious_canteen\app\build\intermediates\split-apk\debug\slices\slice_2.apk"
+            type="SPLIT" />
+        <artifact
+            location="C:\Users\zhou\yangwan\Delicious_canteen\app\build\intermediates\split-apk\debug\slices\slice_4.apk"
+            type="SPLIT" />
+    </build>
+    <build
+        build-mode="COLD"
+        timestamp="1510585538754"
+        verifier="COLD_SWAP_REQUESTED" >
+        <artifact
+            location="C:\Users\zhou\yangwan\Delicious_canteen\app\build\intermediates\split-apk\debug\slices\slice_0.apk"
+            type="SPLIT" />
         <artifact
             location="C:\Users\zhou\yangwan\Delicious_canteen\app\build\intermediates\split-apk\debug\slices\slice_9.apk"
             type="SPLIT" />
+    </build>
+    <build
+        build-mode="COLD"
+        timestamp="1510585634680"
+        verifier="COLD_SWAP_REQUESTED" >
         <artifact
             location="C:\Users\zhou\yangwan\Delicious_canteen\app\build\outputs\apk\app-debug.apk"
             type="SPLIT_MAIN" />

@@ -18,14 +18,11 @@
         <activity android:name=".activity.AddCanteenActivity" />
         <activity android:name=".activity.AddDishActivity" />
         <activity android:name=".activity.AddEvaluationActivity" />
-        <activity android:name=".activity.AddSbookActivity"/>
-
-        <activity android:name=".activity.EvaluateActivity"/>
-        <activity android:name=".activity.MainActivity">
-
-        </activity>
-        <activity android:name=".activity.ShowCanteenDetailsActivity"/>
-        <activity android:name=".activity.ShowMyOrderActivity"/>
+        <activity android:name=".activity.AddSbookActivity" />
+        <activity android:name=".activity.EvaluateActivity" />
+        <activity android:name=".activity.MainActivity"></activity>
+        <activity android:name=".activity.ShowCanteenDetailsActivity" />
+        <activity android:name=".activity.ShowMyOrderActivity" />
 
         <provider
             android:name="android.support.v4.content.FileProvider"
@@ -44,6 +41,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".activity.DishEvaluationActivity"></activity>
     </application>
 
 </manifest>

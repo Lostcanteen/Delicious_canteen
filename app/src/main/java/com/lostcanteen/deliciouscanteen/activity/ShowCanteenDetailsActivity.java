@@ -485,7 +485,10 @@ public class ShowCanteenDetailsActivity extends AppCompatActivity {
             view.setOnClickListener(new View.OnClickListener(){
                 @Override
                 public void onClick(View v){
-
+                    Intent intent = new Intent(view.getContext(),DishEvaluationActivity.class);
+                    intent.putExtra("canteenid",canteenDetail.getCanteenid());
+                    intent.putExtra("food",foodList.get(holder.getAdapterPosition()));
+                    startActivity(intent);
                 }
             });
             return  holder;
