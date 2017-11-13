@@ -13,4 +13,6 @@
     <string name="daily_foods">每日食谱</string>
     <string name="reserve_foods">预定</string>
     <string name="submit">提交</string>
+    <string name="health">健康食谱</string>
+    <string name="birthday">生日宴预定</string>
 </resources>

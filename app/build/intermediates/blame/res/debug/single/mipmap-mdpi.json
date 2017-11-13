@@ -8,7 +8,15 @@
         "source": "C:\\Users\\zhou\\yangwan\\Delicious_canteen\\app\\src\\main\\res\\mipmap-mdpi\\ic_launcher.png"
     },
     {
+        "merged": "C:\\Users\\zhou\\yangwan\\Delicious_canteen\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-mdpi\\health.png",
+        "source": "C:\\Users\\zhou\\yangwan\\Delicious_canteen\\app\\src\\main\\res\\mipmap-mdpi\\health.png"
+    },
+    {
         "merged": "C:\\Users\\zhou\\yangwan\\Delicious_canteen\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-mdpi\\add_button.png",
         "source": "C:\\Users\\zhou\\yangwan\\Delicious_canteen\\app\\src\\main\\res\\mipmap-mdpi\\add_button.png"
+    },
+    {
+        "merged": "C:\\Users\\zhou\\yangwan\\Delicious_canteen\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-mdpi\\birthday.png",
+        "source": "C:\\Users\\zhou\\yangwan\\Delicious_canteen\\app\\src\\main\\res\\mipmap-mdpi\\birthday.png"
     }
 ]

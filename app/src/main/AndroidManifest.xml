@@ -18,6 +18,7 @@
         <activity android:name=".activity.AddCanteenActivity" />
         <activity android:name=".activity.AddDishActivity" />
         <activity android:name=".activity.AddEvaluationActivity" />
+        <activity android:name=".activity.AddSbookActivity"/>
 
         <activity android:name=".activity.EvaluateActivity"/>
         <activity android:name=".activity.MainActivity">

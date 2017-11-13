@@ -1,5 +1,6 @@
 package com.lostcanteen.deliciouscanteen.Fragment;
 
+import com.lostcanteen.deliciouscanteen.Helper.CircleTransform;
 import com.lostcanteen.deliciouscanteen.WebTrans;
 import com.lostcanteen.deliciouscanteen.R;
 import com.lostcanteen.deliciouscanteen.CanteenDetail;
@@ -128,15 +129,10 @@ public class HomeFragment extends Fragment {
             CanteenDetail canteenDetail = myList.get(position);
 
             Picasso.with(holder.canteenImage.getContext())
-                    .load("http://canteen-canteen.stor.sinaapp.com/12572201_1343370270884.jpg")
-                    .placeholder(R.drawable.logo)
+                    .load(canteenDetail.getPicture())
+                    .placeholder(R.color.colorPrimaryDark)
                     .error(R.drawable.logo)
                     .into(holder.canteenImage);
-            // holder.canteenImage.setImageResource(canteenDetail.getCanteenImageId());
-            //****************************************食堂图片数据库拉取***********************
-
-
-
             holder.canteenName.setText(canteenDetail.getName());
         }
 

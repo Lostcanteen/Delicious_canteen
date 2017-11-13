@@ -38,7 +38,7 @@ public class AddSbookActivity extends AppCompatActivity {
     private String type;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(final Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_sbook);
 

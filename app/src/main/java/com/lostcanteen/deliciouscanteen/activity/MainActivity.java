@@ -17,6 +17,7 @@ public class MainActivity extends AppCompatActivity {
 
     private HomeFragment home;
     private MineMessageFragment mine;
+    private FindFragment find;
     private Toolbar toolbar;
     private TextView title;
 
@@ -39,7 +40,7 @@ public class MainActivity extends AppCompatActivity {
                     return true;
                 case R.id.navigation_dashboard:
                     title.setText(R.string.title_find);
-                    transaction.replace(R.id.content,home);
+                    transaction.replace(R.id.content,find);
                     transaction.commit();
                     return true;
                 case R.id.navigation_notifications:
@@ -82,6 +83,7 @@ public class MainActivity extends AppCompatActivity {
         mine = MineMessageFragment.newInstance(usename,userid);
 
         home = HomeFragment.newInstance(usename,userid);
+        find = new FindFragment();
 
         setDefaultFragment();
         BottomNavigationView navigation = (BottomNavigationView) findViewById(R.id.navigation);

@@ -6,7 +6,11 @@ import com.lostcanteen.deliciouscanteen.Dish;
 import com.lostcanteen.deliciouscanteen.R;
 import com.lostcanteen.deliciouscanteen.CanteenDetail;
 import com.lostcanteen.deliciouscanteen.ClassifyMeal;
+import com.squareup.picasso.Picasso;
+
+import android.app.DatePickerDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
@@ -29,6 +33,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.DatePicker;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.ThemedSpinnerAdapter;
@@ -36,6 +41,7 @@ import android.widget.ThemedSpinnerAdapter;
 import java.sql.Date;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.List;
 
 public class ShowCanteenDetailsActivity extends AppCompatActivity {
@@ -55,10 +61,11 @@ public class ShowCanteenDetailsActivity extends AppCompatActivity {
     private FoodAdapter foodListAdapter;
     private TabLayout tabLayout;
     private Button reserveButton;
+    private DatePickerDialog datePickerDialog;
 
     private List<ClassifyMeal> meals;
-    private List<Dish> allFoods = new ArrayList<>();
-    private List<Dish> reserveFoods = new ArrayList<>();
+    private List<Dish> allFoods = new ArrayList<>();;
+    private List<Dish> reserveFoods = new ArrayList<>();;
 
 
 
@@ -69,35 +76,66 @@ public class ShowCanteenDetailsActivity extends AppCompatActivity {
     private String username;
     private int userid;
 
+    private Calendar calendar;
+    private int year,month,day;
+    private Date nowDate;
+
     private int allFoodsPosition[];
     private int reserveFoodsPosition[];
-
     private int reserveFoodNum[];
 
     private Handler handler = new Handler(){
         public void handleMessage(Message msg) {
             switch (msg.what){
                 case 0:
-                    if(allFoods.size() != 0){
-                        everyClassifyMealsNum = allFoodsPosition;
-                        foodListAdapter = new FoodAdapter(allFoods);
-                        foodRecyclerView.setAdapter(foodListAdapter);
-                        reserveButton.setVisibility(View.GONE);
-                    }
+                    everyClassifyMealsNum = allFoodsPosition;
+                    foodListAdapter = new FoodAdapter(allFoods);
+                    foodRecyclerView.setAdapter(foodListAdapter);
+                    reserveButton.setVisibility(View.GONE);
                     break;
                 case 1:
-                    if(reserveFoods.size() != 0)
-                    {
-                        everyClassifyMealsNum =reserveFoodsPosition;
-                        foodListAdapter = new FoodAdapter(reserveFoods);
-                        foodRecyclerView.setAdapter(foodListAdapter);
-                        reserveButton.setVisibility(View.VISIBLE);
-                    }
+                    everyClassifyMealsNum =reserveFoodsPosition;
+                    foodListAdapter = new FoodAdapter(reserveFoods);
+                    foodRecyclerView.setAdapter(foodListAdapter);
+                    reserveButton.setVisibility(View.VISIBLE);
                     break;
                 default:
             }
         }
     };
+
+    private void getList(){
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                allFoods.clear();
+                allFoods.addAll(WebTrans.listMenu(canteenDetail.getCanteenid(),nowDate,'B'));
+                allFoodsPosition[1] = allFoods.size();
+                allFoods.addAll(WebTrans.listMenu(canteenDetail.getCanteenid(),nowDate,'L'));
+                allFoodsPosition[2] = allFoods.size();
+                allFoods.addAll(WebTrans.listMenu(canteenDetail.getCanteenid(),nowDate,'D'));
+                allFoodsPosition[3] = allFoods.size();
+
+                reserveFoods.clear();
+                reserveFoods.addAll( WebTrans.listMenu(canteenDetail.getCanteenid(),nowDate,'b'));
+                reserveFoodsPosition[1] = reserveFoods.size();
+                reserveFoods.addAll( WebTrans.listMenu(canteenDetail.getCanteenid(),nowDate,'l'));
+                reserveFoodsPosition[2] = reserveFoods.size();
+                reserveFoods.addAll( WebTrans.listMenu(canteenDetail.getCanteenid(),nowDate,'d'));
+                reserveFoodsPosition[3] = reserveFoods.size();
+
+                reserveFoodNum = new int[reserveFoods.size()];
+                for(int i =0;i<reserveFoodNum.length;i++)
+                {
+                    reserveFoodNum[i] = 0;
+                }
+                Message message = new Message();
+                message.what = NowSelected;
+                handler.sendMessage(message);
+            }
+        }).start();
+    }
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -107,6 +145,12 @@ public class ShowCanteenDetailsActivity extends AppCompatActivity {
         canteenDetail = (CanteenDetail)getIntent().getSerializableExtra("transCanteenDetail");
         username = getIntent().getStringExtra("username");
         userid = getIntent().getIntExtra("userid",-1);
+        calendar = Calendar.getInstance();
+        year = calendar.get(Calendar.YEAR);
+        month = calendar.get(Calendar.MONTH);
+        day = calendar.get(Calendar.DAY_OF_MONTH);
+        nowDate = java.sql.Date.valueOf(((Integer)year).toString()
+                +"-"+((Integer)(month+1)).toString() + "-"+((Integer)day).toString());
 
         toolbar = (Toolbar) findViewById(R.id.show_detail_toolbar);
         collapsingToolbar = (CollapsingToolbarLayout)
@@ -123,6 +167,13 @@ public class ShowCanteenDetailsActivity extends AppCompatActivity {
         collapsingToolbar.setTitle(canteenDetail.getName());
 //图片***************************************************************8
         //canteenImageView.setImageResource(canteenDetail.getPicture());
+
+        Picasso.with(canteenImageView.getContext())
+                .load(canteenDetail.getPicture())
+                .placeholder(R.color.colorPrimaryDark)
+                .error(R.drawable.logo)
+                .into(canteenImageView);
+
         classifyListRecyclerView = (RecyclerView) findViewById(R.id.classifyList);
         managerClassifyList = new LinearLayoutManager(this);
         classifyListRecyclerView.setLayoutManager(managerClassifyList);
@@ -136,50 +187,34 @@ public class ShowCanteenDetailsActivity extends AppCompatActivity {
         classifyListAdapter = new ClassifyListAdapter(meals);
         classifyListRecyclerView.setAdapter(classifyListAdapter);
 
-
-        new Thread(new Runnable() {
-            @Override
-            public void run() {
-
-                allFoods.addAll(WebTrans.listMenu(canteenDetail.getCanteenid(),new Date(2017,11,7),'B'));
-                allFoodsPosition[1] = allFoods.size();
-                allFoods.addAll(WebTrans.listMenu(canteenDetail.getCanteenid(),new Date(2017,11,7),'L'));
-                allFoodsPosition[2] = allFoods.size();
-                allFoods.addAll(WebTrans.listMenu(canteenDetail.getCanteenid(),new Date(2017,11,7),'D'));
-                allFoodsPosition[3] = allFoods.size();
-                //allFoods.addAll(WebTrans.listDish(canteenDetail.getCanteenid(),'M'));
-                //allFoodsPosition[4] = allFoods.size();
-
-                reserveFoods.addAll( WebTrans.listMenu(canteenDetail.getCanteenid(),new Date(2017,11,7),'b'));
-                reserveFoodsPosition[1] = reserveFoods.size();
-                reserveFoods.addAll( WebTrans.listMenu(canteenDetail.getCanteenid(),new Date(2017,11,7),'l'));
-                reserveFoodsPosition[2] = reserveFoods.size();
-                reserveFoods.addAll( WebTrans.listMenu(canteenDetail.getCanteenid(),new Date(2017,11,7),'d'));
-                reserveFoodsPosition[3] = reserveFoods.size();
-               // reserveFoodsPosition[4] = reserveFoods.size();
-
-                reserveFoodNum = new int[reserveFoods.size()];
-                for(int i =0;i<reserveFoodNum.length;i++)
-                {
-                    reserveFoodNum[i] = 0;
-                }
-
-                Message message = new Message();
-                message.what = NowSelected;
-                handler.sendMessage(message);
-            }
-        }).start();
-
-
-
-
-
+        getList();
 
         timeFloatActionButton.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v){
-              //  foodListAdapter = new FoodAdapter(foods);
-               // foodRecyclerView.setAdapter(foodListAdapter);
+                datePickerDialog = new DatePickerDialog(v.getContext(), null,year, month, day);
+
+                datePickerDialog.setButton(DialogInterface.BUTTON_POSITIVE, "确认", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        DatePicker picker = datePickerDialog.getDatePicker();
+                        year = picker.getYear();
+                        month = picker.getMonth();
+                        day = picker.getDayOfMonth();
+                        nowDate = java.sql.Date.valueOf(((Integer)year).toString()
+                                +"-"+((Integer)(month+1)).toString() + "-"+((Integer)day).toString());
+
+                        getList();
+                    }
+                });
+                datePickerDialog.setButton(DialogInterface.BUTTON_NEGATIVE, "取消", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+
+                    }
+                });
+
+                datePickerDialog.show();
             }
         });
 
@@ -205,7 +240,6 @@ public class ShowCanteenDetailsActivity extends AppCompatActivity {
 
 
         });
-
         tabLayout.addTab(tabLayout.newTab().setText(R.string.daily_foods),true);
         tabLayout.addTab(tabLayout.newTab().setText(R.string.reserve_foods));
 
@@ -462,6 +496,12 @@ public class ShowCanteenDetailsActivity extends AppCompatActivity {
             final Dish food = foodList.get(position);
             //******************图片等************
            // holder.foodImage.setImageResource(food.getFoodImageId());
+
+            Picasso.with(holder.foodImage.getContext())
+                    .load(food.getImage())
+                    .placeholder(R.color.white)
+                    .error(R.drawable.logo)
+                    .into(holder.foodImage);
             holder.foodName.setText(food.getName());
             holder.foodPrice.setText(((Float)food.getPrice()).toString());
 
@@ -476,7 +516,7 @@ public class ShowCanteenDetailsActivity extends AppCompatActivity {
                         intent.putExtra("transFood",food);
                         intent.putExtra("transCanteenId",canteenDetail.getCanteenid());
                         intent.putExtra("username",username);
-                        intent.putExtra("Date",new Date(2017,12,7));
+                        intent.putExtra("Date",nowDate);
                         startActivity(intent);
 
                        // ShowCanteenDetailsActivity.this.startActivityForResult(intent,1);

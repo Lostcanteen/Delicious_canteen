@@ -193,6 +193,11 @@ public class ShowMyOrderActivity extends AppCompatActivity {
                 holder.mealName.setText(dish.getName());
 ////                //holder.mealImage.setImageResource();
 ////                //图片
+                Picasso.with(holder.mealImage.getContext())
+                        .load(dish.getImage())
+                        .placeholder(R.color.white)
+                        .error(R.drawable.logo)
+                        .into(holder.mealImage);
                 holder.mealPrice.setText(((Float)dish.getPrice()).toString());
                 holder.mealStars.setRating(evaluation.getStar());
                 holder.evaluationText.setText(evaluation.getComment());
@@ -295,6 +300,13 @@ public class ShowMyOrderActivity extends AppCompatActivity {
                 Book book = allBooks.get(position);
                 Dish dish = allReserveDish.get(position);
                 String b = book.getTypePattern();
+
+
+                Picasso.with(holder.reserveFoodImage.getContext())
+                        .load(dish.getImage())
+                        .placeholder(R.color.white)
+                        .error(R.drawable.logo)
+                        .into(holder.reserveFoodImage);
 
                 if(book.getTypePattern().equals("早餐"))
                 {

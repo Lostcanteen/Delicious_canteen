@@ -28,6 +28,7 @@
         <activity android:name="com.lostcanteen.deliciouscanteen.activity.AddCanteenActivity" />
         <activity android:name="com.lostcanteen.deliciouscanteen.activity.AddDishActivity" />
         <activity android:name="com.lostcanteen.deliciouscanteen.activity.AddEvaluationActivity" />
+        <activity android:name="com.lostcanteen.deliciouscanteen.activity.AddSbookActivity" />
         <activity android:name="com.lostcanteen.deliciouscanteen.activity.EvaluateActivity" />
         <activity android:name="com.lostcanteen.deliciouscanteen.activity.MainActivity" >
         </activity>

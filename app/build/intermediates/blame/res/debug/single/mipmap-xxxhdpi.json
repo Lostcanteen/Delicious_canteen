@@ -1,5 +1,9 @@
 [
     {
+        "merged": "C:\\Users\\zhou\\yangwan\\Delicious_canteen\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xxxhdpi\\health.png",
+        "source": "C:\\Users\\zhou\\yangwan\\Delicious_canteen\\app\\src\\main\\res\\mipmap-xxxhdpi\\health.png"
+    },
+    {
         "merged": "C:\\Users\\zhou\\yangwan\\Delicious_canteen\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xxxhdpi\\add_button.png",
         "source": "C:\\Users\\zhou\\yangwan\\Delicious_canteen\\app\\src\\main\\res\\mipmap-xxxhdpi\\add_button.png"
     },
@@ -10,5 +14,9 @@
     {
         "merged": "C:\\Users\\zhou\\yangwan\\Delicious_canteen\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xxxhdpi\\reduce_button.png",
         "source": "C:\\Users\\zhou\\yangwan\\Delicious_canteen\\app\\src\\main\\res\\mipmap-xxxhdpi\\reduce_button.png"
+    },
+    {
+        "merged": "C:\\Users\\zhou\\yangwan\\Delicious_canteen\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xxxhdpi\\birthday.png",
+        "source": "C:\\Users\\zhou\\yangwan\\Delicious_canteen\\app\\src\\main\\res\\mipmap-xxxhdpi\\birthday.png"
     }
 ]
