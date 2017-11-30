@@ -1,4 +1,4 @@
-#Sun Nov 12 12:18:06 CST 2017
+#Wed Nov 29 18:11:57 CST 2017
 file.2=C\:\\Users\\zhou\\yangwan\\Delicious_canteen\\app\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\10\\classes_9ca0e0704452f718d11e315b4cbe3a1e828c50fa\\classes.dex
 base.2=C\:\\Users\\zhou\\yangwan\\Delicious_canteen\\app\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\10\\classes_9ca0e0704452f718d11e315b4cbe3a1e828c50fa
 file.1=C\:\\Users\\zhou\\yangwan\\Delicious_canteen\\app\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\10\\classes_4a11cb84f946b2453a5834332841b622be1ccc5b\\classes.dex

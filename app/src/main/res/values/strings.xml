@@ -15,4 +15,13 @@
     <string name="submit">提交</string>
     <string name="health">健康食谱</string>
     <string name="birthday">生日宴预定</string>
+    <string name="newUser">新用户注册</string>
+    <string name="problem">登录遇到问题？</string>
+    <string name="tabTypeOne">管理员</string>
+    <string name="tabTypeTwo">普通用户</string>
+    <string name="phone">Phone</string>
+    <string name="password">Password</string>
+    <string name="login">Login</string>
+    <string name="register">Register</string>
+    <string name="lengthError">密码长度不能小于4位</string>
 </resources>

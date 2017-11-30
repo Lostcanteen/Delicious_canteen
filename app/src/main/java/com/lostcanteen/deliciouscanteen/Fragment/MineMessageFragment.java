@@ -7,7 +7,10 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.TextView;
+
+import com.lostcanteen.deliciouscanteen.activity.MainActivity;
 import com.lostcanteen.deliciouscanteen.activity.ShowMyOrderActivity;
 
 /**
@@ -26,6 +29,7 @@ public class MineMessageFragment extends Fragment {
 
     private TextView textUsername;
     private TextView textAllOrder;
+    private Button logout;
     private String username;
     private int userid;
 
@@ -34,6 +38,7 @@ public class MineMessageFragment extends Fragment {
         final View view = inflater.inflate(R.layout.mine,container,false);
         textUsername = (TextView) view.findViewById(R.id.textUsername);
         textAllOrder = (TextView) view.findViewById(R.id.textAllOrder);
+        logout = (Button) view.findViewById(R.id.cancellation);
         Bundle args = getArguments();
         if(args != null)
         {
@@ -48,6 +53,13 @@ public class MineMessageFragment extends Fragment {
                 intent.putExtra("username",username);
                 intent.putExtra("userid",userid);
                 startActivity(intent);
+            }
+        });
+
+        logout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                getActivity().finish();
             }
         });
 

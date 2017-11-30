@@ -20,7 +20,7 @@
         <activity android:name=".activity.AddEvaluationActivity" />
         <activity android:name=".activity.AddSbookActivity" />
         <activity android:name=".activity.EvaluateActivity" />
-        <activity android:name=".activity.MainActivity"></activity>
+        <activity android:name=".activity.MainActivity" />
         <activity android:name=".activity.ShowCanteenDetailsActivity" />
         <activity android:name=".activity.ShowMyOrderActivity" />
 
@@ -41,7 +41,10 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".activity.DishEvaluationActivity"></activity>
+        <activity android:name=".activity.DishEvaluationActivity" />
+        <activity android:name=".activity.AddBookActivity" />
+        <activity android:name=".activity.RegisterActivity" />
+        <activity android:name=".activity.ReleaseDailyFoodsActivity"></activity>
     </application>
 
 </manifest>
