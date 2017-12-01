@@ -23,6 +23,19 @@
                android:layout_height="match_parent"
                android:scaleType="centerCrop"
                app:layout_collapseMode="parallax"/>
+           <TextView
+               android:id="@+id/detail"
+               android:clickable="true"
+               android:layout_width="match_parent"
+               android:layout_height="wrap_content"
+               android:textSize="16sp"
+               android:textColor="@android:color/white"
+               android:layout_marginBottom="32dp"
+               android:gravity="right"
+               android:layout_marginRight="32dp"
+               app:layout_collapseMode="parallax"
+               android:layout_gravity="bottom"
+               android:text="@string/detail"/>
            <android.support.v7.widget.Toolbar
                android:id="@+id/show_detail_toolbar"
                android:layout_width="match_parent"

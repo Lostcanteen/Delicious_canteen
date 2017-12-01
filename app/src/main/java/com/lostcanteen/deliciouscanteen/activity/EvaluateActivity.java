@@ -75,6 +75,8 @@ public class EvaluateActivity extends AppCompatActivity {
 
         foodName.setText(food.getName());
         foodPrice.setText(((Float)food.getPrice()).toString());
+        if(food.getDishid()==0)
+            foodPrice.setText("");
         //foodImage.setImageResource(food.getFoodImageId());
         Picasso.with(this)
                 .load(food.getImage())

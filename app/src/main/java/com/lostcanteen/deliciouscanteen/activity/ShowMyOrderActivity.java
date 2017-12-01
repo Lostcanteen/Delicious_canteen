@@ -1,7 +1,6 @@
 package com.lostcanteen.deliciouscanteen.activity;
 
 
-import com.lostcanteen.deliciouscanteen.Adapter.MyAdapter;
 import com.lostcanteen.deliciouscanteen.Book;
 import com.lostcanteen.deliciouscanteen.Dish;
 import com.lostcanteen.deliciouscanteen.Evaluation;
@@ -346,7 +345,32 @@ public class ShowMyOrderActivity extends AppCompatActivity {
 
 
 
+    class MyAdapter extends FragmentPagerAdapter {
 
+        private ArrayList<String> titleList;
+        private ArrayList<Fragment> fragmentList;
+
+        public MyAdapter(FragmentManager fm, ArrayList<String> titleList, ArrayList<Fragment> fragmentList) {
+            super(fm);
+            this.titleList = titleList;
+            this.fragmentList = fragmentList;
+        }
+
+        @Override
+        public Fragment getItem(int position) {
+            return fragmentList.get(position);
+        }
+
+        @Override
+        public int getCount() {
+            return fragmentList.size();
+        }
+
+        @Override
+        public CharSequence getPageTitle(int position) {
+            return titleList.get(position);
+        }
+    }
 
 
 }

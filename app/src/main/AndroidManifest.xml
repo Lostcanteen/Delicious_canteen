@@ -42,9 +42,9 @@
             </intent-filter>
         </activity>
         <activity android:name=".activity.DishEvaluationActivity" />
-        <activity android:name=".activity.AddBookActivity" />
-        <activity android:name=".activity.RegisterActivity" />
-        <activity android:name=".activity.ReleaseDailyFoodsActivity"></activity>
+        <activity android:name=".activity.WebActivity" />
+        <activity android:name=".activity.DetailActivity" />
+        <activity android:name=".activity.UpdateCanteenActivity"></activity>
     </application>
 
 </manifest>

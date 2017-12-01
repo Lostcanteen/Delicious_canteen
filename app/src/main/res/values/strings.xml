@@ -7,6 +7,12 @@
     <string name="my_reserve">我的预定</string>
     <string name="my_settings">设置</string>
     <string name="my_cancellation">注销</string>
+    <string name="canteen_position">地址</string>
+    <string name="detail">查看详情></string>
+    <string name="modify">修改</string>
+    <string name="business_hours">营业时间</string>
+    <string name="main_dish">主营菜色</string>
+    <string name="suggestion">意见或建议</string>
 
     <string name="click_detail">查看详情</string>
 
@@ -15,13 +21,4 @@
     <string name="submit">提交</string>
     <string name="health">健康食谱</string>
     <string name="birthday">生日宴预定</string>
-    <string name="newUser">新用户注册</string>
-    <string name="problem">登录遇到问题？</string>
-    <string name="tabTypeOne">管理员</string>
-    <string name="tabTypeTwo">普通用户</string>
-    <string name="phone">Phone</string>
-    <string name="password">Password</string>
-    <string name="login">Login</string>
-    <string name="register">Register</string>
-    <string name="lengthError">密码长度不能小于4位</string>
 </resources>

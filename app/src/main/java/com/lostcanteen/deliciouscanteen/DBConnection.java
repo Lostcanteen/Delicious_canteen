@@ -744,7 +744,7 @@ public class DBConnection {
     /**
      * 菜品评价查询 (done)
      * @param canteenid 食堂id
-     * @param dishid 菜品id
+     * @param dishid 菜品id id==0 对食堂意见或建议
      * @return 评价信息list
      * @throws SQLException
      */

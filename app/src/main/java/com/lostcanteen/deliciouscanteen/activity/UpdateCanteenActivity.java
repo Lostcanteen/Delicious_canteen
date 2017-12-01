@@ -25,23 +25,20 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.lostcanteen.deliciouscanteen.CanteenDetail;
-import com.lostcanteen.deliciouscanteen.DBConnection;
 import com.lostcanteen.deliciouscanteen.FTP;
 import com.lostcanteen.deliciouscanteen.FlowLayout;
 import com.lostcanteen.deliciouscanteen.R;
 import com.lostcanteen.deliciouscanteen.TagItem;
 import com.lostcanteen.deliciouscanteen.WebTrans;
+import com.squareup.picasso.Picasso;
 
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
-import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.UUID;
 
-//从前页面接受adminid，用于certain按钮点击创建
-//certain点击进入下一页面编写
-public class AddCanteenActivity extends AppCompatActivity {
+public class UpdateCanteenActivity extends AppCompatActivity {
 
     public static final int TAKE_PHOTO = 1;
     public static final int CHOOSE_PHOTO = 2;
@@ -58,23 +55,26 @@ public class AddCanteenActivity extends AppCompatActivity {
     private EditText inputLabel;
     private Button btnSure;
     private ArrayList<TagItem> mAddTags = new ArrayList<TagItem>();
-    private String[] spot = {"包厢预订","生日宴会订做"}; //初始场景
+    private String[] spot ;
     ArrayList<String>  list = new ArrayList<String>();
 
     private String basicImagePath = "http://canteen-canteen.stor.sinaapp.com/";
     private String newImagePath ="";
     private File file; // 图片上传到网络，重命名
-    private int adminid = 1; //从前页面接受adminid，用于certain按钮点击创建
+    private CanteenDetail canteenDetail;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_canteen);
 
+        canteenDetail = (CanteenDetail) getIntent().getSerializableExtra("canteenDetail");
+
         //标签
         mTagLayout = (FlowLayout) findViewById(R.id.tag_layout);
         inputLabel = (EditText) findViewById(R.id.book);
         btnSure = (Button) findViewById(R.id.add);
+        spot = canteenDetail.getSbookpattern();
         initList();
         initLayout(list);
         initBtnListener();
@@ -84,13 +84,22 @@ public class AddCanteenActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         canteenName = (EditText) findViewById(R.id.canteenName);
+        canteenName.setText(canteenDetail.getName());
         location = (EditText) findViewById(R.id.location);
+        location.setText(canteenDetail.getLocation());
         time = (EditText) findViewById(R.id.time);
+        time.setText(canteenDetail.getHours());
         bookon = (Switch) findViewById(R.id.bookon) ;
+        bookon.setChecked(canteenDetail.isSpecialbook());
         Button takePhoto = (Button) findViewById(R.id.photo);
         Button chooseFromAlbum = (Button) findViewById(R.id.album);
         Button certain = (Button) findViewById(R.id.certain);
         picture = (ImageView) findViewById(R.id.imageView);
+        Picasso.with(picture.getContext())
+                .load(canteenDetail.getPicture())
+                .placeholder(R.color.colorPrimaryDark)
+                .error(R.drawable.logo)
+                .into(picture);
         takePhoto.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 UUID uuid = UUID.randomUUID();
@@ -107,7 +116,7 @@ public class AddCanteenActivity extends AppCompatActivity {
                     e.printStackTrace();
                 }
                 if (Build.VERSION.SDK_INT >= 24) {
-                    imageUri = FileProvider.getUriForFile(AddCanteenActivity.this,
+                    imageUri = FileProvider.getUriForFile(UpdateCanteenActivity.this,
                             "com.lostcanteen.deliciouscanteen",outputImage);
                 } else {
                     imageUri = Uri.fromFile(outputImage);
@@ -121,9 +130,9 @@ public class AddCanteenActivity extends AppCompatActivity {
 
         chooseFromAlbum.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                if (ContextCompat.checkSelfPermission(AddCanteenActivity.this,
+                if (ContextCompat.checkSelfPermission(UpdateCanteenActivity.this,
                         android.Manifest.permission.WRITE_EXTERNAL_STORAGE)!= PackageManager.PERMISSION_GRANTED) {
-                    ActivityCompat.requestPermissions(AddCanteenActivity.this,new String[]{android.Manifest.permission.WRITE_EXTERNAL_STORAGE},1);
+                    ActivityCompat.requestPermissions(UpdateCanteenActivity.this,new String[]{android.Manifest.permission.WRITE_EXTERNAL_STORAGE},1);
                 } else {
                     openAlbum();
                 }
@@ -137,12 +146,15 @@ public class AddCanteenActivity extends AppCompatActivity {
                     @Override
                     public void run() {
                         try {
-                            new FTP().uploadSingleFile(file,"/canteen", new FTP.UploadProgressListener() {
-                                @Override
-                                public void onUploadProgress(String currentStep, long uploadSize, File file) {
+                            if(file!=null) {
+                                new FTP().uploadSingleFile(file,"/canteen", new FTP.UploadProgressListener() {
+                                    @Override
+                                    public void onUploadProgress(String currentStep, long uploadSize, File file) {
 
-                                }
-                            });
+                                    }
+                                });
+                            }
+
                         } catch (IOException e) {
                             e.printStackTrace();
                         }
@@ -152,12 +164,16 @@ public class AddCanteenActivity extends AppCompatActivity {
                         String hour = time.getText().toString();
                         Boolean on = bookon.isChecked();
                         String[] spots = (String[]) list.toArray(new String[list.size()]);
-                        CanteenDetail tmp = new CanteenDetail(0,newImagePath,canteenname,loc,hour,on,spots,adminid);
-                        WebTrans.addCanteen(tmp);
+                        if(newImagePath.equals(""))
+                            newImagePath = canteenDetail.getPicture();
+                        CanteenDetail tmp = new CanteenDetail(canteenDetail.getCanteenid(),newImagePath,canteenname,loc,hour,on,spots,0);
+                        WebTrans.updateCanteen(tmp);
                         finish();
-
                     }
                 }).start();
+
+
+                //添加页面跳转 注意线程编写
             }
         });
     }
@@ -309,7 +325,7 @@ public class AddCanteenActivity extends AppCompatActivity {
 
             final int pos = i;
 
-            final View view = (View) LayoutInflater.from(AddCanteenActivity.this).inflate(R.layout.text_view, mTagLayout, false);
+            final View view = (View) LayoutInflater.from(UpdateCanteenActivity.this).inflate(R.layout.text_view, mTagLayout, false);
 
             final TextView text = (TextView) view.findViewById(R.id.text);  //查找  到当前     textView
             final TextView icon = (TextView) view.findViewById(R.id.delete_icon);  //查找  到当前  删除小图标

@@ -28,7 +28,6 @@ public class LoginActivity extends AppCompatActivity {
     private EditText myPassword;
     private EditText myEmail;
     private Button loginButton;
-    private TextView newUser;
 //    SharedPreferences sprfMain;
 //    SharedPreferences.Editor editorMain;
 
@@ -64,7 +63,6 @@ public class LoginActivity extends AppCompatActivity {
 
         myEmail = (EditText) findViewById(R.id.loginUsername);
         myPassword = (EditText) findViewById(R.id.loginPassword);
-        newUser = (TextView) findViewById(R.id.newUser);
 
         myPassword.setOnEditorActionListener(new TextView.OnEditorActionListener() {
             @Override
@@ -82,13 +80,6 @@ public class LoginActivity extends AppCompatActivity {
             public void onClick(View view) {
                 attemptLogin();
 
-            }
-        });
-        newUser.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(LoginActivity.this,RegisterActivity.class);
-                startActivity(intent);
             }
         });
     }
@@ -109,7 +100,6 @@ public class LoginActivity extends AppCompatActivity {
                             Intent intent = new Intent(LoginActivity.this, MainActivity.class);
                             intent.putExtra("loginUsername",myEmail.getText().toString());
                             intent.putExtra("userid",userid);
-                            intent.putExtra("isAdmin",user.isAdmin());
                             startActivity(intent);
                         }
                         else {

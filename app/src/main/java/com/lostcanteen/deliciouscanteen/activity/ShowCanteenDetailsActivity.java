@@ -13,6 +13,7 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Color;
+import android.graphics.Paint;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
@@ -29,6 +30,7 @@ import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.LayoutInflater;
+import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
@@ -62,10 +64,11 @@ public class ShowCanteenDetailsActivity extends AppCompatActivity {
     private TabLayout tabLayout;
     private Button reserveButton;
     private DatePickerDialog datePickerDialog;
+    private TextView detail;
 
     private List<ClassifyMeal> meals;
-    private List<Dish> allFoods = new ArrayList<>();;
-    private List<Dish> reserveFoods = new ArrayList<>();;
+    private List<Dish> allFoods = new ArrayList<>();
+    private List<Dish> reserveFoods = new ArrayList<>();
 
 
 
@@ -152,6 +155,8 @@ public class ShowCanteenDetailsActivity extends AppCompatActivity {
         nowDate = java.sql.Date.valueOf(((Integer)year).toString()
                 +"-"+((Integer)(month+1)).toString() + "-"+((Integer)day).toString());
 
+        detail = (TextView) findViewById(R.id.detail);
+        detail.getPaint().setFlags(Paint. UNDERLINE_TEXT_FLAG); //下划线
         toolbar = (Toolbar) findViewById(R.id.show_detail_toolbar);
         collapsingToolbar = (CollapsingToolbarLayout)
                 findViewById(R.id.canteen_toolbar);
@@ -188,6 +193,16 @@ public class ShowCanteenDetailsActivity extends AppCompatActivity {
         classifyListRecyclerView.setAdapter(classifyListAdapter);
 
         getList();
+
+        detail.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(ShowCanteenDetailsActivity.this,DetailActivity.class);
+                intent.putExtra("canteenDetailid",canteenDetail.getCanteenid());
+                intent.putExtra("username",username);
+                startActivity(intent);
+            }
+        });
 
         timeFloatActionButton.setOnClickListener(new View.OnClickListener(){
             @Override
@@ -304,7 +319,7 @@ public class ShowCanteenDetailsActivity extends AppCompatActivity {
                                 breakcnt[i] = reserveFoods.get(breakfastPosition.get(i)).getDishid();
                                 breakfoodnum[i] = reserveFoodNum[breakfastPosition.get(i)];
                             }
-                            WebTrans.commitBook(canteenDetail.getCanteenid(),nowDate,'b',userid,breakcnt,breakfoodnum);
+                            WebTrans.commitBook(canteenDetail.getCanteenid(),new Date(2017,11,7),'b',userid,breakcnt,breakfoodnum);
                         }
                         if(!lunchPosition.isEmpty())
                         {
@@ -316,7 +331,7 @@ public class ShowCanteenDetailsActivity extends AppCompatActivity {
                                 lunchfoodnum[i] = reserveFoodNum[lunchPosition.get(i)];
                             }
 
-                            WebTrans.commitBook(canteenDetail.getCanteenid(),nowDate,'l',userid,lunchcnt,lunchfoodnum);
+                            WebTrans.commitBook(canteenDetail.getCanteenid(),new Date(2017,11,7),'l',userid,lunchcnt,lunchfoodnum);
 
 
                         }
@@ -331,7 +346,7 @@ public class ShowCanteenDetailsActivity extends AppCompatActivity {
                                 dinnerfoodnum[i] = reserveFoodNum[dinnerPosition.get(i)];
                             }
 
-                            WebTrans.commitBook(canteenDetail.getCanteenid(),nowDate,'d',userid,dinnercnt,dinnerfoodnum);
+                            WebTrans.commitBook(canteenDetail.getCanteenid(),new Date(2017,11,7),'d',userid,dinnercnt,dinnerfoodnum);
                         }
 
 
@@ -342,6 +357,7 @@ public class ShowCanteenDetailsActivity extends AppCompatActivity {
         });
 
    }
+
     @Override
     public boolean onOptionsItemSelected(MenuItem item){
         switch (item.getItemId()){
@@ -412,6 +428,7 @@ public class ShowCanteenDetailsActivity extends AppCompatActivity {
 
         return  meals;
     }
+
 
 
     //*****************************获得数据

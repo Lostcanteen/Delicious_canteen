@@ -4,8 +4,6 @@ import com.lostcanteen.deliciouscanteen.Helper.CircleTransform;
 import com.lostcanteen.deliciouscanteen.WebTrans;
 import com.lostcanteen.deliciouscanteen.R;
 import com.lostcanteen.deliciouscanteen.CanteenDetail;
-import com.lostcanteen.deliciouscanteen.activity.RegisterActivity;
-import com.lostcanteen.deliciouscanteen.activity.ReleaseDailyFoodsActivity;
 import com.lostcanteen.deliciouscanteen.activity.ShowCanteenDetailsActivity;
 import com.squareup.picasso.Picasso;
 
@@ -37,14 +35,12 @@ public class HomeFragment extends Fragment {
     private LinearLayoutManager linearLayoutManager;
     private String username;
     private int userid;
-    private boolean isAdmin;
 
-    public static HomeFragment newInstance(String text,int userid,boolean isAdmin){
+    public static HomeFragment newInstance(String text,int userid){
         HomeFragment fragment = new HomeFragment();
         Bundle args = new Bundle();
         args.putString("username",text);
         args.putInt("userid",userid);
-        args.putBoolean("isAdmin",isAdmin);
         fragment.setArguments(args);
         return fragment;
     }
@@ -72,7 +68,6 @@ public class HomeFragment extends Fragment {
         {
             username = bundle.getString("username");
             userid = bundle.getInt("userid");
-            isAdmin = bundle.getBoolean("isAdmin");
         }
 
         canteenDetailsRecyeclerView = (RecyclerView) view.findViewById(R.id.canteenList);
@@ -82,14 +77,7 @@ public class HomeFragment extends Fragment {
         new Thread(new Runnable() {
             @Override
             public void run() {
-                if(isAdmin)
-                {
-                    canteenDetailsList = WebTrans.adminCantainDetail(userid);
-                }
-                else {
-                    canteenDetailsList = WebTrans.allCantainDetail();
-                }
-
+                canteenDetailsList = WebTrans.allCantainDetail();
                 Message message = new Message();
                 message.what = UPDATE_CANTEENDETAILS;
                 handler.sendMessage(message);
@@ -125,15 +113,7 @@ public class HomeFragment extends Fragment {
                 @Override
                 public void onClick(View v){
                     CanteenDetail transData = myList.get(holder.getAdapterPosition());
-                    Intent intent;
-                    if(isAdmin)
-                    {
-                        intent = new Intent(view.getContext(), ReleaseDailyFoodsActivity.class);
-                    }
-                    else
-                    {
-                        intent = new Intent(view.getContext(), ShowCanteenDetailsActivity.class);
-                    }
+                    Intent intent = new Intent(view.getContext(), ShowCanteenDetailsActivity.class);
                     intent.putExtra("transCanteenDetail",transData);
                     intent.putExtra("username",username);
                     intent.putExtra("userid",userid);

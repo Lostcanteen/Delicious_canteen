@@ -64,9 +64,6 @@ public class WebTrans {
         return ret;
     }
 
-
-
-
     public static boolean isUsernameExist(String username) {
         boolean flag=false;
         try {
@@ -334,7 +331,40 @@ public class WebTrans {
     public static boolean addCanteen(CanteenDetail canteenDetail) {
         boolean flag=false;
         try {
-            URL url = new URL(basicurl+"AddCanteenActivity");
+            URL url = new URL(basicurl+"AddCanteen");
+            HttpURLConnection http = (HttpURLConnection) url.openConnection();
+            http.setConnectTimeout(10000);
+            http.setReadTimeout(10000);
+            http.setDoInput(true);  //可读可写
+            http.setDoOutput(true);
+            http.setRequestMethod("POST");  //设置传输方式为 get
+
+            ObjectOutputStream oos = new ObjectOutputStream(http.getOutputStream());
+            oos.writeObject(canteenDetail);
+
+            InputStream is = http.getInputStream();
+            InputStreamReader isr = new InputStreamReader(is);
+            BufferedReader br = new BufferedReader(isr);
+
+            String result = br.readLine();  //获取web 端返回的数据
+            if(result.equals("true")) {
+                flag = true;
+            }
+            if (is != null)  is.close();
+            if (isr != null)  isr.close();
+            if (br != null)  br.close();
+            oos.close();
+            http.disconnect();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return flag;
+    }
+
+    public static boolean updateCanteen(CanteenDetail canteenDetail) {
+        boolean flag=false;
+        try {
+            URL url = new URL(basicurl+"UpdateCanteen");
             HttpURLConnection http = (HttpURLConnection) url.openConnection();
             http.setConnectTimeout(10000);
             http.setReadTimeout(10000);
@@ -896,6 +926,26 @@ public class WebTrans {
             e.printStackTrace();
         }
         return flag;
+    }
+
+    public static ArrayList<Article> articleList() {
+        ArrayList<Article> ret= new ArrayList<>();
+        try {
+            URL url = new URL(basicurl+"ArticleList");
+            HttpURLConnection http = (HttpURLConnection) url.openConnection();
+            http.setConnectTimeout(10000);
+            http.setReadTimeout(10000);
+            http.setDoInput(true);  //可读可写
+            http.setDoOutput(true);
+            http.setUseCaches(false);  //不允许使用缓存
+            http.setRequestMethod("POST");  //设置传输方式为 get
+            http.connect();  //创建连接
+            ObjectInputStream ois = new ObjectInputStream(http.getInputStream());
+            ret = (ArrayList<Article>) ois.readObject();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return ret;
     }
 
     //菜单显示的格式转换
