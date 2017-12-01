@@ -8,6 +8,18 @@
         "source": "C:\\Users\\zhou\\yangwan\\Delicious_canteen\\app\\build\\generated\\res\\pngs\\debug\\drawable-hdpi\\ic_person_black_24dp.png"
     },
     {
+        "merged": "C:\\Users\\zhou\\yangwan\\Delicious_canteen\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\suggestion.png",
+        "source": "C:\\Users\\zhou\\yangwan\\Delicious_canteen\\app\\src\\main\\res\\drawable-hdpi\\suggestion.png"
+    },
+    {
+        "merged": "C:\\Users\\zhou\\yangwan\\Delicious_canteen\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\position.png",
+        "source": "C:\\Users\\zhou\\yangwan\\Delicious_canteen\\app\\src\\main\\res\\drawable-hdpi\\position.png"
+    },
+    {
+        "merged": "C:\\Users\\zhou\\yangwan\\Delicious_canteen\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\time.png",
+        "source": "C:\\Users\\zhou\\yangwan\\Delicious_canteen\\app\\src\\main\\res\\drawable-hdpi\\time.png"
+    },
+    {
         "merged": "C:\\Users\\zhou\\yangwan\\Delicious_canteen\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\ic_home_black_24dp.png",
         "source": "C:\\Users\\zhou\\yangwan\\Delicious_canteen\\app\\build\\generated\\res\\pngs\\debug\\drawable-hdpi\\ic_home_black_24dp.png"
     }

@@ -200,6 +200,7 @@ public class ShowCanteenDetailsActivity extends AppCompatActivity {
                 Intent intent = new Intent(ShowCanteenDetailsActivity.this,DetailActivity.class);
                 intent.putExtra("canteenDetailid",canteenDetail.getCanteenid());
                 intent.putExtra("username",username);
+                intent.putExtra("isAdmin",false);
                 startActivity(intent);
             }
         });

@@ -6,5 +6,9 @@
     {
         "merged": "C:\\Users\\zhou\\yangwan\\Delicious_canteen\\app\\build\\intermediates\\res\\merged\\debug\\menu\\navigation.xml",
         "source": "C:\\Users\\zhou\\yangwan\\Delicious_canteen\\app\\src\\main\\res\\menu\\navigation.xml"
+    },
+    {
+        "merged": "C:\\Users\\zhou\\yangwan\\Delicious_canteen\\app\\build\\intermediates\\res\\merged\\debug\\menu\\detail.xml",
+        "source": "C:\\Users\\zhou\\yangwan\\Delicious_canteen\\app\\src\\main\\res\\menu\\detail.xml"
     }
 ]

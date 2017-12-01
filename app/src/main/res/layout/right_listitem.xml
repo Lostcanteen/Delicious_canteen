@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="3dp"
+        android:background="@color/gray"/>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <View
+            android:layout_width="5dp"
+            android:layout_height="match_parent"
+            android:background="@color/gray"/>
+
+        <ImageView
+            android:id="@+id/releaseFood_Image"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:background="@drawable/item"
+            android:scaleType="centerCrop"
+            android:src="@drawable/logo" />
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_height="match_parent"
+            android:layout_width="0dp"
+            android:layout_weight="7"
+            >
+            <TextView
+                android:id="@+id/releaseFood_name"
+                style="@style/textStyle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/white"
+                android:gravity="center_vertical"
+                android:text="@string/my_order"
+                android:textSize="10sp" />
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/white">
+                <TextView
+                    android:id="@+id/textIsReserve"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    style="@style/textStyle"
+                    android:text="@string/offReserve"
+                    android:textSize="13sp"/>
+                <Switch
+                    android:id="@+id/isReserve"
+                    android:layout_width="50dp"
+                    android:layout_height="wrap_content"
+                    android:textOn="@string/onReserve"
+                    android:textOff="@string/offReserve"/>
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+                <TextView
+                    android:id="@+id/releaseFood_price"
+                    style="@style/textStyle"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="5"
+                    android:background="@color/white"
+                    android:gravity="bottom"
+                    android:text="@string/my_order"
+                    android:textColor="@color/red"
+                    android:textSize="13sp" />
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_weight="3"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent">
+
+
+                    <ImageView
+                        android:id="@+id/evaluate"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@color/white"
+                        android:scaleType="fitEnd"
+                        android:src="@mipmap/mysettings" />
+                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="3dp"
+        android:background="@color/gray"/>
+
+
+</LinearLayout>

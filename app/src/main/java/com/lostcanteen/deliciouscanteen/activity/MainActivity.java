@@ -23,6 +23,7 @@ public class MainActivity extends AppCompatActivity {
 
     private String usename;
     private int userid;
+    private boolean isAdmin;
 
     private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
             = new BottomNavigationView.OnNavigationItemSelectedListener() {
@@ -79,10 +80,11 @@ public class MainActivity extends AppCompatActivity {
         Intent intent = getIntent();
         usename = intent.getStringExtra("loginUsername");
         userid = getIntent().getIntExtra("userid",-1);
+        isAdmin = intent.getBooleanExtra("isAdmin",false);
 
         mine = MineMessageFragment.newInstance(usename,userid);
 
-        home = HomeFragment.newInstance(usename,userid);
+        home = HomeFragment.newInstance(usename,userid,isAdmin);
         find = new FindFragment();
 
         setDefaultFragment();

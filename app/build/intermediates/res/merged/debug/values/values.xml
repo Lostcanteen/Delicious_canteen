@@ -717,17 +717,24 @@
     <string name="appbar_scrolling_view_behavior" translatable="false">android.support.design.widget.AppBarLayout$ScrollingViewBehavior</string>
     <string name="birthday">生日宴预定</string>
     <string name="bottom_sheet_behavior" translatable="false">android.support.design.widget.BottomSheetBehavior</string>
+    <string name="business_hours">营业时间</string>
+    <string name="canteen_position">地址</string>
     <string name="character_counter_pattern" translatable="false">%1$d / %2$d</string>
     <string name="click_detail">查看详情</string>
     <string name="daily_foods">每日食谱</string>
+    <string name="detail">查看详情></string>
     <string name="health">健康食谱</string>
     <string name="lengthError">密码长度不能小于4位</string>
     <string name="login">Login</string>
+    <string name="main_dish">主营菜色</string>
+    <string name="modify">修改</string>
     <string name="my_cancellation">注销</string>
     <string name="my_order">全部订单</string>
     <string name="my_reserve">我的预定</string>
     <string name="my_settings">设置</string>
     <string name="newUser">新用户注册</string>
+    <string name="offReserve">预定关闭</string>
+    <string name="onReserve">预定开启</string>
     <string name="password">Password</string>
     <string name="password_toggle_content_description">Toggle password visibility</string>
     <string name="path_password_eye" translatable="false">M12,4.5C7,4.5 2.73,7.61 1,12c1.73,4.39 6,7.5 11,7.5s9.27,-3.11 11,-7.5c-1.73,-4.39 -6,-7.5 -11,-7.5zM12,17c-2.76,0 -5,-2.24 -5,-5s2.24,-5 5,-5 5,2.24 5,5 -2.24,5 -5,5zM12,9c-1.66,0 -3,1.34 -3,3s1.34,3 3,3 3,-1.34 3,-3 -1.34,-3 -3,-3z</string>
@@ -741,6 +748,7 @@
     <string name="search_menu_title">Search</string>
     <string name="status_bar_notification_info_overflow">999+</string>
     <string name="submit">提交</string>
+    <string name="suggestion">意见或建议</string>
     <string name="tabTypeOne">管理员</string>
     <string name="tabTypeTwo">普通用户</string>
     <string name="title_find">发现</string>

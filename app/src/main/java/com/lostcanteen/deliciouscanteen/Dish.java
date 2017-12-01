@@ -99,4 +99,7 @@ public class Dish implements Serializable {
     public boolean isMain() {
         return main;
     }
+
+
+
 }

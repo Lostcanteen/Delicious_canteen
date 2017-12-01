@@ -12,12 +12,12 @@
         "source": "C:\\Users\\zhou\\yangwan\\Delicious_canteen\\app\\src\\main\\res\\layout\\activity_add_canteen.xml"
     },
     {
-        "merged": "C:\\Users\\zhou\\yangwan\\Delicious_canteen\\app\\build\\intermediates\\res\\merged\\debug\\layout\\activity_add_dish.xml",
-        "source": "C:\\Users\\zhou\\yangwan\\Delicious_canteen\\app\\src\\main\\res\\layout\\activity_add_dish.xml"
-    },
-    {
         "merged": "C:\\Users\\zhou\\yangwan\\Delicious_canteen\\app\\build\\intermediates\\res\\merged\\debug\\layout\\design_layout_tab_icon.xml",
         "source": "C:\\Users\\zhou\\.android\\build-cache\\7f24ceee35361febbd72b64a023fde9e9cf05f6c\\output\\res\\layout\\design_layout_tab_icon.xml"
+    },
+    {
+        "merged": "C:\\Users\\zhou\\yangwan\\Delicious_canteen\\app\\build\\intermediates\\res\\merged\\debug\\layout\\activity_add_dish.xml",
+        "source": "C:\\Users\\zhou\\yangwan\\Delicious_canteen\\app\\src\\main\\res\\layout\\activity_add_dish.xml"
     },
     {
         "merged": "C:\\Users\\zhou\\yangwan\\Delicious_canteen\\app\\build\\intermediates\\res\\merged\\debug\\layout\\activity_release_daily_foods.xml",
@@ -140,6 +140,10 @@
         "source": "C:\\Users\\zhou\\.android\\build-cache\\931ca49a193c50246f73c848f3c04d1058221289\\output\\res\\layout\\abc_screen_toolbar.xml"
     },
     {
+        "merged": "C:\\Users\\zhou\\yangwan\\Delicious_canteen\\app\\build\\intermediates\\res\\merged\\debug\\layout\\two_recycelerview.xml",
+        "source": "C:\\Users\\zhou\\yangwan\\Delicious_canteen\\app\\src\\main\\res\\layout\\two_recycelerview.xml"
+    },
+    {
         "merged": "C:\\Users\\zhou\\yangwan\\Delicious_canteen\\app\\build\\intermediates\\res\\merged\\debug\\layout\\design_navigation_item_subheader.xml",
         "source": "C:\\Users\\zhou\\.android\\build-cache\\7f24ceee35361febbd72b64a023fde9e9cf05f6c\\output\\res\\layout\\design_navigation_item_subheader.xml"
     },
@@ -168,12 +172,24 @@
         "source": "C:\\Users\\zhou\\.android\\build-cache\\931ca49a193c50246f73c848f3c04d1058221289\\output\\res\\layout\\notification_template_part_time.xml"
     },
     {
+        "merged": "C:\\Users\\zhou\\yangwan\\Delicious_canteen\\app\\build\\intermediates\\res\\merged\\debug\\layout\\right_listitem.xml",
+        "source": "C:\\Users\\zhou\\yangwan\\Delicious_canteen\\app\\src\\main\\res\\layout\\right_listitem.xml"
+    },
+    {
+        "merged": "C:\\Users\\zhou\\yangwan\\Delicious_canteen\\app\\build\\intermediates\\res\\merged\\debug\\layout\\activity_detail.xml",
+        "source": "C:\\Users\\zhou\\yangwan\\Delicious_canteen\\app\\src\\main\\res\\layout\\activity_detail.xml"
+    },
+    {
         "merged": "C:\\Users\\zhou\\yangwan\\Delicious_canteen\\app\\build\\intermediates\\res\\merged\\debug\\layout\\activity_dish_evaluation.xml",
         "source": "C:\\Users\\zhou\\yangwan\\Delicious_canteen\\app\\src\\main\\res\\layout\\activity_dish_evaluation.xml"
     },
     {
         "merged": "C:\\Users\\zhou\\yangwan\\Delicious_canteen\\app\\build\\intermediates\\res\\merged\\debug\\layout\\notification_template_media.xml",
         "source": "C:\\Users\\zhou\\.android\\build-cache\\931ca49a193c50246f73c848f3c04d1058221289\\output\\res\\layout\\notification_template_media.xml"
+    },
+    {
+        "merged": "C:\\Users\\zhou\\yangwan\\Delicious_canteen\\app\\build\\intermediates\\res\\merged\\debug\\layout\\left_listitem.xml",
+        "source": "C:\\Users\\zhou\\yangwan\\Delicious_canteen\\app\\src\\main\\res\\layout\\left_listitem.xml"
     },
     {
         "merged": "C:\\Users\\zhou\\yangwan\\Delicious_canteen\\app\\build\\intermediates\\res\\merged\\debug\\layout\\design_layout_snackbar_include.xml",
@@ -270,6 +286,10 @@
     {
         "merged": "C:\\Users\\zhou\\yangwan\\Delicious_canteen\\app\\build\\intermediates\\res\\merged\\debug\\layout\\abc_select_dialog_material.xml",
         "source": "C:\\Users\\zhou\\.android\\build-cache\\931ca49a193c50246f73c848f3c04d1058221289\\output\\res\\layout\\abc_select_dialog_material.xml"
+    },
+    {
+        "merged": "C:\\Users\\zhou\\yangwan\\Delicious_canteen\\app\\build\\intermediates\\res\\merged\\debug\\layout\\activity_web.xml",
+        "source": "C:\\Users\\zhou\\yangwan\\Delicious_canteen\\app\\src\\main\\res\\layout\\activity_web.xml"
     },
     {
         "merged": "C:\\Users\\zhou\\yangwan\\Delicious_canteen\\app\\build\\intermediates\\res\\merged\\debug\\layout\\meallist_item.xml",

@@ -27,7 +27,7 @@ import java.util.Arrays;
 
 public class WebTrans {
 
-    private static String basicurl = "http://10.0.2.2:8080/Canteen/";
+    private static String basicurl = "http://canteen.applinzi.com/";
 
     public static User isAdmin(String username) {
         User ret = new User();

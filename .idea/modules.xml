@@ -2,7 +2,8 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/DeliciousCanteen.iml" filepath="$PROJECT_DIR$/DeliciousCanteen.iml" />
+      <module fileurl="file://C:\Users\zhou\yangwan\Delicious_canteen\DeliciousCanteen.iml" filepath="C:\Users\zhou\yangwan\Delicious_canteen\DeliciousCanteen.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Delicious_canteen.iml" filepath="$PROJECT_DIR$/Delicious_canteen.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
     </modules>
   </component>

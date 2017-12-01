@@ -1,6 +1,6 @@
 -- Merging decision tree log ---
 manifest
-ADDED from C:\Users\zhou\yangwan\Delicious_canteen\app\src\main\AndroidManifest.xml:2:1-50:12
+ADDED from C:\Users\zhou\yangwan\Delicious_canteen\app\src\main\AndroidManifest.xml:2:1-52:12
 	package
 		ADDED from C:\Users\zhou\yangwan\Delicious_canteen\app\src\main\AndroidManifest.xml:3:5-47
 		INJECTED from C:\Users\zhou\yangwan\Delicious_canteen\app\src\main\AndroidManifest.xml
@@ -38,7 +38,7 @@ ADDED from C:\Users\zhou\yangwan\Delicious_canteen\app\src\main\AndroidManifest.
 	android:name
 		ADDED from C:\Users\zhou\yangwan\Delicious_canteen\app\src\main\AndroidManifest.xml:10:22-69
 application
-ADDED from C:\Users\zhou\yangwan\Delicious_canteen\app\src\main\AndroidManifest.xml:12:5-48:19
+ADDED from C:\Users\zhou\yangwan\Delicious_canteen\app\src\main\AndroidManifest.xml:12:5-50:19
 MERGED from [com.android.support:cardview-v7:26.0.0-alpha1] C:\Users\zhou\.android\build-cache\afd7759677d0eecbd41c63bbb05e2957dce6598f\output\AndroidManifest.xml:26:5-20
 MERGED from [com.android.support:design:26.0.0-alpha1] C:\Users\zhou\.android\build-cache\7f24ceee35361febbd72b64a023fde9e9cf05f6c\output\AndroidManifest.xml:29:5-20
 MERGED from [com.android.support:appcompat-v7:26.0.0-alpha1] C:\Users\zhou\.android\build-cache\931ca49a193c50246f73c848f3c04d1058221289\output\AndroidManifest.xml:29:5-20
@@ -124,22 +124,30 @@ category#android.intent.category.LAUNCHER
 ADDED from C:\Users\zhou\yangwan\Delicious_canteen\app\src\main\AndroidManifest.xml:41:17-77
 	android:name
 		ADDED from C:\Users\zhou\yangwan\Delicious_canteen\app\src\main\AndroidManifest.xml:41:27-74
-activity#com.lostcanteen.deliciouscanteen.activity.DishEvaluationActivity
-ADDED from C:\Users\zhou\yangwan\Delicious_canteen\app\src\main\AndroidManifest.xml:44:9-69
-	android:name
-		ADDED from C:\Users\zhou\yangwan\Delicious_canteen\app\src\main\AndroidManifest.xml:44:19-66
-activity#com.lostcanteen.deliciouscanteen.activity.AddBookActivity
-ADDED from C:\Users\zhou\yangwan\Delicious_canteen\app\src\main\AndroidManifest.xml:45:9-62
-	android:name
-		ADDED from C:\Users\zhou\yangwan\Delicious_canteen\app\src\main\AndroidManifest.xml:45:19-59
 activity#com.lostcanteen.deliciouscanteen.activity.RegisterActivity
-ADDED from C:\Users\zhou\yangwan\Delicious_canteen\app\src\main\AndroidManifest.xml:46:9-63
+ADDED from C:\Users\zhou\yangwan\Delicious_canteen\app\src\main\AndroidManifest.xml:44:9-62
 	android:name
-		ADDED from C:\Users\zhou\yangwan\Delicious_canteen\app\src\main\AndroidManifest.xml:46:19-60
+		ADDED from C:\Users\zhou\yangwan\Delicious_canteen\app\src\main\AndroidManifest.xml:44:19-60
 activity#com.lostcanteen.deliciouscanteen.activity.ReleaseDailyFoodsActivity
-ADDED from C:\Users\zhou\yangwan\Delicious_canteen\app\src\main\AndroidManifest.xml:47:9-81
+ADDED from C:\Users\zhou\yangwan\Delicious_canteen\app\src\main\AndroidManifest.xml:45:9-71
 	android:name
-		ADDED from C:\Users\zhou\yangwan\Delicious_canteen\app\src\main\AndroidManifest.xml:47:19-69
+		ADDED from C:\Users\zhou\yangwan\Delicious_canteen\app\src\main\AndroidManifest.xml:45:19-69
+activity#com.lostcanteen.deliciouscanteen.activity.DishEvaluationActivity
+ADDED from C:\Users\zhou\yangwan\Delicious_canteen\app\src\main\AndroidManifest.xml:46:9-69
+	android:name
+		ADDED from C:\Users\zhou\yangwan\Delicious_canteen\app\src\main\AndroidManifest.xml:46:19-66
+activity#com.lostcanteen.deliciouscanteen.activity.WebActivity
+ADDED from C:\Users\zhou\yangwan\Delicious_canteen\app\src\main\AndroidManifest.xml:47:9-58
+	android:name
+		ADDED from C:\Users\zhou\yangwan\Delicious_canteen\app\src\main\AndroidManifest.xml:47:19-55
+activity#com.lostcanteen.deliciouscanteen.activity.DetailActivity
+ADDED from C:\Users\zhou\yangwan\Delicious_canteen\app\src\main\AndroidManifest.xml:48:9-61
+	android:name
+		ADDED from C:\Users\zhou\yangwan\Delicious_canteen\app\src\main\AndroidManifest.xml:48:19-58
+activity#com.lostcanteen.deliciouscanteen.activity.UpdateCanteenActivity
+ADDED from C:\Users\zhou\yangwan\Delicious_canteen\app\src\main\AndroidManifest.xml:49:9-77
+	android:name
+		ADDED from C:\Users\zhou\yangwan\Delicious_canteen\app\src\main\AndroidManifest.xml:49:19-65
 uses-sdk
 INJECTED from C:\Users\zhou\yangwan\Delicious_canteen\app\src\main\AndroidManifest.xml reason: use-sdk injection requested
 MERGED from [com.android.support:cardview-v7:26.0.0-alpha1] C:\Users\zhou\.android\build-cache\afd7759677d0eecbd41c63bbb05e2957dce6598f\output\AndroidManifest.xml:20:5-44

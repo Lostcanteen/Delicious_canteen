@@ -51,10 +51,12 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name="com.lostcanteen.deliciouscanteen.activity.DishEvaluationActivity" />
-        <activity android:name="com.lostcanteen.deliciouscanteen.activity.AddBookActivity" />
         <activity android:name="com.lostcanteen.deliciouscanteen.activity.RegisterActivity" />
         <activity android:name="com.lostcanteen.deliciouscanteen.activity.ReleaseDailyFoodsActivity" />
+        <activity android:name="com.lostcanteen.deliciouscanteen.activity.DishEvaluationActivity" />
+        <activity android:name="com.lostcanteen.deliciouscanteen.activity.WebActivity" />
+        <activity android:name="com.lostcanteen.deliciouscanteen.activity.DetailActivity" />
+        <activity android:name="com.lostcanteen.deliciouscanteen.activity.UpdateCanteenActivity" />
 
         <provider
             android:name="com.android.tools.fd.runtime.InstantRunContentProvider"

@@ -67,7 +67,7 @@ public class DetailActivity extends AppCompatActivity {
 
         canteenDetailid =  getIntent().getIntExtra("canteenDetailid",-1);
         username = getIntent().getStringExtra("username");
-        //isadmin = //从前页传来
+        isadmin =  getIntent().getBooleanExtra("isAdmin",false);
 
         title = (TextView) findViewById(R.id.title);
         toolbar = (Toolbar) findViewById(R.id.detail_toolbar);
