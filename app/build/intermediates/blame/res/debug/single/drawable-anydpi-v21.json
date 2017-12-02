@@ -1,11 +1,11 @@
 [
     {
-        "merged": "C:\\Users\\zhou\\yangwan\\Delicious_canteen\\app\\build\\intermediates\\res\\merged\\debug\\drawable-anydpi-v21\\ic_dashboard_black_24dp.xml",
-        "source": "C:\\Users\\zhou\\yangwan\\Delicious_canteen\\app\\build\\generated\\res\\pngs\\debug\\drawable-anydpi-v21\\ic_dashboard_black_24dp.xml"
-    },
-    {
         "merged": "C:\\Users\\zhou\\yangwan\\Delicious_canteen\\app\\build\\intermediates\\res\\merged\\debug\\drawable-anydpi-v21\\ic_person_black_24dp.xml",
         "source": "C:\\Users\\zhou\\yangwan\\Delicious_canteen\\app\\build\\generated\\res\\pngs\\debug\\drawable-anydpi-v21\\ic_person_black_24dp.xml"
+    },
+    {
+        "merged": "C:\\Users\\zhou\\yangwan\\Delicious_canteen\\app\\build\\intermediates\\res\\merged\\debug\\drawable-anydpi-v21\\ic_dashboard_black_24dp.xml",
+        "source": "C:\\Users\\zhou\\yangwan\\Delicious_canteen\\app\\build\\generated\\res\\pngs\\debug\\drawable-anydpi-v21\\ic_dashboard_black_24dp.xml"
     },
     {
         "merged": "C:\\Users\\zhou\\yangwan\\Delicious_canteen\\app\\build\\intermediates\\res\\merged\\debug\\drawable-anydpi-v21\\design_ic_visibility_off.xml",

@@ -11,7 +11,7 @@ import android.support.v4.app.FragmentPagerAdapter;
 import android.content.DialogInterface;
 import android.support.annotation.Nullable;
 import android.support.design.widget.CollapsingToolbarLayout;
-import android.support.design.widget.FloatingActionButton;
+import com.getbase.floatingactionbutton.FloatingActionsMenu;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v4.view.ViewPager;
@@ -34,6 +34,7 @@ import android.widget.Switch;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.getbase.floatingactionbutton.FloatingActionsMenu;
 import com.lostcanteen.deliciouscanteen.Adapter.MyAdapter;
 import com.lostcanteen.deliciouscanteen.CanteenDetail;
 import com.lostcanteen.deliciouscanteen.Dish;
@@ -54,7 +55,7 @@ public class ReleaseDailyFoodsActivity extends AppCompatActivity {
     private Toolbar toolbar;
     private CollapsingToolbarLayout collapsingToolbar;
     private ImageView canteenImageView;
-    private FloatingActionButton timeFloatActionButton;
+    private android.support.design.widget.FloatingActionButton timeFloatActionButton;
     private TabLayout tabLayout;
     private ViewPager releaseViewPager;
     private DatePickerDialog datePickerDialog;
@@ -108,7 +109,7 @@ public class ReleaseDailyFoodsActivity extends AppCompatActivity {
                 findViewById(R.id.releaseFood_ToolbarLayout);
         canteenImageView = (ImageView) findViewById(R.id.this_canteen_image);
         tabLayout = (TabLayout) findViewById(R.id.releaseFood_tabLayout);
-        timeFloatActionButton = (FloatingActionButton)findViewById(R.id.timefloatingActionButton);
+        timeFloatActionButton = (android.support.design.widget.FloatingActionButton)findViewById(R.id.timefloatingActionButton);
         releaseViewPager = (ViewPager)findViewById(R.id.releaseFood_body);
 
         detail = (TextView) findViewById(R.id.details);
@@ -271,7 +272,10 @@ public class ReleaseDailyFoodsActivity extends AppCompatActivity {
 
         private RecyclerView leftRecyclerView;
         private RecyclerView rightRecyclerView;
-        private Button addDailyButton;
+
+        private FloatingActionsMenu selectButton;
+        private com.getbase.floatingactionbutton.FloatingActionButton addDailyButton;
+        private com.getbase.floatingactionbutton.FloatingActionButton addDishButton;
 
         private ArrayList<Dish> thisFragmentDish = new ArrayList<>();
         private ArrayList<Dish> someAddedDish = new ArrayList<>();
@@ -374,20 +378,10 @@ public class ReleaseDailyFoodsActivity extends AppCompatActivity {
 
             leftRecyclerView = (RecyclerView)view.findViewById(R.id.leftList);
             rightRecyclerView = (RecyclerView)view.findViewById(R.id.rightList);
-            addDailyButton = (Button)view.findViewById(R.id.addDailyFood);
-            if(option == 'B')
-            {
-                addDailyButton.setText("提交早餐食谱");
-            }
-            else if(option == 'L')
-            {
-                addDailyButton.setText("提交午餐食谱");
-            }
-            else
-            {
-                addDailyButton.setText("提交晚餐食谱");
-            }
 
+            selectButton = (FloatingActionsMenu)view.findViewById(R.id.select_add_release);
+            addDailyButton = (com.getbase.floatingactionbutton.FloatingActionButton) view.findViewById(R.id.addRelease);
+            addDishButton = (com.getbase.floatingactionbutton.FloatingActionButton) view.findViewById(R.id.addFood);
 
             leftLinearLayoutManager = new LinearLayoutManager(getActivity());
             leftRecyclerView.setLayoutManager(leftLinearLayoutManager);
@@ -398,6 +392,15 @@ public class ReleaseDailyFoodsActivity extends AppCompatActivity {
 
             getExistDish();
 
+
+            addDishButton.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    Intent intent = new Intent(getActivity(),AddDishActivity.class);
+                    intent.putExtra("canteenId",canteenId);
+                    startActivity(intent);
+                }
+            });
 
 
 

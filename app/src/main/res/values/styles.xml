@@ -25,4 +25,9 @@
     <style name="ActionButton.Overflow" parent="android:style/Widget.Holo.Light.ActionButton.Overflow">
     </style>
 
+    <style name="fab_labels_style">
+        <item name="android:background">@drawable/fab_label_background</item> //文字背景的样式
+        <item name="android:textColor">@color/black</item> //文字的颜色
+    </style>
+
 </resources>

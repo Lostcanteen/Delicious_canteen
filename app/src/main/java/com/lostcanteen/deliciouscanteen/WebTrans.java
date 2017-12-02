@@ -397,7 +397,7 @@ public class WebTrans {
     public static boolean addDish(Dish dish) {
         boolean flag=false;
         try {
-            URL url = new URL(basicurl+"AddDishActivity");
+            URL url = new URL(basicurl+"AddDish");
             HttpURLConnection http = (HttpURLConnection) url.openConnection();
             http.setConnectTimeout(10000);
             http.setReadTimeout(10000);

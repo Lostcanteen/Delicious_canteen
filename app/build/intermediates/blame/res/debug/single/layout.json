@@ -316,6 +316,10 @@
         "source": "C:\\Users\\zhou\\.android\\build-cache\\931ca49a193c50246f73c848f3c04d1058221289\\output\\res\\layout\\abc_activity_chooser_view_list_item.xml"
     },
     {
+        "merged": "C:\\Users\\zhou\\yangwan\\Delicious_canteen\\app\\build\\intermediates\\res\\merged\\debug\\layout\\activity_see_order.xml",
+        "source": "C:\\Users\\zhou\\yangwan\\Delicious_canteen\\app\\src\\main\\res\\layout\\activity_see_order.xml"
+    },
+    {
         "merged": "C:\\Users\\zhou\\yangwan\\Delicious_canteen\\app\\build\\intermediates\\res\\merged\\debug\\layout\\abc_activity_chooser_view.xml",
         "source": "C:\\Users\\zhou\\.android\\build-cache\\931ca49a193c50246f73c848f3c04d1058221289\\output\\res\\layout\\abc_activity_chooser_view.xml"
     },

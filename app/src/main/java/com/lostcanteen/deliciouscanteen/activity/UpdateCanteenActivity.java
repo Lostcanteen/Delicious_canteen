@@ -18,6 +18,7 @@ import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Switch;
@@ -62,6 +63,7 @@ public class UpdateCanteenActivity extends AppCompatActivity {
     private String newImagePath ="";
     private File file; // 图片上传到网络，重命名
     private CanteenDetail canteenDetail;
+    private Button certain;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -90,10 +92,39 @@ public class UpdateCanteenActivity extends AppCompatActivity {
         time = (EditText) findViewById(R.id.time);
         time.setText(canteenDetail.getHours());
         bookon = (Switch) findViewById(R.id.bookon) ;
+
+
+
+
+
+        bookon.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
+                if(b)
+                {
+                    mTagLayout.setVisibility(View.VISIBLE);
+                    inputLabel.setVisibility(View.VISIBLE);
+                    btnSure.setVisibility(View.VISIBLE);
+                }
+                else
+                {
+                    mTagLayout.setVisibility(View.GONE);
+                    inputLabel.setVisibility(View.GONE);
+                    btnSure.setVisibility(View.GONE);
+                }
+            }
+        });
+
+
+
+
+
+
+
         bookon.setChecked(canteenDetail.isSpecialbook());
         Button takePhoto = (Button) findViewById(R.id.photo);
         Button chooseFromAlbum = (Button) findViewById(R.id.album);
-        Button certain = (Button) findViewById(R.id.certain);
+        certain = (Button) findViewById(R.id.certain);
         picture = (ImageView) findViewById(R.id.imageView);
         Picasso.with(picture.getContext())
                 .load(canteenDetail.getPicture())

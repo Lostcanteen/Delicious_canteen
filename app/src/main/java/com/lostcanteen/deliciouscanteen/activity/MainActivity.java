@@ -82,7 +82,7 @@ public class MainActivity extends AppCompatActivity {
         userid = getIntent().getIntExtra("userid",-1);
         isAdmin = intent.getBooleanExtra("isAdmin",false);
 
-        mine = MineMessageFragment.newInstance(usename,userid);
+        mine = MineMessageFragment.newInstance(usename,userid,isAdmin);
 
         home = HomeFragment.newInstance(usename,userid,isAdmin);
         find = new FindFragment();

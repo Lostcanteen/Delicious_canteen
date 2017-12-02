@@ -20,8 +20,10 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Toast;
 
+import com.lostcanteen.deliciouscanteen.Dish;
 import com.lostcanteen.deliciouscanteen.FTP;
 import com.lostcanteen.deliciouscanteen.R;
+import com.lostcanteen.deliciouscanteen.WebTrans;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -47,10 +49,14 @@ public class AddDishActivity extends AppCompatActivity {
     private String newImagePath ="";
     private File file;
 
+    private int canteenId;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_dish);
+
+        canteenId = getIntent().getIntExtra("canteenId",-1);
 
         dishName = (EditText) findViewById(R.id.dishName);
         price = (EditText) findViewById(R.id.price);
@@ -62,6 +68,9 @@ public class AddDishActivity extends AppCompatActivity {
         Button chooseFromAlbum = (Button) findViewById(R.id.album);
         Button certain = (Button) findViewById(R.id.certain);
         picture = (ImageView) findViewById(R.id.imageView);
+
+
+
         takePhoto.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 UUID uuid = UUID.randomUUID();
@@ -127,9 +136,8 @@ public class AddDishActivity extends AppCompatActivity {
                 boolean b = breakfast.isChecked();
                 boolean l = lunch.isChecked();
                 boolean d = dinner.isChecked();
-                //Dish dish = new Dish(canteenid,0,dishname,newImagePath,p,b,l,d,m);
-                //WebTrans.addDish(dish);
-                //前一页面canteenid
+                Dish dish = new Dish(canteenId,0,dishname,newImagePath,p,b,l,d,m);
+                WebTrans.addDish(dish);
             }
         });
     }

@@ -12,6 +12,7 @@ import android.widget.TextView;
 
 import com.lostcanteen.deliciouscanteen.activity.LoginActivity;
 import com.lostcanteen.deliciouscanteen.activity.MainActivity;
+import com.lostcanteen.deliciouscanteen.activity.SeeOrderActivity;
 import com.lostcanteen.deliciouscanteen.activity.ShowMyOrderActivity;
 
 /**
@@ -19,11 +20,12 @@ import com.lostcanteen.deliciouscanteen.activity.ShowMyOrderActivity;
  */
 
 public class MineMessageFragment extends Fragment {
-    public static MineMessageFragment newInstance(String text,int userid){
+    public static MineMessageFragment newInstance(String text,int userid,boolean isAdmin){
         MineMessageFragment fragment = new MineMessageFragment();
         Bundle args = new Bundle();
         args.putString("textUsername",text);
         args.putInt("userid",userid);
+        args.putBoolean("isAdmin",isAdmin);
         fragment.setArguments(args);
         return fragment;
     }
@@ -33,7 +35,7 @@ public class MineMessageFragment extends Fragment {
     private Button logout;
     private String username;
     private int userid;
-
+    private boolean isAdmin;
 
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState){
         final View view = inflater.inflate(R.layout.mine,container,false);
@@ -45,12 +47,25 @@ public class MineMessageFragment extends Fragment {
         {
             username = args.getString("textUsername");
             userid = args.getInt("userid");
+            isAdmin = args.getBoolean("isAdmin");
             textUsername.setText(username);
+        }
+        if(isAdmin)
+        {
+            textAllOrder.setText("查看菜品预定");
         }
         textAllOrder.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v){
-                Intent intent = new Intent(view.getContext(),ShowMyOrderActivity.class);
+                Intent intent;
+                if(isAdmin)
+                {
+                    intent = new Intent(view.getContext(),SeeOrderActivity.class);
+                }
+                else
+                {
+                    intent = new Intent(view.getContext(),ShowMyOrderActivity.class);
+                }
                 intent.putExtra("username",username);
                 intent.putExtra("userid",userid);
                 startActivity(intent);
