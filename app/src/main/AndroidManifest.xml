@@ -47,7 +47,9 @@
         <activity android:name=".activity.WebActivity" />
         <activity android:name=".activity.DetailActivity" />
         <activity android:name=".activity.UpdateCanteenActivity" />
-        <activity android:name=".activity.SeeOrderActivity"></activity>
+        <activity android:name=".activity.SeeOrderActivity"/>
+        <activity android:name=".activity.ArticleListActivity" />
+        <activity android:name=".activity.MainDishListActivity"/>
     </application>
 
 </manifest>

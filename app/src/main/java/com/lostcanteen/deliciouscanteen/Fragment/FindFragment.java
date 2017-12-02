@@ -8,6 +8,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
 
+import com.lostcanteen.deliciouscanteen.activity.ArticleListActivity;
 import com.lostcanteen.deliciouscanteen.R;
 import com.lostcanteen.deliciouscanteen.activity.AddSbookActivity;
 
@@ -24,6 +25,13 @@ public class FindFragment extends Fragment {
         health = (LinearLayout)view.findViewById(R.id.health);
         birthday = (LinearLayout)view.findViewById(R.id.birthday);
 
+        health.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(view.getContext(), ArticleListActivity.class);
+                startActivity(intent);
+            }
+        });
 
         birthday.setOnClickListener(new View.OnClickListener(){
             @Override
