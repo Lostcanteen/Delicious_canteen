@@ -32,6 +32,7 @@ public class DetailActivity extends AppCompatActivity {
 
     private TextView position;
     private TextView time;
+    private TextView mainDishTitle;
     private TextView mainDish;
     private TextView suggestion;
 
@@ -74,6 +75,7 @@ public class DetailActivity extends AppCompatActivity {
         modifybutton = (Button) findViewById(R.id.modify);
         position = (TextView) findViewById(R.id.position);
         time = (TextView) findViewById(R.id.time);
+        mainDishTitle = (TextView) findViewById(R.id.mainDishTitle);
         mainDish = (TextView) findViewById(R.id.mainDish);
         suggestion = (TextView) findViewById(R.id.suggestionTitle);
 
@@ -118,6 +120,15 @@ public class DetailActivity extends AppCompatActivity {
                 intent.putExtra("canteenDetail",canteenDetail);
                 startActivity(intent);
                 finish();
+            }
+        });
+
+        mainDishTitle.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(DetailActivity.this,MainDishListActivity.class);
+                intent.putExtra("dishlist",mainDishArr);
+                startActivity(intent);
             }
         });
 

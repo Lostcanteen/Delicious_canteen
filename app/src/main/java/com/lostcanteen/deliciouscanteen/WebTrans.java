@@ -397,7 +397,86 @@ public class WebTrans {
     public static boolean addDish(Dish dish) {
         boolean flag=false;
         try {
-            URL url = new URL(basicurl+"AddDishActivity");
+            URL url = new URL(basicurl+"AddDish");
+            HttpURLConnection http = (HttpURLConnection) url.openConnection();
+            http.setConnectTimeout(10000);
+            http.setReadTimeout(10000);
+            http.setDoInput(true);  //可读可写
+            http.setDoOutput(true);
+            http.setRequestMethod("POST");  //设置传输方式为 get
+
+            ObjectOutputStream oos = new ObjectOutputStream(http.getOutputStream());
+            oos.writeObject(dish);
+
+            InputStream is = http.getInputStream();
+            InputStreamReader isr = new InputStreamReader(is);
+            BufferedReader br = new BufferedReader(isr);
+
+            String result = br.readLine();  //获取web 端返回的数据
+            if(result.equals("true")) {
+                flag = true;
+            }
+            if (is != null)  is.close();
+            if (isr != null)  isr.close();
+            if (br != null)  br.close();
+            if (oos != null) oos.close();
+            http.disconnect();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return flag;
+    }
+
+    public static boolean deleteDish(int canteenid,int dishid) {
+        boolean flag=false;
+        try {
+            URL url = new URL(basicurl+"DeleteDish");
+            HttpURLConnection http = (HttpURLConnection) url.openConnection();
+            http.setConnectTimeout(10000);
+            http.setReadTimeout(10000);
+            http.setDoInput(true);  //可读可写
+            http.setDoOutput(true);
+            http.setUseCaches(false);  //不允许使用缓存
+            http.setRequestMethod("POST");  //设置传输方式为 get
+            http.connect();  //创建连接
+
+            OutputStream os = http.getOutputStream();
+            OutputStreamWriter osw = new OutputStreamWriter(os);
+            BufferedWriter bw = new BufferedWriter(osw);
+            JSONArray jsonArray = new JSONArray();  //创建 json 对象
+            JSONObject jsonObject = new JSONObject();
+            jsonObject.put("canteenid",canteenid);
+            jsonObject.put("dishid",dishid);
+            jsonArray.put(jsonObject);
+            bw.write(jsonArray.toString());
+            bw.flush();
+
+            InputStream is = http.getInputStream();
+            InputStreamReader isr = new InputStreamReader(is);
+            BufferedReader br = new BufferedReader(isr);
+
+            String result = br.readLine();  //获取web 端返回的数据
+            if(result.equals("true")) {
+                flag = true;
+            }
+
+            if (os != null)  os.close();
+            if (osw != null)  osw.close();
+            if (is != null)  is.close();
+            if (isr != null)  isr.close();
+            if (br != null)  br.close();
+            if (bw != null)  bw.close();
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return flag;
+    }
+
+    public static boolean updateDish(Dish dish) {
+        boolean flag=false;
+        try {
+            URL url = new URL(basicurl+"UpdateDish");
             HttpURLConnection http = (HttpURLConnection) url.openConnection();
             http.setConnectTimeout(10000);
             http.setReadTimeout(10000);

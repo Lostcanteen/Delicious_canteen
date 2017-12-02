@@ -41,12 +41,14 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".activity.RegisterActivity"/>
-        <activity android:name=".activity.ReleaseDailyFoodsActivity"/>
+        <activity android:name=".activity.RegisterActivity" />
+        <activity android:name=".activity.ReleaseDailyFoodsActivity" />
         <activity android:name=".activity.DishEvaluationActivity" />
         <activity android:name=".activity.WebActivity" />
         <activity android:name=".activity.DetailActivity" />
-        <activity android:name=".activity.UpdateCanteenActivity"></activity>
+        <activity android:name=".activity.UpdateCanteenActivity" />
+        <activity android:name=".activity.ArticleListActivity" />
+        <activity android:name=".activity.MainDishListActivity"></activity>
     </application>
 
 </manifest>

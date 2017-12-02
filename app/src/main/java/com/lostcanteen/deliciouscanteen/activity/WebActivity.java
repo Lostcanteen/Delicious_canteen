@@ -19,6 +19,8 @@ public class WebActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_web);
 
+        url = getIntent().getStringExtra("url");
+
         toolbar = (Toolbar) findViewById(R.id.detail_toolbar);
         setTitle("");
         setSupportActionBar(toolbar);
