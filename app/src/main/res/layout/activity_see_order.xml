@@ -25,28 +25,47 @@
             android:textStyle="bold"
             />
     </android.support.v7.widget.Toolbar>
-    <LinearLayout
-        android:orientation="vertical"
+
+    <RelativeLayout
+        android:id="@+id/line1"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+
         <ImageView
             android:id="@+id/admin_image"
             android:layout_width="100dp"
             android:layout_height="100dp"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
             android:layout_gravity="center_horizontal"
-            android:src="@drawable/logo"/>
+            android:src="@drawable/logo" />
+
         <TextView
             android:id="@+id/adminname"
             style="@style/textStyle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_below="@+id/admin_image"
+            android:layout_centerHorizontal="true"
             android:layout_gravity="center_horizontal"
+            android:text="sssssss"
             android:textColor="@color/black"
-            android:textSize="20sp"
-            android:text="sssssss"/>
-    </LinearLayout>
+            android:textSize="20sp" />
+
+        <android.support.design.widget.FloatingActionButton
+            android:id="@+id/floatingActionButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentTop="true"
+            android:src="@mipmap/date_button" />
+    </RelativeLayout>
+
     <android.support.design.widget.TabLayout
-        android:id="@+id/tabLayout"
+        android:id="@+id/seeordertabLayout"
         android:layout_width="match_parent"
         android:layout_height="40dp"
         app:tabBackground="@color/white">
@@ -55,4 +74,8 @@
         android:id="@+id/seeOrder_body"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
+
+
+
+
 </LinearLayout>

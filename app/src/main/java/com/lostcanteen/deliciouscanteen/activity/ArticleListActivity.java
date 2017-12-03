@@ -52,7 +52,7 @@ public class ArticleListActivity extends AppCompatActivity {
         layoutManager = new LinearLayoutManager(this);
         recyclerView.setLayoutManager(layoutManager);
         toolbar = (Toolbar) findViewById(R.id.article_list_toolbar);
-        setTitle("");
+        setTitle("健康饮食指导");
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 

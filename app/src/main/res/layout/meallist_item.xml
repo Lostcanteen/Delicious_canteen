@@ -25,10 +25,11 @@
 
         <TextView
             android:id="@+id/testmeal_text"
-            style="@style/textStyle"
+
             android:layout_width="0dp"
             android:layout_weight="5"
             android:layout_height="50dp"
+            style="@style/textStyle"
             android:gravity="center_vertical"
             android:text="@string/my_order"
             android:textSize="16sp" />

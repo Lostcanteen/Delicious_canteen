@@ -86,7 +86,6 @@ public class ReleaseDailyFoodsActivity extends AppCompatActivity {
     private ArrayList<Fragment> fragmentList = new ArrayList<Fragment>();
 
 
-    private ArrayList<Dish> breakfastDish;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

@@ -320,7 +320,7 @@ public class ShowCanteenDetailsActivity extends AppCompatActivity {
                                 breakcnt[i] = reserveFoods.get(breakfastPosition.get(i)).getDishid();
                                 breakfoodnum[i] = reserveFoodNum[breakfastPosition.get(i)];
                             }
-                            WebTrans.commitBook(canteenDetail.getCanteenid(),new Date(2017,11,7),'b',userid,breakcnt,breakfoodnum);
+                            WebTrans.commitBook(canteenDetail.getCanteenid(),nowDate,'b',userid,breakcnt,breakfoodnum);
                         }
                         if(!lunchPosition.isEmpty())
                         {
@@ -332,7 +332,7 @@ public class ShowCanteenDetailsActivity extends AppCompatActivity {
                                 lunchfoodnum[i] = reserveFoodNum[lunchPosition.get(i)];
                             }
 
-                            WebTrans.commitBook(canteenDetail.getCanteenid(),new Date(2017,11,7),'l',userid,lunchcnt,lunchfoodnum);
+                            WebTrans.commitBook(canteenDetail.getCanteenid(),nowDate,'l',userid,lunchcnt,lunchfoodnum);
 
 
                         }
@@ -347,7 +347,7 @@ public class ShowCanteenDetailsActivity extends AppCompatActivity {
                                 dinnerfoodnum[i] = reserveFoodNum[dinnerPosition.get(i)];
                             }
 
-                            WebTrans.commitBook(canteenDetail.getCanteenid(),new Date(2017,11,7),'d',userid,dinnercnt,dinnerfoodnum);
+                            WebTrans.commitBook(canteenDetail.getCanteenid(),nowDate,'d',userid,dinnercnt,dinnerfoodnum);
                         }
 
 
