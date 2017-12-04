@@ -1,11 +1,18 @@
 package com.lostcanteen.deliciouscanteen.activity;
 
+import android.app.DatePickerDialog;
+import android.content.DialogInterface;
+import android.graphics.Color;
+import android.graphics.drawable.GradientDrawable;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.Button;
+import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
@@ -15,10 +22,12 @@ import com.lostcanteen.deliciouscanteen.FlowLayout;
 import com.lostcanteen.deliciouscanteen.R;
 import com.lostcanteen.deliciouscanteen.SpecialBook;
 import com.lostcanteen.deliciouscanteen.TagItem;
+import com.lostcanteen.deliciouscanteen.WebTrans;
 
 import java.sql.Date;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.Calendar;
 
 //从前一页面接受spot canteenid username
 //日历控件
@@ -29,13 +38,20 @@ public class AddSbookActivity extends AppCompatActivity {
     private String[] spot = {"包厢预订","生日宴会订做"}; //从前一页传过来
     private String chooseSpot;
     ArrayList<String>  list = new ArrayList<String>();
-    private int canteenid = 1; //前一页接受
+    private String canteenName = "学苑"; //前一页接受
     private String username = "root";//前一页接受
+    private int adminid = 1;//前一页接受
 
+    private Button datechoose;
     private Spinner spinnerType;
     private EditText num;
     private EditText others;
     private String type;
+    private DatePickerDialog datePickerDialog;
+    private Toolbar toolbar;
+
+    private int year,month,day;
+    private Date nowDate;
 
     @Override
     protected void onCreate(final Bundle savedInstanceState) {
@@ -47,10 +63,25 @@ public class AddSbookActivity extends AppCompatActivity {
         initList();
         initLayout(list);
 
+        datechoose = (Button) findViewById(R.id.datechoose);
         spinnerType = (Spinner) findViewById(R.id.spinnerType);
         num = (EditText) findViewById(R.id.num);
         others = (EditText) findViewById(R.id.others);
         Button commit = (Button) findViewById(R.id.commit);
+        toolbar = (Toolbar) findViewById(R.id.addsbook_toolbar);
+        setTitle("");
+        setSupportActionBar(toolbar);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
+        Calendar calendar = Calendar.getInstance();
+        year = calendar.get(Calendar.YEAR);
+        month = calendar.get(Calendar.MONTH);
+        day = calendar.get(Calendar.DAY_OF_MONTH);
+
+        GradientDrawable drawable = new GradientDrawable();
+        drawable.setShape(GradientDrawable.RECTANGLE); // 画框
+        drawable.setStroke(2, Color.BLACK); // 边框粗细及颜色
+        datechoose.setBackgroundDrawable(drawable);
 
         spinnerType.setOnItemSelectedListener(new Spinner.OnItemSelectedListener(){
 
@@ -65,20 +96,49 @@ public class AddSbookActivity extends AppCompatActivity {
             }
         });
 
+        datechoose.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                datePickerDialog = new DatePickerDialog(view.getContext(), null,year, month, day);
+
+                datePickerDialog.setButton(DialogInterface.BUTTON_POSITIVE, "确认", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        DatePicker picker = datePickerDialog.getDatePicker();
+                        year = picker.getYear();
+                        month = picker.getMonth();
+                        day = picker.getDayOfMonth();
+                        nowDate = java.sql.Date.valueOf(((Integer)year).toString()
+                                +"-"+((Integer)(month+1)).toString() + "-"+((Integer)day).toString());
+                        datechoose.setText(nowDate.toString());
+
+                    }
+                });
+                datePickerDialog.setButton(DialogInterface.BUTTON_NEGATIVE, "取消", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+
+                    }
+                });
+
+                datePickerDialog.show();
+            }
+        });
+
         commit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Date date = new Date(2017,11,2);  //日历控件获取
-                String numstr = num.getText().toString();
-                String otherstr = others.getText().toString();
-                SpecialBook sb = new SpecialBook(canteenid,username,date,type,chooseSpot,numstr,otherstr);
-                try {
-                    new DBConnection().commitSBook(sb);
-                } catch (SQLException e) {
-                    e.printStackTrace();
-                } catch (ClassNotFoundException e) {
-                    e.printStackTrace();
-                }
+
+                new Thread(new Runnable() {
+                    @Override
+                    public void run() {
+                        String numstr = num.getText().toString();
+                        String otherstr = others.getText().toString();
+                        SpecialBook sb = new SpecialBook(0,canteenName,username,nowDate,type,chooseSpot,numstr,otherstr,adminid);
+                        WebTrans.commitSBook(sb);
+                        finish();
+                    }
+                }).start();
             }
         });
 
@@ -175,5 +235,14 @@ public class AddSbookActivity extends AppCompatActivity {
         mAddTags.add(item);
         tagCnt++;
         return true;
+    }
+
+    public boolean onOptionsItemSelected(MenuItem item){
+        switch (item.getItemId()){
+            case android.R.id.home:
+                finish();
+                return true;
+        }
+        return super.onOptionsItemSelected(item);
     }
 }
