@@ -794,6 +794,7 @@ public class DBConnection {
      * @param specialBook 添加详细信息
      * @throws SQLException
      */
+    /*
     public void commitSBook(SpecialBook specialBook) throws SQLException {
         PreparedStatement stmt;
         Statement statement = conn.createStatement();
@@ -816,7 +817,7 @@ public class DBConnection {
         stmt.setInt(9,adminid);
         stmt.executeUpdate();
         rs.close(); stmt.close(); conn.close();
-    }
+    }*/
 
     /**
      * 用户预约历史信息查询
@@ -824,7 +825,7 @@ public class DBConnection {
      * @return 历史预约信息list
      * @throws SQLException
      */
-    public ArrayList<SpecialBook> userSbookQuery(String username) throws SQLException {
+   /* public ArrayList<SpecialBook> userSbookQuery(String username) throws SQLException {
         ArrayList<SpecialBook> ret = new ArrayList<>();
         Statement stmt = conn.createStatement();
         String sql = "SELECT * FROM sbook where username='"+username+"'";
@@ -842,7 +843,7 @@ public class DBConnection {
         }
         rs.close(); stmt.close(); conn.close();
         return ret;
-    }
+    }*/
 
     /**
      * 管理员预约信息查看
@@ -850,7 +851,7 @@ public class DBConnection {
      * @return 预约信息list
      * @throws SQLException
      */
-    public ArrayList<SpecialBook> userSbookQuery(int adminid) throws SQLException {
+   /* public ArrayList<SpecialBook> userSbookQuery(int adminid) throws SQLException {
         ArrayList<SpecialBook> ret = new ArrayList<>();
         Statement stmt = conn.createStatement();
         String sql = "SELECT * FROM sbook where idadmin='"+adminid+"'";
@@ -870,7 +871,7 @@ public class DBConnection {
         }
         rs.close(); stmt.close(); conn.close();
         return ret;
-    }
+    }*/
 
     /**
      * 管理员处理预约信息

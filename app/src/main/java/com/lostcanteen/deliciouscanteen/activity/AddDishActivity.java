@@ -113,33 +113,35 @@ public class AddDishActivity extends AppCompatActivity {
         certain.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                new Thread(new Runnable() {
-                    @Override
-                    public void run() {
-                        try {
-                            new FTP().uploadSingleFile(file,"/canteen", new FTP.UploadProgressListener() {
-                                @Override
-                                public void onUploadProgress(String currentStep, long uploadSize, File file) {
+                if(file == null) {
+                    Toast.makeText(AddDishActivity.this,"Error:请上传图片",Toast.LENGTH_SHORT).show();
+                } else {
+                    new Thread(new Runnable() {
+                        @Override
+                        public void run() {
+                            try {
+                                new FTP().uploadSingleFile(file,"/canteen", new FTP.UploadProgressListener() {
+                                    @Override
+                                    public void onUploadProgress(String currentStep, long uploadSize, File file) {
 
-                                }
-                            });
-                        } catch (IOException e) {
-                            e.printStackTrace();
+                                    }
+                                });
+                            } catch (IOException e) {
+                                e.printStackTrace();
+                            }
+                            String dishname = dishName.getText().toString();
+                            Float p = Float.parseFloat(price.getText().toString());
+                            boolean m = main.isChecked();
+                            boolean b = breakfast.isChecked();
+                            boolean l = lunch.isChecked();
+                            boolean d = dinner.isChecked();
+                            Dish dish = new Dish(canteenId,0,dishname,newImagePath,p,b,l,d,m);
+                            WebTrans.addDish(dish);
+                            finish();
                         }
-                        String dishname = dishName.getText().toString();
-                        Float p = Float.parseFloat(price.getText().toString());
-                        boolean m = main.isChecked();
-                        boolean b = breakfast.isChecked();
-                        boolean l = lunch.isChecked();
-                        boolean d = dinner.isChecked();
-                        Dish dish = new Dish(canteenId,0,dishname,newImagePath,p,b,l,d,m);
-                        WebTrans.addDish(dish);
 
-                    }
-                }).start();
-
-                finish();
-
+                    }).start();
+                }
             }
         });
     }
