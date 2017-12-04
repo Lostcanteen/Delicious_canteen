@@ -126,18 +126,20 @@ public class AddDishActivity extends AppCompatActivity {
                         } catch (IOException e) {
                             e.printStackTrace();
                         }
+                        String dishname = dishName.getText().toString();
+                        Float p = Float.parseFloat(price.getText().toString());
+                        boolean m = main.isChecked();
+                        boolean b = breakfast.isChecked();
+                        boolean l = lunch.isChecked();
+                        boolean d = dinner.isChecked();
+                        Dish dish = new Dish(canteenId,0,dishname,newImagePath,p,b,l,d,m);
+                        WebTrans.addDish(dish);
 
                     }
                 }).start();
 
-                String dishname = dishName.getText().toString();
-                Float p = Float.parseFloat(price.getText().toString());
-                boolean m = main.isChecked();
-                boolean b = breakfast.isChecked();
-                boolean l = lunch.isChecked();
-                boolean d = dinner.isChecked();
-                Dish dish = new Dish(canteenId,0,dishname,newImagePath,p,b,l,d,m);
-                WebTrans.addDish(dish);
+                finish();
+
             }
         });
     }

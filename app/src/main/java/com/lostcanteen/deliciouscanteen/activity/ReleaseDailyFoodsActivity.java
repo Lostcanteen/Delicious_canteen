@@ -452,7 +452,22 @@ public class ReleaseDailyFoodsActivity extends AppCompatActivity {
                 ImageView addreleaseFoodImage;
                 ImageView delteDish;
 
+                Handler myhander = new Handler(){
 
+                    @Override
+                    public void handleMessage(Message msg) {
+                        switch (msg.what)
+                        {
+                            case 1:
+                                
+
+                                break;
+                            default:
+                        }
+
+                    }
+
+                };
 
                 public ViewHolder(View view) {
                     super(view);
@@ -494,24 +509,6 @@ public class ReleaseDailyFoodsActivity extends AppCompatActivity {
                 holder.addreleaseFoodImage.setImageResource(R.mipmap.add_button);
 
 
-                final Handler myhander = new Handler(){
-
-                    @Override
-                    public void handleMessage(Message msg) {
-                        switch (msg.what)
-                        {
-                            case 1:
-                                dishList.remove(position);
-                                LeftListAdapter.this.notifyDataSetChanged();
-
-                                break;
-                            default:
-                        }
-
-                    }
-
-                };
-
                 holder.delteDish.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
@@ -532,9 +529,9 @@ public class ReleaseDailyFoodsActivity extends AppCompatActivity {
                                         boolean b = WebTrans.deleteDish(canteenId,food.getDishid());
                                         if(b)
                                         {
-                                            Message message = new Message();
-                                            message.what = 1;
-                                            myhander.sendMessage(message);
+
+                                            dishList.remove(position);
+                                            LeftListAdapter.this.notifyDataSetChanged();
                                         }
                                     }
                                 }).start();
