@@ -16,6 +16,7 @@ import android.support.design.widget.TabLayout;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.ActionBar;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
@@ -449,6 +450,9 @@ public class ReleaseDailyFoodsActivity extends AppCompatActivity {
                 TextView foodName;
                 TextView foodPrice;
                 ImageView addreleaseFoodImage;
+                ImageView delteDish;
+
+
 
                 public ViewHolder(View view) {
                     super(view);
@@ -456,6 +460,7 @@ public class ReleaseDailyFoodsActivity extends AppCompatActivity {
                     foodName = (TextView)view.findViewById(R.id.releaseFood_name);
                     foodPrice = (TextView)view.findViewById(R.id.releaseFood_price);
                     addreleaseFoodImage = (ImageView)view.findViewById(R.id.evaluate);
+                    delteDish = (ImageView)view.findViewById(R.id.delete_dish);
 
                 }
             }
@@ -471,6 +476,8 @@ public class ReleaseDailyFoodsActivity extends AppCompatActivity {
                 final ViewHolder holder = new ViewHolder(view);
                 return  holder;
             }
+
+
             @Override
             public void onBindViewHolder(final ViewHolder holder, final int position) {
                 final Dish food = dishList.get(position);
@@ -483,7 +490,65 @@ public class ReleaseDailyFoodsActivity extends AppCompatActivity {
                 holder.foodName.setText(food.getName());
                 holder.foodPrice.setText(((Float)food.getPrice()).toString());
 
+                holder.delteDish.setImageResource(R.mipmap.delete_button);
                 holder.addreleaseFoodImage.setImageResource(R.mipmap.add_button);
+
+
+                final Handler myhander = new Handler(){
+
+                    @Override
+                    public void handleMessage(Message msg) {
+                        switch (msg.what)
+                        {
+                            case 1:
+                                dishList.remove(position);
+                                LeftListAdapter.this.notifyDataSetChanged();
+
+                                break;
+                            default:
+                        }
+
+                    }
+
+                };
+
+                holder.delteDish.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
+                        builder.setTitle("删除餐品");
+                        builder.setMessage("该操作将从食堂菜品里删除此菜，是否继续?");
+                        builder.setNegativeButton("取消", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                            }
+                        });
+                        builder.setPositiveButton("确定", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                new Thread(new Runnable() {
+                                    @Override
+                                    public void run() {
+                                        boolean b = WebTrans.deleteDish(canteenId,food.getDishid());
+                                        if(b)
+                                        {
+                                            Message message = new Message();
+                                            message.what = 1;
+                                            myhander.sendMessage(message);
+                                        }
+                                    }
+                                }).start();
+                            }
+                        });
+                        AlertDialog dialog = builder.create();
+                        dialog.show();
+
+                    }
+                });
+
+
+
+
 
 
                 holder.addreleaseFoodImage.setOnClickListener(new View.OnClickListener() {

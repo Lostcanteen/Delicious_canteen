@@ -14,6 +14,7 @@ import com.lostcanteen.deliciouscanteen.activity.LoginActivity;
 import com.lostcanteen.deliciouscanteen.activity.MainActivity;
 import com.lostcanteen.deliciouscanteen.activity.SeeOrderActivity;
 import com.lostcanteen.deliciouscanteen.activity.ShowMyOrderActivity;
+import com.lostcanteen.deliciouscanteen.activity.UserSearchAllSbookActivity;
 
 /**
  * Created by zhou on 2017/10/29.
@@ -32,6 +33,8 @@ public class MineMessageFragment extends Fragment {
 
     private TextView textUsername;
     private TextView textAllOrder;
+    private TextView textReserve;
+
     private Button logout;
     private String username;
     private int userid;
@@ -41,6 +44,7 @@ public class MineMessageFragment extends Fragment {
         final View view = inflater.inflate(R.layout.mine,container,false);
         textUsername = (TextView) view.findViewById(R.id.textUsername);
         textAllOrder = (TextView) view.findViewById(R.id.textAllOrder);
+        textReserve = (TextView) view.findViewById(R.id.textMyReserve);
         logout = (Button) view.findViewById(R.id.cancellation);
         Bundle args = getArguments();
         if(args != null)
@@ -53,7 +57,32 @@ public class MineMessageFragment extends Fragment {
         if(isAdmin)
         {
             textAllOrder.setText("查看菜品预定");
+            textReserve.setText("全部预约");
+
         }
+
+        textReserve.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent;
+                if(isAdmin)
+                {
+                    intent = new Intent(view.getContext(),SeeOrderActivity.class);
+                    //这一行要改的
+                }
+                else
+                {
+                    intent = new Intent(view.getContext(),UserSearchAllSbookActivity.class);
+                }
+                intent.putExtra("username",username);
+                intent.putExtra("userid",userid);
+                startActivity(intent);
+            }
+        });
+
+
+
+
         textAllOrder.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v){

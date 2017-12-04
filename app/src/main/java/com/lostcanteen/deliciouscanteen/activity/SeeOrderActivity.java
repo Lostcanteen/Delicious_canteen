@@ -63,9 +63,6 @@ public class SeeOrderActivity extends AppCompatActivity {
     private int year,month,day;
     private static Date nowDate;
 
-    private ArrayList<Integer> canteenIdList = new ArrayList<>();
-
-
     private ArrayList<String> tabLayoutList = new ArrayList<String>() {{
         add("早餐");
         add("午餐");
@@ -103,9 +100,9 @@ public class SeeOrderActivity extends AppCompatActivity {
             ArrayList<Fragment> fragments = new ArrayList<>();
 
 
-            fragments.add(SeeOrderFragment.newInstance(canteenIdList,'b'));
-            fragments.add(SeeOrderFragment.newInstance(canteenIdList,'l'));
-            fragments.add(SeeOrderFragment.newInstance(canteenIdList,'d'));
+            fragments.add(SeeOrderFragment.newInstance('b',canteenDetails));
+            fragments.add(SeeOrderFragment.newInstance('l',canteenDetails));
+            fragments.add(SeeOrderFragment.newInstance('d',canteenDetails));
 
             setFragments(fragments);
         }
@@ -158,9 +155,9 @@ public class SeeOrderActivity extends AppCompatActivity {
             switch (msg.what)
             {
                 case 1:
-                    fragment1 = SeeOrderFragment.newInstance(canteenIdList,'b');
-                    fragment2 = SeeOrderFragment.newInstance(canteenIdList,'l');
-                    fragment3 = SeeOrderFragment.newInstance(canteenIdList,'d');
+                    fragment1 = SeeOrderFragment.newInstance('b',canteenDetails);
+                    fragment2 = SeeOrderFragment.newInstance('l',canteenDetails);
+                    fragment3 = SeeOrderFragment.newInstance('d',canteenDetails);
 
                     fragmentList.add(fragment1);
                     fragmentList.add(fragment2);
@@ -175,7 +172,7 @@ public class SeeOrderActivity extends AppCompatActivity {
             }
         }
     };
-
+    ArrayList<CanteenDetail> canteenDetails = new ArrayList<CanteenDetail>();
 
 
 
@@ -215,15 +212,10 @@ public class SeeOrderActivity extends AppCompatActivity {
         new Thread(new Runnable() {
             @Override
             public void run() {
-                ArrayList<CanteenDetail> canteenDetails = WebTrans.adminCantainDetail(adminId);
-                for(int i = 0;i<canteenDetails.size();i++)
-                {
-                    canteenIdList.add(canteenDetails.get(i).getCanteenid());
-                }
+                canteenDetails = WebTrans.adminCantainDetail(adminId);
                 Message message = new Message();
                 message.what = 1;
                 readCanteenList.sendMessage(message);
-
 
             }
         }).start();
@@ -264,7 +256,6 @@ public class SeeOrderActivity extends AppCompatActivity {
 
 
     public static class SeeOrderFragment extends Fragment {
-        private ArrayList<Integer> canteenArrayList = new ArrayList<>();
         private ArrayList<CanteenDetail> canteenDetails = new ArrayList<>();
         private Map<Integer,ArrayList<String>> reserveMap = new HashMap<>();
         private ArrayList<String> reserveList = new ArrayList<>();
@@ -278,11 +269,12 @@ public class SeeOrderActivity extends AppCompatActivity {
         private LeftListAdapter leftListAdapter;
         private RightListAdapter rightListAdapter;
 
-        public static SeeOrderFragment newInstance(ArrayList<Integer> canteenArrayList,char option){
+        public static SeeOrderFragment newInstance(char option,
+                                                   ArrayList<CanteenDetail> canteenDetailArrayList){
             SeeOrderFragment fragment = new SeeOrderFragment();
             Bundle args = new Bundle();
-            args.putIntegerArrayList("canteenArrayList",canteenArrayList);
             args.putChar("option",option);
+            args.putSerializable("canteenDetailsList",canteenDetailArrayList);
 
             fragment.setArguments(args);
             return fragment;
@@ -310,8 +302,8 @@ public class SeeOrderActivity extends AppCompatActivity {
             View view = inflater.inflate(R.layout.see_order_body, container, false);
             Bundle bundle = getArguments();
             if (bundle != null) {
-                canteenArrayList = bundle.getIntegerArrayList("canteenArrayList");
                 option = bundle.getChar("option");
+                canteenDetails = (ArrayList<CanteenDetail>)bundle.getSerializable("canteenDetailsList");
             }
             leftRecyclerView = (RecyclerView)view.findViewById(R.id.leftList);
             rightRecyclerView = (RecyclerView)view.findViewById(R.id.rightList);
@@ -322,29 +314,21 @@ public class SeeOrderActivity extends AppCompatActivity {
             rightLinearLayoutManager = new LinearLayoutManager(getActivity());
             rightRecyclerView.setLayoutManager(rightLinearLayoutManager);
 
-            if(canteenDetails.isEmpty())
-            {
                 new Thread(new Runnable() {
                     @Override
                     public void run() {
-                        for(int i = 0;i<canteenArrayList.size();i++) {
-                            canteenDetails.add(WebTrans.queryCanteen(canteenArrayList.get(i)));
-                            ArrayList<String> temp = WebTrans.adminBookQuery(canteenArrayList.get(i),nowDate,option);
-                            reserveMap.put(canteenArrayList.get(i),temp);
-                        }
+                        for(int i = 0;i<canteenDetails.size();i++) {
+                          ArrayList<String> temp = WebTrans.adminBookQuery(canteenDetails.get(i).getCanteenid(),nowDate,option);
+                          reserveMap.put(canteenDetails.get(i).getCanteenid(),temp);
 
+                        }
                         Message message = new Message();
                         message.what = 1;
                         handler.sendMessage(message);
-
                     }
                 }).start();
-            }
-            else
-            {
-                leftListAdapter = new LeftListAdapter(canteenDetails);
-                leftRecyclerView.setAdapter(leftListAdapter);
-            }
+
+
 
             return view;
         }
