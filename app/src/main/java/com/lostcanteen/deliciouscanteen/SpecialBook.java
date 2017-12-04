@@ -1,14 +1,15 @@
 package com.lostcanteen.deliciouscanteen;
 
+import java.io.Serializable;
 import java.sql.Date;
 
 /**
  * Created by yw199 on 2017/10/24.
  */
 
-public class SpecialBook {
+public class SpecialBook implements Serializable {
     private int sbookid;
-    private int canteenid;
+    private String canteenName;
     private String username;
     private Date date; //日期
     private String type; //时间  b：早餐 l：午餐 d：晚餐
@@ -16,40 +17,21 @@ public class SpecialBook {
     private String num;  //人数
     private String other; //其他信息
     private String deal; //处理情况 w：等待处理 ac：接受 re：拒绝
+    private int adminid;
 
-    //添加特殊预约时使用的构造器 commitSBook
-    public SpecialBook(int canteenid, String username, Date date, String type, String spot, String num, String other) {
-        this.canteenid = canteenid;
-        this.username = username;
-        this.date = date;
-        this.type = type;
-        this.spot = spot;
-        this.num = num;
-        this.other = other;
-    }
 
-    public SpecialBook(int sbookid, int canteenid, String username, Date date, String type, String spot, String num, String other, String deal) {
+    public SpecialBook(int sbookid,String canteenName, String username, Date date, String type, String spot, String num, String other,int adminid) {
         this.sbookid = sbookid;
-        this.canteenid = canteenid;
+        this.canteenName = canteenName;
         this.username = username;
         this.date = date;
         this.type = type;
         this.spot = spot;
         this.num = num;
         this.other = other;
-        this.deal = deal;
+        this.adminid = adminid;
     }
 
-    public SpecialBook(int canteenid, String username, Date date, String type, String spot, String num, String other, String deal) {
-        this.canteenid = canteenid;
-        this.username = username;
-        this.date = date;
-        this.type = type;
-        this.spot = spot;
-        this.num = num;
-        this.other = other;
-        this.deal = deal;
-    }
     public String getTypePattern() {
         if (type.equals("b")) {
             return "早餐";
@@ -62,6 +44,22 @@ public class SpecialBook {
         }
     }
 
+    public int getSbookid() {
+        return sbookid;
+    }
+
+    public String getCanteenName() {
+        return canteenName;
+    }
+
+    public String getDeal() {
+        return deal;
+    }
+
+    public int getAdminid() {
+        return adminid;
+    }
+
     public String getDealPattern() {
         if (type.equals("w")) {
             return "等待处理";
@@ -72,6 +70,7 @@ public class SpecialBook {
         } else {
             return "error";
         }
+
     }
 
     public Date getDate() {
@@ -80,10 +79,6 @@ public class SpecialBook {
 
     public String getType() {
         return type;
-    }
-
-    public int getCanteenid() {
-        return canteenid;
     }
 
     public String getUsername() {

@@ -133,31 +133,35 @@ public class AddCanteenActivity extends AppCompatActivity {
         certain.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                new Thread(new Runnable() {
-                    @Override
-                    public void run() {
-                        try {
-                            new FTP().uploadSingleFile(file,"/canteen", new FTP.UploadProgressListener() {
-                                @Override
-                                public void onUploadProgress(String currentStep, long uploadSize, File file) {
+                if(file == null) {
+                    Toast.makeText(AddCanteenActivity.this,"Error:请上传图片",Toast.LENGTH_SHORT).show();
+                } else {
+                    new Thread(new Runnable() {
+                        @Override
+                        public void run() {
+                            try {
+                                new FTP().uploadSingleFile(file,"/canteen", new FTP.UploadProgressListener() {
+                                    @Override
+                                    public void onUploadProgress(String currentStep, long uploadSize, File file) {
 
-                                }
-                            });
-                        } catch (IOException e) {
-                            e.printStackTrace();
+                                    }
+                                });
+                            } catch (IOException e) {
+                                e.printStackTrace();
+                            }
+
+                            String canteenname = canteenName.getText().toString();
+                            String loc = location.getText().toString();
+                            String hour = time.getText().toString();
+                            Boolean on = bookon.isChecked();
+                            String[] spots = (String[]) list.toArray(new String[list.size()]);
+                            CanteenDetail tmp = new CanteenDetail(0,newImagePath,canteenname,loc,hour,on,spots,adminid);
+                            WebTrans.addCanteen(tmp);
+                            finish();
+
                         }
-
-                        String canteenname = canteenName.getText().toString();
-                        String loc = location.getText().toString();
-                        String hour = time.getText().toString();
-                        Boolean on = bookon.isChecked();
-                        String[] spots = (String[]) list.toArray(new String[list.size()]);
-                        CanteenDetail tmp = new CanteenDetail(0,newImagePath,canteenname,loc,hour,on,spots,adminid);
-                        WebTrans.addCanteen(tmp);
-                        finish();
-
-                    }
-                }).start();
+                    }).start();
+                }
             }
         });
     }
