@@ -10,6 +10,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
 
+import com.lostcanteen.deliciouscanteen.activity.AdminAllSbookActivity;
 import com.lostcanteen.deliciouscanteen.activity.LoginActivity;
 import com.lostcanteen.deliciouscanteen.activity.MainActivity;
 import com.lostcanteen.deliciouscanteen.activity.SeeOrderActivity;
@@ -67,7 +68,7 @@ public class MineMessageFragment extends Fragment {
                 Intent intent;
                 if(isAdmin)
                 {
-                    intent = new Intent(view.getContext(),SeeOrderActivity.class);
+                    intent = new Intent(view.getContext(),AdminAllSbookActivity.class);
                     //这一行要改的
                 }
                 else

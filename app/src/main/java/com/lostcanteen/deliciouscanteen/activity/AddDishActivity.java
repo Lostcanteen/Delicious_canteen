@@ -51,6 +51,7 @@ public class AddDishActivity extends AppCompatActivity {
 
     private int canteenId;
 
+    private boolean isAdd = false;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -136,8 +137,14 @@ public class AddDishActivity extends AppCompatActivity {
                             boolean l = lunch.isChecked();
                             boolean d = dinner.isChecked();
                             Dish dish = new Dish(canteenId,0,dishname,newImagePath,p,b,l,d,m);
-                            WebTrans.addDish(dish);
-                            finish();
+                            isAdd = WebTrans.addDish(dish);
+
+                            Intent intent = new Intent();
+                            intent.putExtra("isAdd",isAdd);
+
+                            AddDishActivity.this.setResult(RESULT_OK,intent);
+
+                            AddDishActivity.this.finish();
                         }
 
                     }).start();

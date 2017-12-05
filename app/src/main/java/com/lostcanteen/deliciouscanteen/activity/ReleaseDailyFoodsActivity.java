@@ -62,7 +62,7 @@ public class ReleaseDailyFoodsActivity extends AppCompatActivity {
     private DatePickerDialog datePickerDialog;
     private TextView detail;
 
-    private TestAdapter tabAdapter;
+    private static TestAdapter tabAdapter;
 
 
     private CanteenDetail canteenDetail;
@@ -86,9 +86,24 @@ public class ReleaseDailyFoodsActivity extends AppCompatActivity {
 
     private ArrayList<Fragment> fragmentList = new ArrayList<Fragment>();
 
-
-
     @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        switch (requestCode) {
+            case 1:
+                if(resultCode == RESULT_OK)
+                {
+                    boolean isAdd = data.getBooleanExtra("isAdd",false);
+                    if(isAdd)
+                    {
+                        tabAdapter.updateDate(canteenDetail.getCanteenid(),nowDate);
+                    }
+                }
+                break;
+            default:
+        }
+    }
+
+        @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_release_daily_foods);
@@ -130,6 +145,7 @@ public class ReleaseDailyFoodsActivity extends AppCompatActivity {
                 .placeholder(R.color.colorPrimaryDark)
                 .error(R.drawable.logo)
                 .into(canteenImageView);
+
 
 
         fragment1 = ReleaseDailyFoodsFragment.newInstance('B',canteenDetail.getCanteenid(),nowDate);
@@ -191,6 +207,7 @@ public class ReleaseDailyFoodsActivity extends AppCompatActivity {
     }
 
 
+
     class TestAdapter  extends FragmentPagerAdapter {
 
         private ArrayList<String> titleList;
@@ -218,12 +235,14 @@ public class ReleaseDailyFoodsActivity extends AppCompatActivity {
 
         private void setFragments(ArrayList<Fragment> mFragmentList) {
             if(this.fragmentList != null){
-                FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-                for(Fragment f:this.fragmentList){
-                    fragmentTransaction.remove(f);
-                }
-                fragmentTransaction.commit();
-                fragmentManager.executePendingTransactions();
+//                FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+//                for(Fragment f:this.fragmentList){
+//                    fragmentTransaction.remove(f);
+//                }
+//                fragmentTransaction.commit();
+//                fragmentManager.executePendingTransactions();
+
+                fragmentList.clear();
             }
             this.fragmentList = mFragmentList;
             notifyDataSetChanged();
@@ -276,6 +295,7 @@ public class ReleaseDailyFoodsActivity extends AppCompatActivity {
         private FloatingActionsMenu selectButton;
         private com.getbase.floatingactionbutton.FloatingActionButton addDailyButton;
         private com.getbase.floatingactionbutton.FloatingActionButton addDishButton;
+        private com.getbase.floatingactionbutton.FloatingActionButton help;
 
         private ArrayList<Dish> thisFragmentDish = new ArrayList<>();
         private ArrayList<Dish> someAddedDish = new ArrayList<>();
@@ -382,6 +402,7 @@ public class ReleaseDailyFoodsActivity extends AppCompatActivity {
             selectButton = (FloatingActionsMenu)view.findViewById(R.id.select_add_release);
             addDailyButton = (com.getbase.floatingactionbutton.FloatingActionButton) view.findViewById(R.id.addRelease);
             addDishButton = (com.getbase.floatingactionbutton.FloatingActionButton) view.findViewById(R.id.addFood);
+            help = (com.getbase.floatingactionbutton.FloatingActionButton)view.findViewById(R.id.help);
 
             leftLinearLayoutManager = new LinearLayoutManager(getActivity());
             leftRecyclerView.setLayoutManager(leftLinearLayoutManager);
@@ -398,7 +419,26 @@ public class ReleaseDailyFoodsActivity extends AppCompatActivity {
                 public void onClick(View view) {
                     Intent intent = new Intent(getActivity(),AddDishActivity.class);
                     intent.putExtra("canteenId",canteenId);
-                    startActivity(intent);
+                    getActivity().startActivityForResult(intent,1);
+                }
+            });
+
+            help.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
+                    builder.setTitle("注意事项");
+                    builder.setMessage("发布每日食谱按钮仅提供发布当前用餐类型的发布,若您当前处于早餐列表,发布午餐食谱请转到午餐" +
+                            "列表;若您发布每日食谱后,有用户预订,而您又删除了此菜,会造成用户菜品混乱,所以若您想删除菜品，请在发布食谱前，" +
+                            "并慎重发布食谱。");
+                    builder.setNegativeButton("确定", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                        }
+                    });
+
+                    AlertDialog dialog = builder.create();
+                    dialog.show();
                 }
             });
 
@@ -407,35 +447,61 @@ public class ReleaseDailyFoodsActivity extends AppCompatActivity {
             addDailyButton.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    new Thread(new Runnable() {
+
+                    AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
+                    builder.setTitle("发布注意");
+                    builder.setMessage("请确保您已阅读注意事项手册,并自愿承担发布食谱的后果。");
+
+                    builder.setPositiveButton("我要再想想", new DialogInterface.OnClickListener() {
                         @Override
-                        public void run() {
-                            int[] reserveMenu = new int[waitforCommitSet.size()];
-                            int[] dailyFood = new int[someAddedDish.size()];
-
-                            Iterator<Integer> it = waitforCommitSet.iterator();
-                            int i = 0;
-                            while (it.hasNext())
-                            {
-                                reserveMenu[i] = it.next();
-                                i++;
-                            }
-
-                            for(int j = 0;j<dailyFood.length;j++)
-                            {
-                                dailyFood[j] = someAddedDish.get(j).getDishid();
-                            }
-                            WebTrans.addMenu(canteenId,nowDate,dailyFood,option);
-                            WebTrans.addMenu(canteenId,nowDate,reserveMenu,(char) (option + 32));
-
-                            Message message = new Message();
-                            message.what = 2;
-                            handler.sendMessage(message);
-
-                            getExistDish();
+                        public void onClick(DialogInterface dialog, int which) {
 
                         }
-                    }).start();
+                    });
+                    builder.setNegativeButton("我已阅读,发布!", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+
+                            new Thread(new Runnable() {
+                                @Override
+                                public void run() {
+                                    int[] reserveMenu = new int[waitforCommitSet.size()];
+                                    int[] dailyFood = new int[someAddedDish.size()];
+
+                                    Iterator<Integer> it = waitforCommitSet.iterator();
+                                    int i = 0;
+                                    while (it.hasNext())
+                                    {
+                                        reserveMenu[i] = it.next();
+                                        i++;
+                                    }
+
+                                    for(int j = 0;j<dailyFood.length;j++)
+                                    {
+                                        dailyFood[j] = someAddedDish.get(j).getDishid();
+                                    }
+                                    WebTrans.addMenu(canteenId,nowDate,dailyFood,option);
+                                    WebTrans.addMenu(canteenId,nowDate,reserveMenu,(char) (option + 32));
+
+                                    Message message = new Message();
+                                    message.what = 2;
+                                    handler.sendMessage(message);
+
+                                    getExistDish();
+
+                                }
+                            }).start();
+
+                        }
+                    });
+
+
+
+                    AlertDialog dialog = builder.create();
+                    dialog.show();
+
+
+
                 }
             });
 
@@ -452,22 +518,7 @@ public class ReleaseDailyFoodsActivity extends AppCompatActivity {
                 ImageView addreleaseFoodImage;
                 ImageView delteDish;
 
-                Handler myhander = new Handler(){
 
-                    @Override
-                    public void handleMessage(Message msg) {
-                        switch (msg.what)
-                        {
-                            case 1:
-                                
-
-                                break;
-                            default:
-                        }
-
-                    }
-
-                };
 
                 public ViewHolder(View view) {
                     super(view);
@@ -520,6 +571,27 @@ public class ReleaseDailyFoodsActivity extends AppCompatActivity {
                             public void onClick(DialogInterface dialog, int which) {
                             }
                         });
+
+
+                        final Handler myhander = new Handler(){
+
+                            @Override
+                            public void handleMessage(Message msg) {
+                                switch (msg.what)
+                                {
+                                    case 1:
+                                        tabAdapter.updateDate(canteenId,nowDate);
+//                                        dishList.remove(position);
+//                                        LeftListAdapter.this.notifyDataSetChanged();
+
+                                        break;
+                                    default:
+                                }
+
+                            }
+
+                        };
+
                         builder.setPositiveButton("确定", new DialogInterface.OnClickListener() {
                             @Override
                             public void onClick(DialogInterface dialog, int which) {
@@ -529,9 +601,9 @@ public class ReleaseDailyFoodsActivity extends AppCompatActivity {
                                         boolean b = WebTrans.deleteDish(canteenId,food.getDishid());
                                         if(b)
                                         {
-
-                                            dishList.remove(position);
-                                            LeftListAdapter.this.notifyDataSetChanged();
+                                            Message message = new Message();
+                                            message.what =1;
+                                            myhander.sendMessage(message);
                                         }
                                     }
                                 }).start();

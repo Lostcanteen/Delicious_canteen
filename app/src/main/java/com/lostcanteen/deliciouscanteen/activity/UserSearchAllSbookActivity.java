@@ -134,15 +134,15 @@ public class UserSearchAllSbookActivity extends AppCompatActivity {
                 for(int i = 0;i<allSpecialBookList.size();i++)
                 {
                     SpecialBook specialBook = allSpecialBookList.get(i);
-                    if(specialBook.getDealPattern().equals("w"))
+                    if(specialBook.getDealPattern().equals("等待处理"))
                     {
                         notSpecialBookList.add(specialBook);
                     }
-                    else if(specialBook.getDealPattern().equals("ac"))
+                    else if(specialBook.getDealPattern().equals("接受"))
                     {
                         agreeSpecialBookList.add(specialBook);
                     }
-                    else if(specialBook.getDealPattern().equals("re"))
+                    else if(specialBook.getDealPattern().equals("拒绝"))
                     {
                         refuseSpecialBookList.add(specialBook);
                     }
@@ -228,26 +228,28 @@ public class UserSearchAllSbookActivity extends AppCompatActivity {
             @Override
             public void onBindViewHolder(final ViewHolder holder, final int position) {
                 final SpecialBook specialBook = thisSpecialBook.get(position);
-                if(specialBook.getDealPattern().equals("w"))
+                if(specialBook.getDealPattern().equals("等待处理"))
                 {
                    holder.deal.setText("未审核");
                    holder.deal.setTextColor(getResources().getColor(R.color.orange));
                 }
-                else if(specialBook.getDealPattern().equals("ac"))
+                else if(specialBook.getDealPattern().equals("接受"))
                 {
                     holder.deal.setText("接受");
                     holder.deal.setTextColor(getResources().getColor(R.color.black));
                 }
-                else if(specialBook.getDealPattern().equals("re"))
+                else if(specialBook.getDealPattern().equals("拒绝"))
                 {
                     holder.deal.setText("拒绝");
                     holder.deal.setTextColor(getResources().getColor(R.color.red));
                 }
-                holder.textDate.setText(specialBook.getDate().toString());
-                holder.type.setText(specialBook.getType());
-                holder.spot.setText(specialBook.getSpot());
-                holder.num.setText(specialBook.getNum());
-                holder.other.setText(specialBook.getOther());
+
+                holder.canteenName.setText(specialBook.getCanteenName());
+                holder.textDate.setText("时间:"+specialBook.getDate().toString());
+                holder.type.setText("用餐类型:"+specialBook.getType());
+                holder.spot.setText("使用情景:"+specialBook.getSpot());
+                holder.num.setText("人数:"+specialBook.getNum());
+                holder.other.setText("备注:"+specialBook.getOther());
             }
             @Override
             public int getItemCount(){

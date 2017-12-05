@@ -50,7 +50,8 @@
         <activity android:name=".activity.SeeOrderActivity" />
         <activity android:name=".activity.ArticleListActivity" />
         <activity android:name=".activity.MainDishListActivity" />
-        <activity android:name=".activity.UserSearchAllSbookActivity"></activity>
+        <activity android:name=".activity.UserSearchAllSbookActivity" />
+        <activity android:name=".activity.AdminAllSbookActivity"></activity>
     </application>
 
 </manifest>

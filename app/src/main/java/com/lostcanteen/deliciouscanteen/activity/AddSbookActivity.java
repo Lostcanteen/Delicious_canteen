@@ -134,7 +134,7 @@ public class AddSbookActivity extends AppCompatActivity {
                     public void run() {
                         String numstr = num.getText().toString();
                         String otherstr = others.getText().toString();
-                        SpecialBook sb = new SpecialBook(0,canteenName,username,nowDate,type,chooseSpot,numstr,otherstr,adminid);
+                        SpecialBook sb = new SpecialBook(0,canteenName,username,nowDate,type,chooseSpot,numstr,otherstr,adminid,"w");
                         WebTrans.commitSBook(sb);
                         finish();
                     }
