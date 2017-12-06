@@ -106,7 +106,6 @@ public class AddSbookActivity extends AppCompatActivity {
                 if(type.equals("早餐")) type = "b";
                 else if(type.equals("午餐")) type = "l";
                 else type = "d";
-
             }
 
             @Override

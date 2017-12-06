@@ -170,8 +170,16 @@
                 android:text="@string/suggestion"
                 android:textSize="16sp" />
 
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="3.0dip"
+                android:background="@color/gray" />
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/canteenevalutionList"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
 
-
+            </android.support.v7.widget.RecyclerView>
 
         </LinearLayout>
 
