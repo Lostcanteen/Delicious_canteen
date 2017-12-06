@@ -25,23 +25,10 @@
             android:layout_height="wrap_content" />
     </LinearLayout>
     <LinearLayout
-        android:id="@+id/birthday"
-        android:orientation="vertical"
         android:background="@color/white"
         android:layout_width="0dp"
         android:layout_weight="1"
         android:layout_height="wrap_content">
-        <ImageView
-            android:scaleType="center"
-            android:layout_width="match_parent"
-            android:layout_height="100dp"
-            android:src="@mipmap/birthday"/>
-        <TextView
-            android:gravity="center"
-            android:text="@string/birthday"
-            android:textColor="@color/black"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
     </LinearLayout>
     <LinearLayout
         android:background="@color/white"

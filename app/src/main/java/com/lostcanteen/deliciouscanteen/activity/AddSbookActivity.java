@@ -17,6 +17,7 @@ import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
 
+import com.lostcanteen.deliciouscanteen.CanteenDetail;
 import com.lostcanteen.deliciouscanteen.DBConnection;
 import com.lostcanteen.deliciouscanteen.FlowLayout;
 import com.lostcanteen.deliciouscanteen.R;
@@ -33,6 +34,7 @@ import java.util.Calendar;
 //日历控件
 public class AddSbookActivity extends AppCompatActivity {
 
+    private TextView title;
     FlowLayout mTagLayout;
     private ArrayList<TagItem> mAddTags = new ArrayList<TagItem>();
     private String[] spot = {"包厢预订","生日宴会订做"}; //从前一页传过来
@@ -53,10 +55,18 @@ public class AddSbookActivity extends AppCompatActivity {
     private int year,month,day;
     private Date nowDate;
 
+    private CanteenDetail canteenDetail;
+
     @Override
     protected void onCreate(final Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_sbook);
+
+        canteenDetail = (CanteenDetail)getIntent().getSerializableExtra("canteenDetail");
+        username = getIntent().getStringExtra("username");
+        spot = canteenDetail.getSbookpattern();
+        canteenName = canteenDetail.getName();
+        adminid = canteenDetail.getAdminid();
 
         //标签
         mTagLayout = (FlowLayout) findViewById(R.id.tag_layout);
@@ -69,6 +79,8 @@ public class AddSbookActivity extends AppCompatActivity {
         others = (EditText) findViewById(R.id.others);
         Button commit = (Button) findViewById(R.id.commit);
         toolbar = (Toolbar) findViewById(R.id.addsbook_toolbar);
+        title = (TextView) findViewById(R.id.title);
+        title.setText("特殊预约");
         setTitle("");
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
@@ -77,17 +89,24 @@ public class AddSbookActivity extends AppCompatActivity {
         year = calendar.get(Calendar.YEAR);
         month = calendar.get(Calendar.MONTH);
         day = calendar.get(Calendar.DAY_OF_MONTH);
+        nowDate = java.sql.Date.valueOf(((Integer)year).toString()
+                +"-"+((Integer)(month+1)).toString() + "-"+((Integer)day).toString());
 
         GradientDrawable drawable = new GradientDrawable();
         drawable.setShape(GradientDrawable.RECTANGLE); // 画框
         drawable.setStroke(2, Color.BLACK); // 边框粗细及颜色
         datechoose.setBackgroundDrawable(drawable);
+        datechoose.setText(nowDate.toString());
 
         spinnerType.setOnItemSelectedListener(new Spinner.OnItemSelectedListener(){
 
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
                 type = AddSbookActivity.this.getResources().getStringArray(R.array.type)[i];
+                if(type.equals("早餐")) type = "b";
+                else if(type.equals("午餐")) type = "l";
+                else type = "d";
+
             }
 
             @Override

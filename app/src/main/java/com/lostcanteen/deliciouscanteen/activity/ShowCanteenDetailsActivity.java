@@ -37,6 +37,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.ThemedSpinnerAdapter;
 
@@ -65,6 +66,7 @@ public class ShowCanteenDetailsActivity extends AppCompatActivity {
     private Button reserveButton;
     private DatePickerDialog datePickerDialog;
     private TextView detail;
+    private LinearLayout birthday;
 
     private List<ClassifyMeal> meals;
     private List<Dish> allFoods = new ArrayList<>();
@@ -179,6 +181,8 @@ public class ShowCanteenDetailsActivity extends AppCompatActivity {
                 .error(R.drawable.logo)
                 .into(canteenImageView);
 
+        birthday = (LinearLayout)findViewById(R.id.birthday);
+
         classifyListRecyclerView = (RecyclerView) findViewById(R.id.classifyList);
         managerClassifyList = new LinearLayoutManager(this);
         classifyListRecyclerView.setLayoutManager(managerClassifyList);
@@ -193,6 +197,19 @@ public class ShowCanteenDetailsActivity extends AppCompatActivity {
         classifyListRecyclerView.setAdapter(classifyListAdapter);
 
         getList();
+
+        birthday.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(ShowCanteenDetailsActivity.this,AddSbookActivity.class);
+                intent.putExtra("canteenDetail",canteenDetail);
+                intent.putExtra("username",username);
+
+                startActivity(intent);
+
+
+            }
+        });
 
         detail.setOnClickListener(new View.OnClickListener() {
             @Override

@@ -45,6 +45,7 @@ public class UpdateCanteenActivity extends AppCompatActivity {
     public static final int CHOOSE_PHOTO = 2;
 
     private Toolbar toolbar;
+    private TextView title;
     private ImageView picture;
     private Uri imageUri;
     private EditText canteenName;
@@ -82,6 +83,8 @@ public class UpdateCanteenActivity extends AppCompatActivity {
         initBtnListener();
 
         toolbar = (Toolbar) findViewById(R.id.canteen_toolbar);
+        title = (TextView) findViewById(R.id.title);
+        title.setText("更改食堂信息");
         setTitle("");
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);

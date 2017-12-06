@@ -246,7 +246,24 @@ public class UserSearchAllSbookActivity extends AppCompatActivity {
 
                 holder.canteenName.setText(specialBook.getCanteenName());
                 holder.textDate.setText("时间:"+specialBook.getDate().toString());
-                holder.type.setText("用餐类型:"+specialBook.getType());
+
+                if(specialBook.getType().equals("b"))
+                {
+                    holder.type.setText("用餐类型:早餐");
+                }
+                else if(specialBook.getType().equals("l"))
+                {
+                    holder.type.setText("用餐类型:午餐");
+                }
+                else if(specialBook.getType().equals("d"))
+                {
+                    holder.type.setText("用餐类型:晚餐");
+                }
+                else
+                {
+                    holder.type.setText("用餐类型:错误");
+                }
+
                 holder.spot.setText("使用情景:"+specialBook.getSpot());
                 holder.num.setText("人数:"+specialBook.getNum());
                 holder.other.setText("备注:"+specialBook.getOther());

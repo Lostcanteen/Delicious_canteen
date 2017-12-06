@@ -18,25 +18,15 @@ import com.lostcanteen.deliciouscanteen.activity.AddSbookActivity;
 
 public class FindFragment extends Fragment {
     private LinearLayout health;
-    private LinearLayout birthday;
 
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         final View view = inflater.inflate(R.layout.find, container, false);
         health = (LinearLayout)view.findViewById(R.id.health);
-        birthday = (LinearLayout)view.findViewById(R.id.birthday);
 
         health.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(view.getContext(), ArticleListActivity.class);
-                startActivity(intent);
-            }
-        });
-
-        birthday.setOnClickListener(new View.OnClickListener(){
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(view.getContext(), AddSbookActivity.class);
                 startActivity(intent);
             }
         });
