@@ -25,7 +25,6 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.lostcanteen.deliciouscanteen.CanteenDetail;
-import com.lostcanteen.deliciouscanteen.DBConnection;
 import com.lostcanteen.deliciouscanteen.FTP;
 import com.lostcanteen.deliciouscanteen.FlowLayout;
 import com.lostcanteen.deliciouscanteen.R;
@@ -35,7 +34,6 @@ import com.lostcanteen.deliciouscanteen.WebTrans;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
-import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.UUID;
 

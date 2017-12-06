@@ -193,11 +193,12 @@ public class ShowMyOrderActivity extends AppCompatActivity {
                 holder.mealName.setText(dish.getName());
 ////                //holder.mealImage.setImageResource();
 ////                //图片
-                Picasso.with(holder.mealImage.getContext())
-                        .load(dish.getImage())
-                        .placeholder(R.color.white)
-                        .error(R.drawable.logo)
-                        .into(holder.mealImage);
+                    Picasso.with(holder.mealImage.getContext())
+                            .load(dish.getImage())
+                            .placeholder(R.color.white)
+                            .error(R.drawable.logo)
+                            .into(holder.mealImage);
+
                 holder.mealPrice.setText(((Float)dish.getPrice()).toString());
                 holder.mealStars.setRating(evaluation.getStar());
                 holder.evaluationText.setText(evaluation.getComment());
@@ -301,13 +302,11 @@ public class ShowMyOrderActivity extends AppCompatActivity {
                 Dish dish = allReserveDish.get(position);
                 String b = book.getTypePattern();
 
-
-                Picasso.with(holder.reserveFoodImage.getContext())
-                        .load(dish.getImage())
-                        .placeholder(R.color.white)
-                        .error(R.drawable.logo)
-                        .into(holder.reserveFoodImage);
-
+                    Picasso.with(holder.reserveFoodImage.getContext())
+                            .load(dish.getImage())
+                            .placeholder(R.color.white)
+                            .error(R.drawable.logo)
+                            .into(holder.reserveFoodImage);
                 if(book.getTypePattern().equals("早餐"))
                 {
                     holder.reserveFoodName.setText(dish.getName()+"(早餐)");
@@ -335,15 +334,6 @@ public class ShowMyOrderActivity extends AppCompatActivity {
 
 
     }
-
-
-
-
-
-
-
-
-
 
     class MyAdapter extends FragmentPagerAdapter {
 

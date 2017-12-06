@@ -16,9 +16,9 @@ import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.lostcanteen.deliciouscanteen.CanteenDetail;
-import com.lostcanteen.deliciouscanteen.DBConnection;
 import com.lostcanteen.deliciouscanteen.FlowLayout;
 import com.lostcanteen.deliciouscanteen.R;
 import com.lostcanteen.deliciouscanteen.SpecialBook;
@@ -26,7 +26,6 @@ import com.lostcanteen.deliciouscanteen.TagItem;
 import com.lostcanteen.deliciouscanteen.WebTrans;
 
 import java.sql.Date;
-import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Calendar;
 
@@ -146,17 +145,23 @@ public class AddSbookActivity extends AppCompatActivity {
         commit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                if(chooseSpot == null) {
+                    Toast.makeText(AddSbookActivity.this,"Error:请选择场景",Toast.LENGTH_SHORT).show();
+                } else if(num.getText().toString().equals("")) {
+                    Toast.makeText(AddSbookActivity.this,"Error:请输入人数",Toast.LENGTH_SHORT).show();
+                } else {
+                    new Thread(new Runnable() {
+                        @Override
+                        public void run() {
+                            String numstr = num.getText().toString();
+                            String otherstr = others.getText().toString();
+                            SpecialBook sb = new SpecialBook(0,canteenName,username,nowDate,type,chooseSpot,numstr,otherstr,adminid,"w");
+                            WebTrans.commitSBook(sb);
+                            finish();
+                        }
+                    }).start();
+                }
 
-                new Thread(new Runnable() {
-                    @Override
-                    public void run() {
-                        String numstr = num.getText().toString();
-                        String otherstr = others.getText().toString();
-                        SpecialBook sb = new SpecialBook(0,canteenName,username,nowDate,type,chooseSpot,numstr,otherstr,adminid,"w");
-                        WebTrans.commitSBook(sb);
-                        finish();
-                    }
-                }).start();
             }
         });
 

@@ -117,6 +117,8 @@ public class AddDishActivity extends AppCompatActivity {
             public void onClick(View view) {
                 if(file == null) {
                     Toast.makeText(AddDishActivity.this,"Error:请上传图片",Toast.LENGTH_SHORT).show();
+                } else if(dishName.getText().toString().equals("")) {
+                    Toast.makeText(AddDishActivity.this,"Error:请输入菜名",Toast.LENGTH_SHORT).show();
                 } else if(!Pattern.compile("[\\d]+\\.[\\d]+|[\\d]").matcher(price.getText().toString()).find()) {
                     Toast.makeText(AddDishActivity.this, "Error:请在价格处输入数字", Toast.LENGTH_SHORT).show();
                 } else {

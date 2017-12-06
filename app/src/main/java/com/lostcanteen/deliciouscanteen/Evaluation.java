@@ -1,7 +1,5 @@
 package com.lostcanteen.deliciouscanteen;
 
-import com.lostcanteen.deliciouscanteen.DBConnection;
-
 import java.io.Serializable;
 import java.sql.Date;
 import java.sql.SQLException;
@@ -38,8 +36,7 @@ public class Evaluation implements Serializable {
      * @throws ClassNotFoundException
      */
     public String getCanteenName() throws SQLException, ClassNotFoundException {
-        DBConnection db = new DBConnection();
-        return db.queryCanteen(canteenid).getName();
+        return null;
     }
 
     public int getDishid() {
@@ -53,8 +50,7 @@ public class Evaluation implements Serializable {
      * @throws ClassNotFoundException
      */
     public String getDishName() throws SQLException, ClassNotFoundException {
-        DBConnection db = new DBConnection();
-        return db.queryDish(canteenid,dishid).getName();
+       return null;
     }
 
     public String getUsername() {
