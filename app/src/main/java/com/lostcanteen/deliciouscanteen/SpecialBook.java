@@ -20,7 +20,7 @@ public class SpecialBook implements Serializable {
     private int adminid;
 
 
-    public SpecialBook(int sbookid,String canteenName, String username, Date date, String type, String spot, String num, String other,int adminid) {
+    public SpecialBook(int sbookid,String canteenName, String username, Date date, String type, String spot, String num, String other,int adminid,String deal) {
         this.sbookid = sbookid;
         this.canteenName = canteenName;
         this.username = username;
@@ -30,6 +30,7 @@ public class SpecialBook implements Serializable {
         this.num = num;
         this.other = other;
         this.adminid = adminid;
+        this.deal = deal;
     }
 
     public String getTypePattern() {
@@ -61,11 +62,11 @@ public class SpecialBook implements Serializable {
     }
 
     public String getDealPattern() {
-        if (type.equals("w")) {
+        if (deal.equals("w")) {
             return "等待处理";
-        } else if (type.equals("ac")) {
+        } else if (deal.equals("ac")) {
             return "接受";
-        } else if (type.equals("re")) {
+        } else if (deal.equals("re")) {
             return "拒绝";
         } else {
             return "error";

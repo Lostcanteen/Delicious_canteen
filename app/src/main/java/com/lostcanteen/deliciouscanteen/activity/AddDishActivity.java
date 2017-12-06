@@ -29,6 +29,7 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.UUID;
+import java.util.regex.Pattern;
 
 // 图片上传到网络，重命名
 //添加dish提交问题
@@ -115,6 +116,8 @@ public class AddDishActivity extends AppCompatActivity {
             public void onClick(View view) {
                 if(file == null) {
                     Toast.makeText(AddDishActivity.this,"Error:请上传图片",Toast.LENGTH_SHORT).show();
+                } else if(!Pattern.compile("[\\d]+\\.[\\d]+|[\\d]").matcher(price.getText().toString()).find()) {
+                    Toast.makeText(AddDishActivity.this, "Error:请在价格处输入数字", Toast.LENGTH_SHORT).show();
                 } else {
                     new Thread(new Runnable() {
                         @Override

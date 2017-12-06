@@ -23,6 +23,18 @@
             android:textSize="20sp"
             android:textStyle="bold"
             />
+        <Button
+            android:id="@+id/certain"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="确认"
+            android:layout_gravity="right"
+            android:textColor="@color/white"
+            android:textSize="16sp"
+            style="@style/ActionButton.Overflow"
+            android:layout_marginEnd="10dp"
+            android:layout_marginRight="10dp" />
+
     </android.support.v7.widget.Toolbar>
 
     <ScrollView

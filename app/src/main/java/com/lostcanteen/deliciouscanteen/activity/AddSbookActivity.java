@@ -88,6 +88,9 @@ public class AddSbookActivity extends AppCompatActivity {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
                 type = AddSbookActivity.this.getResources().getStringArray(R.array.type)[i];
+                if(type.equals("早餐")) type = "b";
+                else if(type.equals("午餐")) type = "l";
+                else type = "d";
             }
 
             @Override
@@ -134,7 +137,7 @@ public class AddSbookActivity extends AppCompatActivity {
                     public void run() {
                         String numstr = num.getText().toString();
                         String otherstr = others.getText().toString();
-                        SpecialBook sb = new SpecialBook(0,canteenName,username,nowDate,type,chooseSpot,numstr,otherstr,adminid);
+                        SpecialBook sb = new SpecialBook(0,canteenName,username,nowDate,type,chooseSpot,numstr,otherstr,adminid,"w");
                         WebTrans.commitSBook(sb);
                         finish();
                     }
