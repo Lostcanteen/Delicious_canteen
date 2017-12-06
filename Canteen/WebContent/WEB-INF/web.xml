@@ -1,0 +1,292 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd" id="WebApp_ID" version="3.1">
+  <display-name>Canteen</display-name>
+  <welcome-file-list>
+    <welcome-file>index.html</welcome-file>
+    <welcome-file>index.htm</welcome-file>
+    <welcome-file>index.jsp</welcome-file>
+    <welcome-file>default.html</welcome-file>
+    <welcome-file>default.htm</welcome-file>
+    <welcome-file>default.jsp</welcome-file>
+  </welcome-file-list>
+  
+  <servlet>
+  		<servlet-name>LogLet</servlet-name>
+  		<servlet-class>com.lostcanteen.deliciouscanteen.LogLet</servlet-class>
+  </servlet>
+  
+  <servlet-mapping>
+  		<servlet-name>LogLet</servlet-name>
+  		<url-pattern>/LogLet</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+  		<servlet-name>QueryCanteen</servlet-name>
+  		<servlet-class>com.lostcanteen.deliciouscanteen.QueryCanteen</servlet-class>
+  </servlet>
+  
+  <servlet-mapping>
+  		<servlet-name>QueryCanteen</servlet-name>
+  		<url-pattern>/QueryCanteen</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+  		<servlet-name>AdminQueryCanteen</servlet-name>
+  		<servlet-class>com.lostcanteen.deliciouscanteen.AdminQueryCanteen</servlet-class>
+  </servlet>
+  
+  <servlet-mapping>
+  		<servlet-name>AdminQueryCanteen</servlet-name>
+  		<url-pattern>/AdminQueryCanteen</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+  		<servlet-name>AddCanteen</servlet-name>
+  		<servlet-class>com.lostcanteen.deliciouscanteen.AddCanteen</servlet-class>
+  </servlet>
+  
+  <servlet-mapping>
+  		<servlet-name>AddCanteen</servlet-name>
+  		<url-pattern>/AddCanteen</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+  		<servlet-name>AddDish</servlet-name>
+  		<servlet-class>com.lostcanteen.deliciouscanteen.AddDish</servlet-class>
+  </servlet>
+  
+  <servlet-mapping>
+  		<servlet-name>AddDish</servlet-name>
+  		<url-pattern>/AddDish</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+  		<servlet-name>ListDish</servlet-name>
+  		<servlet-class>com.lostcanteen.deliciouscanteen.ListDish</servlet-class>
+  </servlet>
+  
+  <servlet-mapping>
+  		<servlet-name>ListDish</servlet-name>
+  		<url-pattern>/ListDish</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+  		<servlet-name>AddMenu</servlet-name>
+  		<servlet-class>com.lostcanteen.deliciouscanteen.AddMenu</servlet-class>
+  </servlet>
+  
+  <servlet-mapping>
+  		<servlet-name>AddMenu</servlet-name>
+  		<url-pattern>/AddMenu</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+  		<servlet-name>ListMenu</servlet-name>
+  		<servlet-class>com.lostcanteen.deliciouscanteen.ListMenu</servlet-class>
+  </servlet>
+  
+  <servlet-mapping>
+  		<servlet-name>ListMenu</servlet-name>
+  		<url-pattern>/ListMenu</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+  		<servlet-name>CommitBook</servlet-name>
+  		<servlet-class>com.lostcanteen.deliciouscanteen.CommitBook</servlet-class>
+  </servlet>
+  
+  <servlet-mapping>
+  		<servlet-name>CommitBook</servlet-name>
+  		<url-pattern>/CommitBook</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+  		<servlet-name>AdminBookQuery</servlet-name>
+  		<servlet-class>com.lostcanteen.deliciouscanteen.AdminBookQuery</servlet-class>
+  </servlet>
+  
+  <servlet-mapping>
+  		<servlet-name>AdminBookQuery</servlet-name>
+  		<url-pattern>/AdminBookQuery</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+  		<servlet-name>CommitEva</servlet-name>
+  		<servlet-class>com.lostcanteen.deliciouscanteen.CommitEva</servlet-class>
+  </servlet>
+  
+  <servlet-mapping>
+  		<servlet-name>CommitEva</servlet-name>
+  		<url-pattern>/CommitEva</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+  		<servlet-name>DishEvaQuery</servlet-name>
+  		<servlet-class>com.lostcanteen.deliciouscanteen.DishEvaQuery</servlet-class>
+  </servlet>
+  
+  <servlet-mapping>
+  		<servlet-name>DishEvaQuery</servlet-name>
+  		<url-pattern>/DishEvaQuery</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+  		<servlet-name>UserBookQuery</servlet-name>
+  		<servlet-class>com.lostcanteen.deliciouscanteen.UserBookQuery</servlet-class>
+  </servlet>
+  
+  <servlet-mapping>
+  		<servlet-name>UserBookQuery</servlet-name>
+  		<url-pattern>/UserBookQuery</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+  		<servlet-name>UserEvaQuery</servlet-name>
+  		<servlet-class>com.lostcanteen.deliciouscanteen.UserEvaQuery</servlet-class>
+  </servlet>
+  
+  <servlet-mapping>
+  		<servlet-name>UserEvaQuery</servlet-name>
+  		<url-pattern>/UserEvaQuery</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+  		<servlet-name>CommitSBook</servlet-name>
+  		<servlet-class>com.lostcanteen.deliciouscanteen.CommitSBook</servlet-class>
+  </servlet>
+  
+  <servlet-mapping>
+  		<servlet-name>CommitSBook</servlet-name>
+  		<url-pattern>/CommitSBook</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+  		<servlet-name>UserSbookQuery</servlet-name>
+  		<servlet-class>com.lostcanteen.deliciouscanteen.UserSbookQuery</servlet-class>
+  </servlet>
+  
+  <servlet-mapping>
+  		<servlet-name>UserSbookQuery</servlet-name>
+  		<url-pattern>/UserSbookQuery</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+  		<servlet-name>AdminSbookQuery</servlet-name>
+  		<servlet-class>com.lostcanteen.deliciouscanteen.AdminSbookQuery</servlet-class>
+  </servlet>
+  
+  <servlet-mapping>
+  		<servlet-name>AdminSbookQuery</servlet-name>
+  		<url-pattern>/AdminSbookQuery</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+  		<servlet-name>DealBook</servlet-name>
+  		<servlet-class>com.lostcanteen.deliciouscanteen.DealBook</servlet-class>
+  </servlet>
+  
+  <servlet-mapping>
+  		<servlet-name>DealBook</servlet-name>
+  		<url-pattern>/DealBook</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+  		<servlet-name>IsAdmin</servlet-name>
+  		<servlet-class>com.lostcanteen.deliciouscanteen.IsAdmin</servlet-class>
+  </servlet>
+  
+  <servlet-mapping>
+  		<servlet-name>IsAdmin</servlet-name>
+  		<url-pattern>/IsAdmin</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+  		<servlet-name>AddImage</servlet-name>
+  		<servlet-class>com.lostcanteen.deliciouscanteen.AddImage</servlet-class>
+  </servlet>
+  
+  <servlet-mapping>
+  		<servlet-name>AddImage</servlet-name>
+  		<url-pattern>/AddImage</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+  		<servlet-name>UsernameExist</servlet-name>
+  		<servlet-class>com.lostcanteen.deliciouscanteen.UsernameExist</servlet-class>
+  </servlet>
+  
+  <servlet-mapping>
+  		<servlet-name>UsernameExist</servlet-name>
+  		<url-pattern>/UsernameExist</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+  		<servlet-name>AddUser</servlet-name>
+  		<servlet-class>com.lostcanteen.deliciouscanteen.AddUser</servlet-class>
+  </servlet>
+  
+  <servlet-mapping>
+  		<servlet-name>AddUser</servlet-name>
+  		<url-pattern>/AddUser</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+  		<servlet-name>QueryCanteenid</servlet-name>
+  		<servlet-class>com.lostcanteen.deliciouscanteen.QueryCanteenid</servlet-class>
+  </servlet>
+  
+  <servlet-mapping>
+  		<servlet-name>QueryCanteenid</servlet-name>
+  		<url-pattern>/QueryCanteenid</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+  		<servlet-name>QueryDish</servlet-name>
+  		<servlet-class>com.lostcanteen.deliciouscanteen.QueryDish</servlet-class>
+  </servlet>
+  
+  <servlet-mapping>
+  		<servlet-name>QueryDish</servlet-name>
+  		<url-pattern>/QueryDish</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+  		<servlet-name>ArticleList</servlet-name>
+  		<servlet-class>com.lostcanteen.deliciouscanteen.ArticleList</servlet-class>
+  </servlet>
+  
+  <servlet-mapping>
+  		<servlet-name>ArticleList</servlet-name>
+  		<url-pattern>/ArticleList</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+  		<servlet-name>UpdateCanteen</servlet-name>
+  		<servlet-class>com.lostcanteen.deliciouscanteen.UpdateCanteen</servlet-class>
+  </servlet>
+  
+  <servlet-mapping>
+  		<servlet-name>UpdateCanteen</servlet-name>
+  		<url-pattern>/UpdateCanteen</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+  		<servlet-name>DeleteDish</servlet-name>
+  		<servlet-class>com.lostcanteen.deliciouscanteen.DeleteDish</servlet-class>
+  </servlet>
+  
+  <servlet-mapping>
+  		<servlet-name>DeleteDish</servlet-name>
+  		<url-pattern>/DeleteDish</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+  		<servlet-name>UpdateDish</servlet-name>
+  		<servlet-class>com.lostcanteen.deliciouscanteen.UpdateDish</servlet-class>
+  </servlet>
+  
+  <servlet-mapping>
+  		<servlet-name>UpdateDish</servlet-name>
+  		<url-pattern>/UpdateDish</url-pattern>
+  </servlet-mapping>
+</web-app>
