@@ -13,11 +13,14 @@ import android.support.v4.content.ContextCompat;
 import android.support.v4.content.FileProvider;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.Toolbar;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.lostcanteen.deliciouscanteen.Dish;
@@ -38,6 +41,9 @@ public class AddDishActivity extends AppCompatActivity {
     public static final int TAKE_PHOTO = 1;
     public static final int CHOOSE_PHOTO = 2;
     private ImageView picture;
+
+    private Toolbar toolbar;
+    private TextView title;
     private Uri imageUri;
     private EditText dishName;
     private EditText price;
@@ -53,6 +59,14 @@ public class AddDishActivity extends AppCompatActivity {
     private int canteenId;
 
     private boolean isAdd = false;
+    public boolean onOptionsItemSelected(MenuItem item){
+        switch (item.getItemId()){
+            case android.R.id.home:
+                finish();
+                return true;
+        }
+        return super.onOptionsItemSelected(item);
+    }
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -71,7 +85,12 @@ public class AddDishActivity extends AppCompatActivity {
         Button certain = (Button) findViewById(R.id.certain);
         picture = (ImageView) findViewById(R.id.imageView);
 
-
+        toolbar = (Toolbar) findViewById(R.id.adddish_toolbar);
+        title = (TextView) findViewById(R.id.adddishTitle);
+        title.setText("添加菜");
+        setTitle("");
+        setSupportActionBar(toolbar);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         takePhoto.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
