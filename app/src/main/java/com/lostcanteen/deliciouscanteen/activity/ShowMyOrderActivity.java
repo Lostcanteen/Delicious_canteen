@@ -309,15 +309,15 @@ public class ShowMyOrderActivity extends AppCompatActivity {
                             .into(holder.reserveFoodImage);
                 if(book.getTypePattern().equals("早餐"))
                 {
-                    holder.reserveFoodName.setText(dish.getName()+"(早餐)");
+                    holder.reserveFoodName.setText(dish.getName()+"("+book.getDate()+":早餐)");
                 }
                 else if(book.getTypePattern().equals("午餐"))
                 {
-                    holder.reserveFoodName.setText(dish.getName()+"(午餐)");
+                    holder.reserveFoodName.setText(dish.getName()+"("+book.getDate()+":午餐)");
                 }
                 else if(book.getTypePattern().equals("晚餐"))
                 {
-                    holder.reserveFoodName.setText(dish.getName()+"(晚餐)");
+                    holder.reserveFoodName.setText(dish.getName()+"("+book.getDate()+":晚餐)");
                 }
                 holder.reserveFoodPrice.setText(((Float)dish.getPrice()).toString());
                 holder.reserveFoodNum.setText("数量:"+((Integer)book.getCnt()).toString());

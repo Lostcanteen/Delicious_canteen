@@ -366,11 +366,11 @@ public class ShowCanteenDetailsActivity extends AppCompatActivity {
 
                             WebTrans.commitBook(canteenDetail.getCanteenid(),nowDate,'d',userid,dinnercnt,dinnerfoodnum);
                         }
-
+                        finish();
 
                     }
                 }).start();
-                finish();
+
             }
         });
 
