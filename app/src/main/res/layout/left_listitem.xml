@@ -39,10 +39,9 @@
                     <TextView
                         android:id="@+id/releaseFood_name"
                         style="@style/textStyle"
-                        android:layout_width="match_parent"
+                        android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:background="@color/white"
-                        android:gravity="center_vertical"
                         android:text="@string/my_order"
                         android:textSize="10sp" />
                     <TextView
